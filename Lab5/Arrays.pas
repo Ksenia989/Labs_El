@@ -1,7 +1,7 @@
 ﻿program 
 	ArrayProbe;
 const
-	n = 10;
+	n = 5;
 type
 	tArray = array [0..n] of real;
 var
@@ -12,6 +12,8 @@ var
 	elementFounded : boolean;
 	a, b : integer;
 	sum : real;
+	elementForSearching : real;
+	elementForSearchingIndex : integer;
 
 function inInterval(a : integer; b : integer; element : real) : boolean;
 	Begin
@@ -109,6 +111,44 @@ procedure modifyArrayElementsWhichLieWithinIntervalFirst(Var myArray : tArray);
 		writeLn();
 	End;
 
+procedure binarySearch(myArray : tArray; elementForSearching : real; var elementForSearchingIndex : integer);
+	var
+		currentElement : integer;
+		leftBoard, rightBoard : integer;
+	Begin
+		leftBoard := 0;
+		rightBoard := n;
+		elementForSearchingIndex := -1;
+		while ((leftBoard < rightBoard) and (elementForSearchingIndex = -1)) do
+			Begin
+				currentElement := (leftBoard + rightBoard) div 2;
+				if (myArray[currentElement] = elementForSearching) then
+					Begin
+					    elementForSearchingIndex := currentElement;
+					End;
+				if (myArray[currentElement] > elementForSearching) then
+					Begin
+						leftBoard := currentElement + 1;
+					End
+				else
+					Begin
+						rightBoard := currentElement - 1;
+					End;
+			End;
+	End;
+
+procedure printInrormationAboutSearchingElement(elementForSearchingIndex);
+	Begin
+		if (elementForSearchingIndex <> -1) then
+	    	Begin
+	       		writeLn('Элемент найден, его индекс = ', elementForSearchingIndex);
+	    	End
+		else
+	    	Begin
+	        	writeLn('Элемент не найден!');
+	    	End;
+	End;
+
 begin
 	writeLn('Введите элементы массива');
 	arrayReader(myArray);
@@ -126,4 +166,8 @@ begin
 	writeLn('Сортировка массива методом пузырька ');
 	bubbleSorting(myArray);
 	writeLn('Отсортированный массив ', myArray);
+	writeLn('Введите элемент для поиска');
+	readLn(elementForSearching);
+	binarySearch(myArray, elementForSearching, elementForSearchingIndex);
+	printInrormationAboutSearchingElement(elementForSearchingIndex);
  End.
