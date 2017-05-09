@@ -45,7 +45,7 @@ procedure getFirstPositiveInteger(arr : tArray; Var firstPositiveInteger : real)
 	end;
   End;
   
-procedure bubbleSorting(Var myArray : tArray);
+procedure makeBubbleSorting(Var myArray : tArray);
 	Begin
 	  for i : integer := 0 to n do
 	  for j : integer := n - 1 downto i do
@@ -57,7 +57,7 @@ procedure bubbleSorting(Var myArray : tArray);
 		End;
 	End;
 	
-procedure arrayReader(Var myArrray : tArray);
+procedure readArray(Var myArrray : tArray);
 	Begin
 		for i : integer := 0 to n do
 			Begin
@@ -65,7 +65,7 @@ procedure arrayReader(Var myArrray : tArray);
 			End;
 	End;
 
-procedure elementsSumAfterFirstPositiveValue(myArray : tArray; Var sum : real);
+procedure calculateSumAfterFirstPositiveValue(myArray : tArray; Var sum : real);
 	Begin
 		sum := 0;
 		for i : integer := indexOfFirstPositiveElement + 1 to n do
@@ -111,7 +111,7 @@ procedure modifyArrayElementsWhichLieWithinIntervalFirst(Var myArray : tArray);
 		writeLn();
 	End;
 
-procedure binarySearch(myArray : tArray; elementForSearching : real; var elementForSearchingIndex : integer);
+procedure makeBinarySearch(myArray : tArray; elementForSearching : real; var elementForSearchingIndex : integer);
 	var
 		currentElement : integer;
 		leftBoard, rightBoard : integer;
@@ -151,10 +151,10 @@ procedure printInrormationAboutSearchingElement(elementForSearchingIndex);
 
 begin
 	writeLn('Введите элементы массива');
-	arrayReader(myArray);
+	readArray(myArray);
 	getFirstPositiveInteger(myArray, firstPositiveElement);
 	printFirstPositiveInteger(firstPositiveElement);	
-	elementsSumAfterFirstPositiveValue(myArray, sum);
+	calculateSumAfterFirstPositiveValue(myArray, sum);
 	writeLn('Сумма элементов массива после первого положительного индекса равна ', sum);
 	writeLn('Вывод массива со значениями сначала в интервале от a до b, а потом с остальными ');
 	writeLn('Введите элементы a, b - интервалы ');
@@ -164,10 +164,10 @@ begin
 	modifyArrayElementsWhichLieWithinIntervalFirst(myArray);
 	writeLn('Массив со значениями сначала в интервале от a до b, а потом с остальными ', myArray);
 	writeLn('Сортировка массива методом пузырька ');
-	bubbleSorting(myArray);
+	makeBubbleSorting(myArray);
 	writeLn('Отсортированный массив ', myArray);
 	writeLn('Введите элемент для поиска');
 	readLn(elementForSearching);
-	binarySearch(myArray, elementForSearching, elementForSearchingIndex);
+	makeBinarySearch(myArray, elementForSearching, elementForSearchingIndex);
 	printInrormationAboutSearchingElement(elementForSearchingIndex);
  End.
