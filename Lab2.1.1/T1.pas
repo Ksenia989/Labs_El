@@ -25,6 +25,7 @@ var
 	myWayArray : wayArray;
 	intPointer : ^integer;
 	strArrPointer : ^stringValues;
+	selectedWay : integer;
 	
 function readWayNumber() : integer;
 	var resulter : integer;
@@ -123,9 +124,57 @@ procedure writeTableWithValues(myWayArray : wayArray);
 	        end;
 	    writePart('╚', '═', '╧', '╝', nil);    
 	end;
-
+	
+procedure makeBubbleSorting(Var myArray : wayArray);
+	Begin
+	  for i : integer := 0 to n do
+	  for j : integer := n - 1 downto i do
+		Begin
+		  if (myArray[j].wayNumber < myArray[j + 1].wayNumber) then
+			Begin
+				swap(myArray[j], myArray[j + 1]);
+			End;
+		End;
+	End;
+	
+procedure displayOneRaw(w : way);
+    begin
+        writeln('-----Selected raw-----');
+        writeln('Start Point = ', w.startPoint );
+	    writeln('End Point = ', w.endPoint);
+	    writeln('Way Number = ', w.wayNumber); 
+        writeln('---End Of Selected raw---');
+    end;	
+	
+procedure selectWay(myWayArray : wayArray; numberForSearch : integer);
+    var 
+        i : integer;
+        isRawsWithSuchNumber : boolean;
+    begin
+        isRawsWithSuchNumber := false;
+        for i := 0 to n do
+            begin
+                if (myWayArray[i].wayNumber = numberForSearch) then
+                    begin
+                        displayOneRaw(myWayArray[i]);
+                        isRawsWithSuchNumber := true;
+                    end;
+            end;
+            if (isRawsWithSuchNumber = false) then
+                begin
+                    writeln('There"s no raws with this number')
+                end;
+    end;
+    
 begin
 	readValues();
 	writeTableWithValues(myWayArray);
 // todo подготовить входные данные из файла
+// todo Записывать даннные в бд
+    makeBubbleSorting(myWayArray);
+    writeln('Sorted Array');
+    writeTableWithValues(myWayArray);
+    writeln('Type the number of way for displaying information about it');
+    read(selectedWay);
+    selectWay(myWayArray, selectedWay);
 end.
