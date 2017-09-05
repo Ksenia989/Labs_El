@@ -3,7 +3,7 @@
 
 const
 	n = 1;
-	tableWidth = 7;
+	tableWidth = 15;
 
 type
     way = record
@@ -12,7 +12,7 @@ type
 		wayNumber : integer;
 	end;
 	
-	stringArray = array[0..2] of string;
+	stringArray = array[0..3] of string;
 	
 	stringValues = record
 	    valuesArray : stringArray; 
@@ -78,10 +78,10 @@ procedure writePart(beginning : string; plainSymbol : string; divider : string; 
     var i, j : integer;
     begin
      	write(beginning);
-    	for i := 1 to 3 do 
+    	for i := 0 to 2 do 
     		begin
     		    writePlainSymbolOrValue(plainSymbol, valuesPointer, i);
-        		if (i <> 3) then write(divider);			
+        		if (i <> 2) then write(divider);			
     		end;
         writeLn(endSymbol);
     end;
@@ -94,18 +94,32 @@ procedure writePart(myWay : way);
 	    str(myWay.endPoint : tableWidth, strArray.valuesArray[1]);
 	    str(myWay.wayNumber : tableWidth, strArray.valuesArray[2]);
 	    strArrPointer := @strArray;
-	    writePart('╔', '═', '╤', '╗', strArrPointer);
+	    writePart('║', '', '│', '║', strArrPointer);
     end;
+
+procedure writeHeader();
+    var 
+        strArray : stringValues;
+    begin
+        str('Start Point' : tableWidth, strArray.valuesArray[0]);
+	    str('End Point' : tableWidth, strArray.valuesArray[1]);
+	    str('Way Number' : tableWidth, strArray.valuesArray[2]);
+	    strArrPointer := @strArray;
+	    writePart('║', '', '│', '║', strArrPointer);
+	    writePart('╟', '─', '┼', '╢', nil);
+	end;
 
 procedure writeTableWithValues(myWayArray : wayArray);
     var 
         i : integer;
+        wayHeader : way;
 	begin
-	    writePart('╔', '═', '╤', '╗', nil);
+        writePart('╔', '═', '╤', '╗', nil);
+        writeHeader();
 	    for i:= 0 to n do
 	        begin
 	            writePart(myWayArray[i]);
-	            writePart('║', '─', '┼', '║', nil);
+	            if (i < n) then writePart('╟', '─', '┼', '╢', nil);
 	        end;
 	    writePart('╚', '═', '╧', '╝', nil);    
 	end;
