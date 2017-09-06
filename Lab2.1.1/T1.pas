@@ -6,47 +6,47 @@ const
 	tableWidth = 15;
 
 type
-    way = record
-		startPoint : string;
-		endPoint : string;
-		wayNumber : integer;
+    birthDay = record
+		    day : integer;
+		    month : integer;
+		    year : integer;
+		end;
+
+    name = record
+		firtsName : string;
+		lastName : string;
+		phoneNumber : string;
+		bDay : birthDay;
 	end;
 	
-	stringArray = array[0..3] of string;
+	stringArray = array[0..5] of string;
 	
 	stringValues = record
 	    valuesArray : stringArray; 
 	end;
 	
-	wayArray = array[0..n] of way;
+	nameArray = array[0..n] of name;
 
 var 
-	myWay : way;
-	myWayArray : wayArray;
-	intPointer : ^integer;
+	myName : name;
+	myNameArray : nameArray;
 	strArrPointer : ^stringValues;
-	selectedWay : integer;
+	selectedName : integer;
 	
-function readWayNumber() : integer;
+function readNumber() : integer;
 	var resulter : integer;
     begin
-        intPointer := NIL;
-        while (intPointer = nil) do
-        begin
-            try
-			    write('Write wayNumber, please : ');
-			    readln(resulter);
-			except on System.Exception do
-			    begin
-			        writeln('It"s a wrong number, try again!');
-			        writeln();
-			        readWayNumber();
-			    end;
-            end;
-            writeln();
-            intPointer := @resulter;
-            readWayNumber := resulter;
+        try
+		    write('Write number, please : ');
+			readln(resulter);
+	    except on System.Exception do
+		    begin
+			    writeln('It"s a wrong number, try again!');
+			    readNumber();
+		    end;
         end;
+        writeln();
+        readNumber := resulter;
     end;
 
 procedure readValues();
@@ -54,13 +54,20 @@ procedure readValues();
 	begin
 		for i := 0 to n do
 		begin
-		    writeln('Hi! It"s route # ', i, ', please, type it"s coordinates and way number');
-			write('Write startPoint, please : ');
-			readln(myWay.startPoint);
-			write('Write endPoint, please : ');
-			readln(myWay.endPoint);
-		    myWay.wayNumber := readWayNumber();
-			myWayArray[i] := myWay;
+		    writeln('Hi! It"s name # ', i, ', please, type it"s valuesr');
+			write('Write firtsName, please : ');
+			readln(myName.firtsName);
+			write('Write lastName, please : ');
+			readln(myName.lastName);
+			write('Write phoneNumber, please : ');
+			readln(myName.phoneNumber);
+			write('Write day of birthday, please : ');
+		    myName.bDay.day := readNumber();
+		    write('Write month of birthday, please : ');
+		    myName.bDay.month := readNumber();
+		    write('Write year of birthday, please : ');
+		    myName.bDay.year := readNumber();
+			myNameArray[i] := myName;
 		end;
 	end;
 
@@ -68,7 +75,7 @@ procedure writePlainSymbolOrValue(plainSymbol : string; valuesPointer : ^stringV
     var 
         j : integer;
     begin
-        if (valuesPointer = nil) then //write just plain symbol
+        if (valuesPointer = nil) then
             for j := 1 to tableWidth do
         	    write(plainSymbol)
         else
@@ -76,24 +83,30 @@ procedure writePlainSymbolOrValue(plainSymbol : string; valuesPointer : ^stringV
     end;
 
 procedure writePart(beginning : string; plainSymbol : string; divider : string; endSymbol : string; valuesPointer : ^stringValues);
-    var i, j : integer;
+    var 
+        i, j : integer;
+    const
+        columnsNumber : integer = 5;
     begin
      	write(beginning);
-    	for i := 0 to 2 do 
+    	for i := 0 to columnsNumber do 
     		begin
     		    writePlainSymbolOrValue(plainSymbol, valuesPointer, i);
-        		if (i <> 2) then write(divider);			
+        		if (i <> columnsNumber) then write(divider);			
     		end;
         writeLn(endSymbol);
     end;
     
-procedure writePart(myWay : way);
+procedure writePart(myName : name);
     var 
         strArray : stringValues;
     begin
-        str(myWay.startPoint : tableWidth, strArray.valuesArray[0]);
-	    str(myWay.endPoint : tableWidth, strArray.valuesArray[1]);
-	    str(myWay.wayNumber : tableWidth, strArray.valuesArray[2]);
+        str(myName.firtsName : tableWidth, strArray.valuesArray[0]);
+	    str(myName.lastName : tableWidth, strArray.valuesArray[1]);
+	    str(myName.phoneNumber : tableWidth, strArray.valuesArray[2]);
+	    str(myName.bDay.day : tableWidth, strArray.valuesArray[3]);
+	    str(myName.bDay.month : tableWidth, strArray.valuesArray[4]);
+	    str(myName.bDay.year : tableWidth, strArray.valuesArray[5]);
 	    strArrPointer := @strArray;
 	    writePart('║', '', '│', '║', strArrPointer);
     end;
@@ -102,51 +115,56 @@ procedure writeHeader();
     var 
         strArray : stringValues;
     begin
-        str('Start Point' : tableWidth, strArray.valuesArray[0]);
-	    str('End Point' : tableWidth, strArray.valuesArray[1]);
-	    str('Way Number' : tableWidth, strArray.valuesArray[2]);
+        str('Firts Name' : tableWidth, strArray.valuesArray[0]);
+	    str('Last Name' : tableWidth, strArray.valuesArray[1]);
+	    str('Phone Number' : tableWidth, strArray.valuesArray[2]);
+	    str('Birthday Day' : tableWidth, strArray.valuesArray[3]);
+	    str('Birthday Month' : tableWidth, strArray.valuesArray[4]);
+	    str('Birthday Year' : tableWidth, strArray.valuesArray[5]);
 	    strArrPointer := @strArray;
 	    writePart('║', '', '│', '║', strArrPointer);
 	    writePart('╟', '─', '┼', '╢', nil);
 	end;
 
-procedure writeTableWithValues(myWayArray : wayArray);
+procedure writeTableWithValues(myNameArray : nameArray);
     var 
         i : integer;
-        wayHeader : way;
 	begin
         writePart('╔', '═', '╤', '╗', nil);
         writeHeader();
 	    for i:= 0 to n do
 	        begin
-	            writePart(myWayArray[i]);
+	            writePart(myNameArray[i]);
 	            if (i < n) then writePart('╟', '─', '┼', '╢', nil);
 	        end;
 	    writePart('╚', '═', '╧', '╝', nil);    
 	end;
 	
-procedure makeBubbleSorting(Var myArray : wayArray);
+procedure makeBubbleSorting(Var myArray : nameArray);
 	Begin
 	  for i : integer := 0 to n do
 	  for j : integer := n - 1 downto i do
 		Begin
-		  if (myArray[j].wayNumber < myArray[j + 1].wayNumber) then
+		  if (myArray[j].lastName < myArray[j + 1].lastName) then
 			Begin
 				swap(myArray[j], myArray[j + 1]);
 			End;
 		End;
 	End;
 	
-procedure displayOneRaw(w : way);
+procedure displayOneRaw(n : name);
     begin
         writeln('-----Selected raw-----');
-        writeln('Start Point = ', w.startPoint );
-	    writeln('End Point = ', w.endPoint);
-	    writeln('Way Number = ', w.wayNumber); 
+        writeln('Firts Name = ', n.firtsName );
+        writeln('Last Name = ', n.firtsName );
+	    writeln('Phone Number = ', n.phoneNumber);
+	    writeln('Birthday Day = ', n.bDay.day);
+	    writeln('Birthday Month = ', n.bDay.month);
+	    writeln('Birthday Year = ', n.bDay.year); 
         writeln('---End Of Selected raw---');
     end;	
 	
-procedure selectWay(myWayArray : wayArray; numberForSearch : integer);
+procedure selectPerson(myNameArray : nameArray; numberForSearch : integer);
     var 
         i : integer;
         isRawsWithSuchNumber : boolean;
@@ -154,27 +172,27 @@ procedure selectWay(myWayArray : wayArray; numberForSearch : integer);
         isRawsWithSuchNumber := false;
         for i := 0 to n do
             begin
-                if (myWayArray[i].wayNumber = numberForSearch) then
+                if (myNameArray[i].bDay.month = numberForSearch) then
                     begin
-                        displayOneRaw(myWayArray[i]);
+                        displayOneRaw(myNameArray[i]);
                         isRawsWithSuchNumber := true;
                     end;
             end;
             if (isRawsWithSuchNumber = false) then
                 begin
-                    writeln('There"s no raws with this number')
+                    writeln('There"s no raws with this month!')
                 end;
     end;
     
 begin
 	readValues();
-	writeTableWithValues(myWayArray);
+	writeTableWithValues(myNameArray);
 // todo подготовить входные данные из файла
 // todo Записывать даннные в бд
-    makeBubbleSorting(myWayArray);
+    makeBubbleSorting(myNameArray);
     writeln('Sorted Array');
-    writeTableWithValues(myWayArray);
-    writeln('Type the number of way for displaying information about it');
-    read(selectedWay);
-    selectWay(myWayArray, selectedWay);
+    writeTableWithValues(myNameArray);
+    writeln('Type the month for displaying information about person');
+    selectedName := readNumber();
+    selectPerson(myNameArray, selectedName);
 end.
