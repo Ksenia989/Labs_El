@@ -7,7 +7,7 @@ const
 
 type
     birthDay = record
-		    day : integer;
+		    day : 1..31;
 		    month : integer;
 		    year : integer;
 		end;
@@ -162,6 +162,7 @@ procedure displayOneRaw(n : name);
 	    writeln('Birthday Month = ', n.bDay.month);
 	    writeln('Birthday Year = ', n.bDay.year); 
         writeln('---End Of Selected raw---');
+        writeln();
     end;	
 	
 procedure selectPerson(myNameArray : nameArray; numberForSearch : integer);
