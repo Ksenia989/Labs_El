@@ -1,35 +1,32 @@
-﻿program 
-  WayMemorizer;
+﻿UNIT
+  SoutingUtils;
+  
+INTERFACE
 
 const
 	n = 7;
 	tableWidth = 15;
-
+	
 type
     range = record
             beginning : longint;
             ending : longint;
         end;
-
     birthDay = record
 		    day : integer;
 		    month : integer;
 		    year : integer;
 		end;
-
     name = record
 		firtsName : string;
 		lastName : string;
 		phoneNumber : string;
 		bDay : birthDay;
 	end;
-	
 	stringArray = array[0..5] of string;
-	
 	stringValues = record
 	        valuesArray : stringArray; 
-	    end;
-	
+	end;
 	nameArray = array[0..n] of name;
 	
 const
@@ -37,7 +34,8 @@ const
     dayRange : range = (beginning : 1; ending : 12);
     yearRange : range = (beginning : 1000; ending : 2018);
     myConstNames : nameArray
-		= ((firtsName:'Торгаева'; lastName:'Ксения'; phoneNumber:'89106303727'; bDay:(day:30; month:9 ;year:1943)),
+		=       
+		        ((firtsName:'Торгаева'; lastName:'Ксения'; phoneNumber:'89106303727'; bDay:(day:30; month:9 ;year:1943)),
 		        (firtsName : 'Сарычев'; lastName : 'Андрей'; phoneNumber : '89106302983'; bDay:(day:15; month:3 ;year:1963)),
 		        (firtsName : 'Кракозяброва'; lastName : 'Алина'; phoneNumber : '88762567893'; bDay:(day:20; month:9 ;year:1963)),
 		        (firtsName : 'Толстозубова'; lastName : 'Анна'; phoneNumber : '87542885697'; bDay:(day:23; month:9 ;year:1938)),
@@ -51,6 +49,13 @@ var
 	myNameArray : nameArray;
 	strArrPointer : ^stringValues;
 	selectedName : integer; 
+
+function readValues() : nameArray;
+procedure writeTableWithValues(myNameArray : nameArray);
+procedure selectPerson(myNameArray : nameArray; numberForSearch : integer);
+procedure makeSorting(Var myArray : nameArray);
+	
+IMPLEMENTATION
 	
 (*
     Функция, считывающая номера в числовых значениях
@@ -80,7 +85,7 @@ function readNumber(numberRange : range) : integer;
 (*
     Процедура,считывающая все значения в записи
 *)
-procedure readValues();
+function readValues() : nameArray;
 	var i : integer;
 	begin
 		for i := 0 to n do
@@ -100,6 +105,7 @@ procedure readValues();
 		    myName.bDay.year := readNumber(yearRange);
 			myNameArray[i] := myName;
 		end;
+		readValues := myNameArray;
 	end;
 
 (*
@@ -189,8 +195,9 @@ procedure writeTableWithValues(myNameArray : nameArray);
 (*
     Процедура, осуществляющая пузырьковую сортировку
 *)	
-procedure makeBubbleSorting(Var myArray : nameArray);
+procedure makeSorting(Var myArray : nameArray);
 	Begin
+	  writeln('Сортировка массива');
 	  for i : integer := 0 to n do
 	  for j : integer := n - 1 downto i do
 		Begin
@@ -199,6 +206,7 @@ procedure makeBubbleSorting(Var myArray : nameArray);
 				swap(myArray[j], myArray[j + 1]);
 			End;
 		End;
+	    writeln('Массив отсортирован');
 	End;
 
 (*
@@ -240,16 +248,5 @@ procedure selectPerson(myNameArray : nameArray; numberForSearch : integer);
                     writeln('Нет записи с подобным месяцем!')
                 end;
     end;
-    
-begin
-	myNameArray := myConstNames;
-	writeTableWithValues(myNameArray);
-    makeBubbleSorting(myNameArray);
-    writeln('Отсортированный массив');
-    writeTableWithValues(myNameArray);
-    while (true) do begin
-        writeln('Напечатайте, пожалуйста, номер месяца для выборки данных');
-        selectedName := readNumber(monthRange);
-        selectPerson(myNameArray, selectedName);
-    end;
-end.
+BEGIN
+END.
