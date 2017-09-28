@@ -18,10 +18,10 @@ type
 		    year : integer;
 		end;
     name = record
-		firtsName : string;
-		lastName : string;
-		phoneNumber : string;
-		bDay : birthDay;
+		firtsName : string[20];
+		lastName : string[20];
+		phoneNumber : string[20];
+		  bday :  birthDay;
 	end;
 	stringArray = array[0..5] of string;
 	stringValues = record
