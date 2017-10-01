@@ -4,7 +4,7 @@
 INTERFACE
 
 const
-	n = 7;
+	n = 6;
 	tableWidth = 15;
 	
 type
@@ -27,22 +27,21 @@ type
 	stringValues = record
 	        valuesArray : stringArray; 
 	end;
-	nameArray = array[0..n] of name;
+	nameArray = array[0..20] of name;
 	
 const
     monthRange : range = (beginning : 1; ending : 31);
     dayRange : range = (beginning : 1; ending : 12);
     yearRange : range = (beginning : 1000; ending : 2018);
-    myConstNames : nameArray
-		=       
-		        ((firtsName:'Торгаева'; lastName:'Ксения'; phoneNumber:'89106303727'; bDay:(day:30; month:9 ;year:1943)),
-		        (firtsName : 'Сарычев'; lastName : 'Андрей'; phoneNumber : '89106302983'; bDay:(day:15; month:3 ;year:1963)),
-		        (firtsName : 'Кракозяброва'; lastName : 'Алина'; phoneNumber : '88762567893'; bDay:(day:20; month:9 ;year:1963)),
-		        (firtsName : 'Толстозубова'; lastName : 'Анна'; phoneNumber : '87542885697'; bDay:(day:23; month:9 ;year:1938)),
-		        (firtsName : 'Терёхина'; lastName : 'Елена'; phoneNumber : '89066486342'; bDay:(day:4; month:7 ;year:1956)),
-		        (firtsName : 'Воскобойник'; lastName : 'Виктор'; phoneNumber : '891579867646'; bDay:(day:4; month:9 ;year:1943)),
-		        (firtsName : 'Мазуров'; lastName : 'Дмитрий'; phoneNumber : '89107666789'; bDay:(day:21; month:2 ;year:1998)),
-		        (firtsName : 'Саликов'; lastName : 'Вадим'; phoneNumber : '891068665470'; bDay:(day:6; month:12 ;year:1968)));
+//    myConstNames : nameArray
+//		=       
+//		        ((firtsName:'Торгаева'; lastName:'Ксения'; phoneNumber:'89106303727'; bDay:(day:30; month:9 ;year:1943)),
+//		        (firtsName : 'Сарычев'; lastName : 'Андрей'; phoneNumber : '89106302983'; bDay:(day:15; month:3 ;year:1963)),
+//		        (firtsName : 'Кракозяброва'; lastName : 'Алина'; phoneNumber : '88762567893'; bDay:(day:20; month:9 ;year:1963)),
+//		        (firtsName : 'Толстозубова'; lastName : 'Анна'; phoneNumber : '87542885697'; bDay:(day:23; month:9 ;year:1938)),
+//		        (firtsName : 'Терёхина'; lastName : 'Елена'; phoneNumber : '89066486342'; bDay:(day:4; month:7 ;year:1956)),
+//		        (firtsName : 'Воскобойник'; lastName : 'Виктор'; phoneNumber : '891579867646'; bDay:(day:4; month:9 ;year:1943)),
+//		        (firtsName : 'Мазуров'; lastName : 'Дмитрий'; phoneNumber : '89107666789'; bDay:(day:21; month:2 ;year:1998)));
 
 var   
 	myName : name;
@@ -52,7 +51,7 @@ var
 	isArray : boolean;
 
 function readValues() : nameArray;
-procedure writeTableWithValues();
+procedure writeTableWithValues(myNameArray : nameArray; n : integer);
 procedure selectPerson();
 procedure makeSorting();
 	
@@ -180,7 +179,7 @@ procedure writeHeader();
 (*
     Процедура, печатающая таблицу со значениями целиком
 *)
-procedure writeTableWithValues();
+procedure writeTableWithValues(myNameArray : nameArray; n : integer);
     var 
         i : integer;
 	begin

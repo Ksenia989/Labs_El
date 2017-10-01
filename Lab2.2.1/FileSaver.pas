@@ -8,6 +8,7 @@ INTERFACE
         textfile : text;   
         typeFile : file of PersonHandler.name;
         charFile : file of char;
+        rawsNumber : integer; // Элементы в файле
     
 function readFromTextFile() : nameArray;
 procedure writeToTextFile();
@@ -27,7 +28,7 @@ procedure writeToTextFile();
         i : integer;
     begin
         rewrite(textfile);
-        for i:=0 to PersonHandler.n - 1 do
+        for i:=0 to rawsNumber do
             begin
                 write(textfile,myNameArray[i].firtsName);
                 writeln(textfile);
@@ -51,20 +52,20 @@ procedure writeToTextFile();
 *)    
 function readFromTextFile() : nameArray;
     var
-        k : integer;
         newNameArray : nameArray;
     begin
         reset(textfile);
-         for k:=0 to PersonHandler.n - 1 do
+        rawsNumber := 0;
+        while (not (eof(textFile))) do
             begin
-             read(textfile,newNameArray[k].firtsName);
+             readln(textfile,newNameArray[rawsNumber].firtsName);
+             readln(textfile, newNameArray[rawsNumber].lastName);
+             readln(textfile, newNameArray[rawsNumber].phoneNumber);
+             readln(textfile, newNameArray[rawsNumber].bDay.day);
+             readln(textfile, newNameArray[rawsNumber].bDay.month);
+             readln(textfile, newNameArray[rawsNumber].bDay.year);
              readln(textfile);
-             readln(textfile, newNameArray[k].lastName);
-             readln(textfile, newNameArray[k].phoneNumber);
-             readln(textfile, newNameArray[k].bDay.day);
-             readln(textfile, newNameArray[k].bDay.month);
-             readln(textfile, newNameArray[k].bDay.year);
-             readln(textfile);
+             rawsNumber := rawsNumber + 1;
         end;
         close(textfile);
         readFromTextFile := newNameArray;
@@ -96,7 +97,7 @@ begin
     for i:=0 to PersonHandler.n - 1 do
         read(typeFile, newNameArray[i]);
     close(typeFile);
-    readFromTypeFile := newNameArray;
+        readFromTypeFile := newNameArray;
 end;
 
 (*
@@ -208,4 +209,5 @@ BEGIN
   assign(textfile, 'textfile.txt');
   assign(typeFile, 'typeFile.txt');
   assign(charFile, 'charFile.txt');
+  rawsNumber := n; // default value
 END.

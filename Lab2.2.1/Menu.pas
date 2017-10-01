@@ -27,12 +27,6 @@ procedure showMenu();
             
             readln(symbol);
             
-            if ((isArray = false) and (symbol in ['4', '5', '6', '7'])) then 
-                begin
-                    writeln('Сначала заполните массив данными!');
-                    showMenu();
-                end;
-            
             case symbol of
             '1' : 
                 begin
@@ -41,19 +35,19 @@ procedure showMenu();
                 end;
             '2' :
                 begin
-                    myNameArray := myConstNames;
+//                    myNameArray := myConstNames;
                     isArray := true;
                 end;
             '3' :
                 begin
-                    myNameArray := readFromCharFile();
+                    myNameArray := readFromTextFile();
                     isArray := true;
                 end;
                 
             '4' : 
-                writeToCharFile();
+                writeToTextFile();
             '5' :
-                writeTableWithValues();
+                writeTableWithValues(myNameArray, FileSaver.rawsNumber - 1);
             '6' :
                 makeSorting();
             '7' : 
