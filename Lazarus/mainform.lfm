@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 515
+  Left = 538
   Height = 366
-  Top = 319
+  Top = 366
   Width = 634
   Caption = 'Сводка погоды'
   ClientHeight = 366
@@ -14,6 +14,7 @@ object Form1: TForm1
     Top = 263
     Width = 102
     Caption = 'Save'
+    OnClick = SaveClick
     TabOrder = 0
   end
   object Button2: TButton
@@ -25,11 +26,21 @@ object Form1: TForm1
     TabOrder = 1
   end
   object Button3: TButton
-    Left = 344
+    Left = 320
     Height = 51
     Top = 264
     Width = 102
     Caption = 'Button3'
     TabOrder = 2
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'Все файлы|*.*|Текстовые файлы|*.txt'
+    left = 464
+    top = 232
+  end
+  object SaveDialog1: TSaveDialog
+    Filter = 'Все файлы|*.*|Текстовые файлы|*.txt'
+    left = 544
+    top = 280
   end
 end
