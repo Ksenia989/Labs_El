@@ -1,0 +1,95 @@
+object WeatherForecast: TWeatherForecast
+  Left = 101
+  Height = 346
+  Top = 332
+  Width = 835
+  Caption = 'Сводка погоды'
+  ClientHeight = 0
+  ClientWidth = 0
+  OnCreate = FormCreate
+  OnShow = FormShow
+  LCLVersion = '1.6.4.0'
+  object Save: TButton
+    Left = 8
+    Height = 51
+    Top = 288
+    Width = 104
+    Caption = 'Save'
+    OnClick = SaveClick
+    TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 112
+    Height = 51
+    Top = 288
+    Width = 104
+    Caption = 'Close'
+    TabOrder = 1
+  end
+  object Button3: TButton
+    Left = 216
+    Height = 51
+    Top = 288
+    Width = 102
+    Caption = 'Button3'
+    TabOrder = 2
+  end
+  object About: TButton
+    Left = 704
+    Height = 52
+    Top = 56
+    Width = 114
+    Caption = 'About'
+    OnClick = AboutClick
+    TabOrder = 3
+  end
+  object StringGrid1: TStringGrid
+    Left = 80
+    Height = 144
+    Top = 48
+    Width = 616
+    ColCount = 4
+    DefaultColWidth = 150
+    FixedCols = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goTabs, goSmoothScroll]
+    RowCount = 1
+    TabOrder = 4
+  end
+  object SaveInRecord: TButton
+    Left = 80
+    Height = 30
+    Top = 224
+    Width = 120
+    Caption = 'Сохранить в запись'
+    OnClick = SaveInRecordClick
+    TabOrder = 5
+  end
+  object Button1: TButton
+    Left = 287
+    Height = 25
+    Top = 214
+    Width = 33
+    Caption = '-'
+    OnClick = Button1Click
+    TabOrder = 6
+  end
+  object Button4: TButton
+    Left = 340
+    Height = 24
+    Top = 215
+    Width = 27
+    Caption = '+'
+    OnClick = Button4Click
+    TabOrder = 7
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'Все файлы|*.*|Текстовые файлы|*.txt'
+    left = 728
+    top = 288
+  end
+  object SaveDialog1: TSaveDialog
+    Filter = 'Все файлы|*.*|Текстовые файлы|*.txt'
+    left = 768
+    top = 232
+  end
+end

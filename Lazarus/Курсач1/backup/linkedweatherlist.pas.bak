@@ -1,0 +1,29 @@
+unit LinkedWeatherList;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils,
+  LinkedList;
+
+type
+  list = ^TLinkedList;
+  TLinkedWeatherList = class(TLinkedList)
+    date : String[20]; // todo для даты
+    temperature : real;
+    humidity : real;
+    atmospherePressure : real;
+    next : list;
+  end;
+
+implementation
+
+procedure readValueImpl(temp);
+begin
+  //'Заносить значения сюда';
+end;
+
+end.
+
