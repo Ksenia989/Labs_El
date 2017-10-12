@@ -19,9 +19,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MainForm"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="96"/>
+        <TopLine Value="91"/>
         <CursorPos X="29" Y="114"/>
-        <ComponentState Value="1"/>
         <UsageCount Value="52"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -35,7 +34,6 @@
         <UnitName Value="Unit1"/>
         <EditorIndex Value="1"/>
         <CursorPos X="3" Y="36"/>
-        <ComponentState Value="1"/>
         <UsageCount Value="52"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>

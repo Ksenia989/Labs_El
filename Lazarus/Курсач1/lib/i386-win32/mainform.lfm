@@ -1,5 +1,5 @@
 object WeatherForecast: TWeatherForecast
-  Left = 2
+  Left = 31
   Height = 373
   Top = 253
   Width = 835

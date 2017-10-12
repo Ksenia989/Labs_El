@@ -106,7 +106,7 @@ function readFromTextFile() : list;
 
 procedure TWeatherForecast.FormShow(Sender: TObject);
 begin
-  StringGrid1.Cells[0,0]:= 'День';
+  StringGrid1.Cells[0,0]:= 'Дата';
   StringGrid1.Cells[1,0]:= 'Температура воздуха, C';
   StringGrid1.Cells[2,0]:= 'Влажность воздуха, %';
   StringGrid1.Cells[3,0]:= 'Атмосферное давление, мм.рт.ст';

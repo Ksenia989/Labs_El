@@ -112,7 +112,7 @@ var
 begin
   n := StringGrid1.RowCount;
   setLength(weatherArray, n - 1);
-  for i := 0 to n - 1 do // -1 т.к. отнимаем заглавие
+  for i := 0 to n - 2 do // -1 т.к. отнимаем заглавие
   begin
     weatherArray[i].date := StringGrid1.Cells[0, i + 1];
     val(StringGrid1.Cells[1, i + 1], weatherArray[i].temperature, errCode);

@@ -1,10 +1,10 @@
 object WeatherForecast: TWeatherForecast
-  Left = 2
-  Height = 373
-  Top = 253
+  Left = 406
+  Height = 345
+  Top = 122
   Width = 835
   Caption = 'Сводка погоды'
-  ClientHeight = 353
+  ClientHeight = 325
   ClientWidth = 835
   Menu = menuM
   OnShow = FormShow

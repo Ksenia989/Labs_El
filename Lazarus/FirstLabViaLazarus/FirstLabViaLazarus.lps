@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="10"/>
+    <BuildModes Active="Default"/>
+    <Units Count="3">
+      <Unit0>
+        <Filename Value="FirstLabViaLazarus.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="35"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="unit1.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit1"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="57" Y="7"/>
+        <UsageCount Value="35"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="utils.pas"/>
+        <UnitName Value="WayMemorizer"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="94"/>
+        <CursorPos X="73" Y="108"/>
+        <UsageCount Value="18"/>
+        <Loaded Value="True"/>
+      </Unit2>
+    </Units>
+    <JumpHistory Count="7" HistoryIndex="6">
+      <Position1>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="9" Column="5"/>
+      </Position1>
+      <Position2>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="6" Column="50"/>
+      </Position2>
+      <Position3>
+        <Filename Value="utils.pas"/>
+        <Caret Line="251" Column="6" TopLine="213"/>
+      </Position3>
+      <Position4>
+        <Filename Value="utils.pas"/>
+        <Caret Line="108" Column="73" TopLine="94"/>
+      </Position4>
+      <Position5>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="6" Column="50"/>
+      </Position5>
+      <Position6>
+        <Filename Value="utils.pas"/>
+        <Caret TopLine="229"/>
+      </Position6>
+      <Position7>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="6" Column="50"/>
+      </Position7>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>
