@@ -55,11 +55,13 @@ var
 implementation
 uses About;
 {$R *.lfm}
+const
+  filename : string = '';
 
 var
   commonWeather : list;
   tableChanged : boolean;
-  fileName : String;
+  //fileName : String;
   textfile : text;
 
 { TWeatherForecast }
@@ -67,9 +69,13 @@ var
 (*
     Запись в текстовый файл
 *)
-procedure writeToTextFile(commonWeather : list);
+procedure writeToTextFile(filename : String);
+var
+  fullFileName : string;
     begin
-        rewrite(textfile);
+         fullFileName := filename + '.txt';
+         assign(textfile, fullFileName);
+         rewrite(textfile);
          while (commonWeather^.next <> nil)do
             begin
                 write(textfile, commonWeather^.date);
@@ -155,13 +161,14 @@ end;
 procedure TWeatherForecast.Button3Click(Sender: TObject);
 var
   temp : list;
-  i : integer;
+  i, j : integer;
   a : string[20];
 begin
   i := 1;
+  j := i;
   temp := commonWeather;
   StringGrid1.RowCount := 1;
-  while (temp^.next <> nil) do
+  while (temp <> nil) do
   begin
     StringGrid1.RowCount := StringGrid1.RowCount + 1;
     StringGrid1.Cells[0, i] := temp^.date;
@@ -194,9 +201,9 @@ begin
     //есть его адрес и имя, просто перезаписываем этот файл:
     if fileName <> '' then
     begin
-      //Memo1.Lines.SaveToFile(fileName); //ToDo
-      //tableChanged := false;
-      //Exit; //выходим после сохранения
+      writeToTextFile(filename);
+      tableChanged := false;
+      Exit; //выходим после сохранения
     end;
  {Файл новый, переменная myfile еще пуста. Дальше есть два варианта:
  пользователь выберет или укажет файл в диалоге, или не сделает этого}
@@ -206,10 +213,8 @@ begin
       //прописываем адрес и имя файла в переменную:
       fileName := SaveDialog1.FileName;
       //если нет расширения *.txt то добавляем его:
-      if copy(fileName, length(fileName)-3, 4) <> '.txt' then
-      fileName := fileName + '.txt';
+      writeToTextFile(filename);
       //сохраняем табличку в указанный файл:
-      writeToTextFile(commonWeather);
       tableChanged := False;
     end
  //если не выбрал файл:

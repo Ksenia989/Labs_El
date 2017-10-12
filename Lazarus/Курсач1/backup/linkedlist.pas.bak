@@ -12,9 +12,9 @@ type
   list = ^TLinkedList;
   TLinkedList = record
     date : String[20];
-    temperature : real;
-    humidity : real;
-    atmospherePressure : real;
+    temperature : integer;
+    humidity : integer;
+    atmospherePressure : integer;
     next : list;
   end;
 
@@ -37,8 +37,7 @@ procedure add(var listForAdd : List; date : String; temperature : real;
 var
   temp:List;
 begin
-    writeln('Добавление элемента');
-    // если список пуст, то создаём его первый элемент
+  // если список пуст, то создаём его первый элемент
   if (listForAdd = nil) then
   begin
     new(listForAdd);

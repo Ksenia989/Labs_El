@@ -12,19 +12,19 @@ type
   list = ^TLinkedList;
   TLinkedList = record
     date : String[20];
-    temperature : real;
-    humidity : real;
-    atmospherePressure : real;
+    temperature : integer;
+    humidity : integer;
+    atmospherePressure : integer;
     next : list;
   end;
 
-procedure add(var listForAdd : List; date : String; temperature : real;
-                             humidity : real; atmospherePressure : real);
+procedure add(var listForAdd : List; date : String; temperature : integer;
+                             humidity : integer; atmospherePressure : integer);
 
 implementation
 
-procedure readValue(var target : list; date : String; temperature : real; humidity : real;
-                             atmospherePressure : real);
+procedure readValue(var target : list; date : String; temperature : integer; humidity : integer;
+                             atmospherePressure : integer);
 begin
   target^.date := date;
   target^.temperature := temperature;
@@ -32,8 +32,8 @@ begin
   target^.atmospherePressure := atmospherePressure;
 end;
 
-procedure add(var listForAdd : List; date : String; temperature : real;
-                             humidity : real; atmospherePressure : real);
+procedure add(var listForAdd : List; date : String; temperature : integer;
+                             humidity : integer; atmospherePressure : integer);
 var
   temp:List;
 begin
