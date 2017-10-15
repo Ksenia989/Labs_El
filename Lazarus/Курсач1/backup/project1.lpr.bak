@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, MainForm, About, LinkedWeathreList
+  Forms, MainForm, About, LinkedList, UnitMakingSearch
   { you can add units after this };
 
 {$R *.res}
@@ -17,6 +17,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TWeatherForecast, WeatherForecast);
   Application.CreateForm(TaboutProgram, aboutProgram);
+  Application.CreateForm(TmakeSearch, makeSearch);
   Application.Run;
 end.
 

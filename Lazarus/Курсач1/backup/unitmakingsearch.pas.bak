@@ -1,0 +1,58 @@
+unit UnitMakingSearch;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, DateTimePicker, Forms, Controls, Graphics,
+  Dialogs, StdCtrls, EditBtn;
+
+type
+
+  { TmakeSearch }
+
+  TmakeSearch = class(TForm)
+    Button1: TButton;
+    ComboBox1: TComboBox;
+    ComboBox2: TComboBox;
+    ComboBox3: TComboBox;
+    DateEdit1: TDateEdit;
+    DateEdit2: TDateEdit;
+    DateTimePicker1: TDateTimePicker;
+    //dateTime : TDateTime;
+    procedure Button1Click(Sender: TObject);
+    procedure DateEdit1Change(Sender: TObject);
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  makeSearch: TmakeSearch;
+
+implementation
+
+{$R *.lfm}
+
+{ TmakeSearch }
+
+procedure TmakeSearch.DateEdit1Change(Sender: TObject);
+var d1, d2 : TDate;
+begin
+    //da
+
+end;
+
+procedure TmakeSearch.Button1Click(Sender: TObject);
+var d1, d2 : TDateTime;
+begin
+    d2 := strToDate('30.09.1998','dd.mm.yyyy', '.');
+    //d2 := dateEdit2.Date;
+    d1 := dateEdit1.Date;
+    if d1 > d2 then showMessage('Дата');
+end;
+
+end.
+

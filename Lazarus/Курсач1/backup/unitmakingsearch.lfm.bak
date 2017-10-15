@@ -1,0 +1,100 @@
+object makeSearch: TmakeSearch
+  Left = 321
+  Height = 268
+  Top = 211
+  Width = 485
+  Caption = 'Детальная информация по дню'
+  ClientHeight = 268
+  ClientWidth = 485
+  LCLVersion = '1.6.4.0'
+  object ComboBox1: TComboBox
+    Left = 24
+    Height = 23
+    Top = 24
+    Width = 56
+    AutoSelect = False
+    ItemHeight = 15
+    TabOrder = 0
+    Text = 'День'
+  end
+  object ComboBox2: TComboBox
+    Left = 95
+    Height = 23
+    Top = 25
+    Width = 47
+    ItemHeight = 15
+    TabOrder = 1
+    Text = 'ComboBox2'
+  end
+  object ComboBox3: TComboBox
+    Left = 154
+    Height = 23
+    Top = 25
+    Width = 51
+    ItemHeight = 15
+    Items.Strings = (
+      '1'
+      '2'
+      '3'
+    )
+    TabOrder = 2
+    Text = 'ComboBox3'
+  end
+  object DateEdit1: TDateEdit
+    Left = 160
+    Height = 23
+    Top = 127
+    Width = 77
+    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+    DateOrder = doNone
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
+    OnChange = DateEdit1Change
+    TabOrder = 3
+  end
+  object DateTimePicker1: TDateTimePicker
+    Left = 261
+    Height = 23
+    Top = 52
+    Width = 79
+    CenturyFrom = 1941
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 4
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDate
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 43022
+    Time = 0.870089629628637
+    UseDefaultSeparators = True
+    HideDateTimeParts = []
+    MonthNames = 'Long'
+  end
+  object Button1: TButton
+    Left = 262
+    Height = 30
+    Top = 175
+    Width = 65
+    Caption = 'Button1'
+    OnClick = Button1Click
+    TabOrder = 5
+  end
+  object DateEdit2: TDateEdit
+    Left = 160
+    Height = 23
+    Top = 160
+    Width = 77
+    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+    DateOrder = doNone
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
+    OnChange = DateEdit1Change
+    TabOrder = 6
+  end
+end

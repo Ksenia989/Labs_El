@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, Grids, Menus,
+  ExtCtrls, Grids, Menus, ColorBox,
   LinkedList;
 
 type
@@ -15,10 +15,12 @@ type
 
   TWeatherForecast = class(TForm)
     About: TButton;
-    Button1: TButton;
-    Button2: TButton;
-    Button3: TButton;
-    Button4: TButton;
+    DecrementRaws: TButton;
+    CleanTable: TButton;
+    searchDetailInformation: TButton;
+    dataFromTemplate: TButton;
+    IncrementRaws: TButton;
+    Label1: TLabel;
     menuM: TMainMenu;
     MenuItem1: TMenuItem;
     Escape: TMenuItem;
@@ -31,16 +33,18 @@ type
     StringGrid1: TStringGrid;
 
     procedure AboutClick(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
-    procedure Button4Click(Sender: TObject);
+    procedure DecrementRawsClick(Sender: TObject);
+    procedure CleanTableClick(Sender: TObject);
+    procedure IncrementRawsClick(Sender: TObject);
+    procedure dataFromTemplateClick(Sender: TObject);
     procedure EscapeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure MenuItem1Click(Sender: TObject);
     procedure OpenClick(Sender: TObject);
     procedure SaveFileClick(Sender: TObject);
     procedure SaveInLinkedListClick(Sender: TObject);
+    procedure searchDetailInformationClick(Sender: TObject);
+    procedure StringGrid1GetEditMask(Sender: TObject; ACol, ARow: Integer;
+      var Value: string);
 
   private
     { private declarations }
@@ -53,7 +57,8 @@ var
   WeatherForecast: TWeatherForecast;
 
 implementation
-uses About;
+uses About,
+     UnitMakingSearch, DateUtils;
 {$R *.lfm}
 const
   filename : string = '';
@@ -61,7 +66,6 @@ const
 var
   commonWeather : list;
   tableChanged : boolean;
-  //fileName : String;
   textfile : text;
 
 { TWeatherForecast }
@@ -72,21 +76,24 @@ var
 procedure writeToTextFile(filename : String);
 var
   fullFileName : string;
+  temp : list;
     begin
+         temp :=commonWeather;
          fullFileName := filename + '.txt';
          assign(textfile, fullFileName);
          rewrite(textfile);
-         while (commonWeather^.next <> nil)do
+         while (temp <> nil)do
             begin
-                write(textfile, commonWeather^.date);
+                write(textfile, temp^.date);
                 write(textfile, #13#10);
-                write(textfile, commonWeather^.temperature);
+                write(textfile, temp^.temperature);
                 write(textfile, #13#10);
-                write(textfile, commonWeather^.humidity);
+                write(textfile, temp^.humidity);
                 write(textfile, #13#10);
-                write(textfile, commonWeather^.atmospherePressure);
+                write(textfile, temp^.atmospherePressure);
                 write(textfile, #13#10);
                 write(textfile, #13#10);
+                temp := temp^.next;
             end;
         close(textfile);
     end;
@@ -94,20 +101,28 @@ var
 (*
     Чтение из текстового файла
 *)
-function readFromTextFile() : list;
+procedure readFromTextFile(filename : String);
+var
+  fullFileName : string;
+  temperature, humidity, atmospherePressure : integer;
+  dayForSelect : string;
+  a : string;
     begin
-        assign(textfile, 'textfile.txt');
-        reset(textfile);
-        while (not (eof(textFile))) do
-            begin
-             read(textfile, commonWeather^.date);
-             read(textfile, commonWeather^.temperature);
-             read(textfile, commonWeather^.humidity);
-             read(textfile, commonWeather^.atmospherePressure);
-             readln(textfile);
+      fullFileName := filename;
+      assign(textfile, fullFileName);
+      reset(textFile);
+      while (not (eof(textFile))) do
+        begin
+          read(textfile, dayForSelect);
+          read(textfile, temperature);
+          read(textfile, humidity);
+          read(textfile, atmospherePressure);
+          readln(textFile);
+          readln(textFile, a);
+          add(commonWeather, dayForSelect, temperature, humidity,
+                                atmospherePressure)
         end;
-        close(textfile);
-        readFromTextFile := commonWeather;
+      close(textfile);
     end;
 
 procedure TWeatherForecast.FormShow(Sender: TObject);
@@ -124,19 +139,38 @@ begin
   StringGrid1.ColWidths[3]:= 190;
 end;
 
-procedure TWeatherForecast.MenuItem1Click(Sender: TObject);
+procedure fillData();
+var
+  temp : list;
+  i : integer;
+  a : string[20];
 begin
-
+  i := 1;
+  temp := commonWeather;
+  weatherForecast.StringGrid1.RowCount := 1;
+  while (temp <> nil) do
+  begin
+    weatherForecast.StringGrid1.RowCount := weatherForecast.StringGrid1.RowCount + 1;
+    weatherForecast.StringGrid1.Cells[0, i] := temp^.date;
+    str(temp^.temperature, a);
+    weatherForecast.StringGrid1.Cells[1, i] := a;
+    str(temp^.humidity, a);
+    weatherForecast.StringGrid1.Cells[2, i] := a;
+    str(temp^.atmospherePressure, a);
+    weatherForecast.StringGrid1.Cells[3, i] := a;
+    inc(i);
+    temp := temp^.next;
+  end;
 end;
 
 procedure TWeatherForecast.OpenClick(Sender: TObject);
-begin    // ToDo
+begin
  if OpenDialog1.Execute then begin //если диалог выполнен
  //присваиваем переменной myfile адрес и имя выбранного файла:
  fileName := OpenDialog1.FileName;
  //читаем этот файл в Memo:
- //todo
-
+ readFromTextFile(fileName);
+ fillData();
  tableChanged := False; //файл только открыт, изменений еще нет
  end;
 end;
@@ -146,46 +180,32 @@ begin
   AboutProgram.showModal;
 end;
 
-procedure TWeatherForecast.Button1Click(Sender: TObject);
+procedure TWeatherForecast.DecrementRawsClick(Sender: TObject);
 begin
   if (StringGrid1.RowCount = 1) then //do nothin
-   else
+  else
      StringGrid1.RowCount := StringGrid1.RowCount - 1;
 end;
 
-procedure TWeatherForecast.Button2Click(Sender: TObject);
+procedure TWeatherForecast.CleanTableClick(Sender: TObject);
 begin
   StringGrid1.RowCount := 1;
 end;
 
-procedure TWeatherForecast.Button3Click(Sender: TObject);
-var
-  temp : list;
-  i, j : integer;
-  a : string[20];
-begin
-  i := 1;
-  j := i;
-  temp := commonWeather;
-  StringGrid1.RowCount := 1;
-  while (temp <> nil) do
-  begin
-    StringGrid1.RowCount := StringGrid1.RowCount + 1;
-    StringGrid1.Cells[0, i] := temp^.date;
-    str(temp^.temperature, a);
-    StringGrid1.Cells[1, i] := a;
-    str(temp^.humidity, a);
-    StringGrid1.Cells[2, i] := a;
-    str(temp^.atmospherePressure, a);
-    StringGrid1.Cells[3, i] := a;
-    inc(i);
-    temp := temp^.next;
-  end;
-end;
-
-procedure TWeatherForecast.Button4Click(Sender: TObject);
+procedure TWeatherForecast.IncrementRawsClick(Sender: TObject);
 begin
   StringGrid1.RowCount := StringGrid1.RowCount + 1;
+end;
+
+procedure TWeatherForecast.dataFromTemplateClick(Sender: TObject);
+var
+  filename : string;
+begin
+  commonWeather := nil;
+  filename := 'D:\Home\Desktop\Repos\Labs_El\Lazarus\Курсач1\dataTemplate.txt';
+  readFromTextFile(fileName);
+  fillData();
+  tableChanged := False;
 end;
 
 procedure TWeatherForecast.EscapeClick(Sender: TObject);
@@ -227,17 +247,28 @@ var
   errCode : integer;
   n : integer;
   temperature, humidity, atmospherePressure : integer;
-  date : string;
+  day : string;
 begin
   n := StringGrid1.RowCount;
   for i := 0 to n - 2 do
   begin
-    date := StringGrid1.Cells[0, i + 1];
+    day := StringGrid1.Cells[0, i + 1];
     val(StringGrid1.Cells[1, i + 1], temperature, errCode);
     val(StringGrid1.Cells[2, i + 1], humidity, errCode);
     val(StringGrid1.Cells[3, i + 1], atmospherePressure, errCode);
-    LinkedList.add(commonWeather, date,  temperature, humidity, atmospherePressure);
+    LinkedList.add(commonWeather, day,  temperature, humidity, atmospherePressure);
   end;
+end;
+
+procedure TWeatherForecast.searchDetailInformationClick(Sender: TObject);
+begin
+  makeSearch.showModal;
+end;
+
+procedure TWeatherForecast.StringGrid1GetEditMask(Sender: TObject; ACol,
+  ARow: Integer; var Value: string);
+begin
+  if (ACol = 0) then value := '99.99.9999';
 end;
 
 end.
