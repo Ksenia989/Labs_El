@@ -123,17 +123,11 @@ procedure makeBinarySearch(myArray : tArray; elementForSearching : real; var ele
 			Begin
 				currentElement := (leftBoard + rightBoard) div 2;
 				if (myArray[currentElement] = elementForSearching) then
-					Begin
-					    elementForSearchingIndex := currentElement;
-					End;
+				    elementForSearchingIndex := currentElement;
 				if (myArray[currentElement] > elementForSearching) then
-					Begin
-						leftBoard := currentElement + 1;
-					End
+				    leftBoard := currentElement + 1
 				else
-					Begin
-						rightBoard := currentElement - 1;
-					End;
+				    rightBoard := currentElement - 1
 			End;
 	End;
 

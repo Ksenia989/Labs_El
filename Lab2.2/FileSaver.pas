@@ -30,17 +30,17 @@ procedure writeToTextFile();
         rewrite(textfile);
         for i:=0 to rawsNumber do
             begin
-                write(textfile,myNameArray[i].firtsName);
+                write(textfile,myNameArray[rawsNumber].firtsName);
                 writeln(textfile);
-                write(textfile,myNameArray[i].lastName);
+                write(textfile,myNameArray[rawsNumber].lastName);
                 write(textfile, #13#10);
-                write(textfile,myNameArray[i].phoneNumber);
+                write(textfile,myNameArray[rawsNumber].phoneNumber);
                 write(textfile, #13#10);
-                write(textfile,myNameArray[i].bDay.day);
+                write(textfile,myNameArray[rawsNumber].bDay.day);
                 write(textfile, #13#10);
-                write(textfile,myNameArray[i].bDay.month);
+                write(textfile,myNameArray[rawsNumber].bDay.month);
                 write(textfile, #13#10);
-                write(textfile,myNameArray[i].bDay.year);
+                write(textfile,myNameArray[rawsNumber].bDay.year);
                 write(textfile, #13#10);
                 write(textfile, #13#10);
             end;
@@ -79,8 +79,8 @@ var
     i : integer;
 begin
     Rewrite(typeFile);
-        for i:=0 to PersonHandler.n - 1 do
-                write(typeFile, myNameArray[i]);
+        for i:=0 to rawsNumber - 1 do
+                write(typeFile, myNameArray[rawsNumber]);
     close(typeFile);
     
 end;
@@ -90,14 +90,17 @@ end;
 *)
 function readFromTypeFile() : nameArray;
 var 
-    i : integer;
     newNameArray : nameArray;
 begin
     reset(typeFile); // и для чтения, и для записи
-    for i:=0 to PersonHandler.n - 1 do
-        read(typeFile, newNameArray[i]);
+    rawsNumber := 0;
+    while (not (eof(typeFile))) do
+        begin
+            read(typeFile, newNameArray[rawsNumber]);
+            inc(rawsNumber);
+        end;
     close(typeFile);
-        readFromTypeFile := newNameArray;
+    readFromTypeFile := newNameArray;
 end;
 
 (*
