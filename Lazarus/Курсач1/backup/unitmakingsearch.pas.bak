@@ -14,12 +14,8 @@ type
 
   TmakeSearch = class(TForm)
     Button1: TButton;
-    ComboBox1: TComboBox;
-    ComboBox2: TComboBox;
-    ComboBox3: TComboBox;
     DateEdit1: TDateEdit;
     DateEdit2: TDateEdit;
-    DateTimePicker1: TDateTimePicker;
     //dateTime : TDateTime;
     procedure Button1Click(Sender: TObject);
     procedure DateEdit1Change(Sender: TObject);

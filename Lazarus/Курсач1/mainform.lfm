@@ -1,10 +1,10 @@
 object WeatherForecast: TWeatherForecast
-  Left = 327
+  Left = 15
   Height = 390
-  Top = 152
+  Top = 236
   Width = 835
   Caption = 'Сводка погоды'
-  ClientHeight = 370
+  ClientHeight = 362
   ClientWidth = 835
   Menu = menuM
   OnShow = FormShow
@@ -87,9 +87,9 @@ object WeatherForecast: TWeatherForecast
   end
   object Label1: TLabel
     Left = 237
-    Height = 15
+    Height = 20
     Top = 263
-    Width = 34
+    Width = 42
     Caption = 'Label1'
     ParentColor = False
   end

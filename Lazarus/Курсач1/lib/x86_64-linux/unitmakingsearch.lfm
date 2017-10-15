@@ -1,0 +1,45 @@
+object makeSearch: TmakeSearch
+  Left = 613
+  Height = 268
+  Top = 268
+  Width = 485
+  Caption = 'Детальная информация по дню'
+  ClientHeight = 268
+  ClientWidth = 485
+  LCLVersion = '1.6.4.0'
+  object DateEdit1: TDateEdit
+    Left = 160
+    Height = 23
+    Top = 127
+    Width = 77
+    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+    DateOrder = doNone
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
+    OnChange = DateEdit1Change
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Left = 262
+    Height = 30
+    Top = 175
+    Width = 65
+    Caption = 'Button1'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object DateEdit2: TDateEdit
+    Left = 160
+    Height = 23
+    Top = 160
+    Width = 77
+    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+    DateOrder = doNone
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
+    OnChange = DateEdit1Change
+    TabOrder = 2
+  end
+end
