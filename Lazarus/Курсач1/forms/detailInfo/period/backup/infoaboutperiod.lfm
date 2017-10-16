@@ -1,0 +1,8 @@
+object datailPeriodInfo: TdatailPeriodInfo
+  Left = 476
+  Height = 240
+  Top = 267
+  Width = 320
+  Caption = 'Детальная информация о периоде'
+  LCLVersion = '1.6.4.0'
+end

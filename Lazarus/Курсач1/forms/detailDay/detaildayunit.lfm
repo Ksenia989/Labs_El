@@ -1,0 +1,63 @@
+object makeSearch: TmakeSearch
+  Left = 280
+  Height = 305
+  Top = 218
+  Width = 593
+  AutoSize = True
+  Caption = 'Детальная информация по дню'
+  ClientHeight = 305
+  ClientWidth = 593
+  LCLVersion = '1.6.4.0'
+  object showDayInfo: TButton
+    Left = 212
+    Height = 40
+    Top = 56
+    Width = 69
+    Caption = 'Показать'
+    OnClick = showDayInfoClick
+    TabOrder = 0
+  end
+  object dateSelect: TDateEdit
+    Left = 24
+    Height = 37
+    Top = 56
+    Width = 148
+    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+    DateOrder = doNone
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
+    OnChange = DateEdit1Change
+    TabOrder = 1
+  end
+  object dayForSearchMessage: TLabel
+    Left = 24
+    Height = 20
+    Top = 16
+    Width = 256
+    AutoSize = False
+    Caption = 'Введите день для поиска информации'
+    ParentColor = False
+  end
+  object Image1: TImage
+    Left = 24
+    Height = 160
+    Top = 121
+    Width = 162
+    AutoSize = True
+  end
+  object Image2: TImage
+    Left = 216
+    Height = 160
+    Top = 121
+    Width = 160
+    AutoSize = True
+  end
+  object Image3: TImage
+    Left = 408
+    Height = 160
+    Top = 120
+    Width = 162
+    AutoSize = True
+  end
+end

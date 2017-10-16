@@ -1,7 +1,7 @@
 object makeSearch: TmakeSearch
-  Left = 613
+  Left = 80
   Height = 268
-  Top = 268
+  Top = 238
   Width = 485
   Caption = 'Детальная информация по дню'
   ClientHeight = 268
@@ -9,7 +9,7 @@ object makeSearch: TmakeSearch
   LCLVersion = '1.6.4.0'
   object DateEdit1: TDateEdit
     Left = 160
-    Height = 23
+    Height = 37
     Top = 127
     Width = 77
     CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
@@ -31,7 +31,7 @@ object makeSearch: TmakeSearch
   end
   object DateEdit2: TDateEdit
     Left = 160
-    Height = 23
+    Height = 37
     Top = 160
     Width = 77
     CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]

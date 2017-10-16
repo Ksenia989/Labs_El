@@ -1,0 +1,26 @@
+unit infoAboutPeriod;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs;
+
+type
+  TdatailPeriodInfo = class(TForm)
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  datailPeriodInfo: TdatailPeriodInfo;
+
+implementation
+
+{$R *.lfm}
+
+end.
+

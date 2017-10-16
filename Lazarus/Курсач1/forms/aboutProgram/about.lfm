@@ -1,0 +1,45 @@
+object aboutProgram: TaboutProgram
+  Left = 929
+  Height = 340
+  Top = 233
+  Width = 455
+  BorderStyle = bsDialog
+  Caption = 'О программе'
+  ClientHeight = 340
+  ClientWidth = 455
+  Position = poMainFormCenter
+  LCLVersion = '1.6.4.0'
+  object NameAndVersion: TLabel
+    Left = 40
+    Height = 39
+    Top = 16
+    Width = 368
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Программа сводка погодыверсия 1.0 - SNAPSHOT'
+    ParentColor = False
+    WordWrap = True
+  end
+  object Description: TLabel
+    Left = 40
+    Height = 160
+    Top = 64
+    Width = 368
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Тут можно что - то'#13#10'Написать о программе'#13#10#13#10'Программа предназначена для простого редактирования текстов.'#13#10'Программа позволяет сохранять текст в файл, и считывать его из файла.'#13#10'Файл создается там же, откуда запущена программа, и имеет имя'#13#10'MyFile.txt'
+    ParentColor = False
+    WordWrap = True
+  end
+  object aboutAuthor: TLabel
+    Left = 40
+    Height = 39
+    Top = 248
+    Width = 368
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Программа сводка погодыверсия 1.0 - SNAPSHOT'
+    ParentColor = False
+    WordWrap = True
+  end
+end

@@ -1,0 +1,129 @@
+object WeatherForecast: TWeatherForecast
+  Left = 15
+  Height = 390
+  Top = 236
+  Width = 835
+  Caption = 'Сводка погоды'
+  ClientHeight = 362
+  ClientWidth = 835
+  Menu = menuM
+  OnShow = FormShow
+  LCLVersion = '1.6.4.0'
+  object About: TButton
+    Left = 712
+    Height = 52
+    Top = 48
+    Width = 114
+    Caption = 'About'
+    OnClick = AboutClick
+    TabOrder = 0
+  end
+  object StringGrid1: TStringGrid
+    Left = 80
+    Height = 144
+    Top = 48
+    Width = 608
+    ColCount = 4
+    DefaultColWidth = 150
+    FixedCols = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goTabs, goSmoothScroll]
+    RowCount = 1
+    TabOrder = 1
+    OnGetEditMask = StringGrid1GetEditMask
+  end
+  object SaveInLinkedList: TButton
+    Left = 80
+    Height = 30
+    Top = 209
+    Width = 120
+    Caption = 'Сохранить в лист'
+    OnClick = SaveInLinkedListClick
+    TabOrder = 2
+  end
+  object DecrementRaws: TButton
+    Left = 287
+    Height = 25
+    Top = 214
+    Width = 33
+    Caption = '-'
+    OnClick = DecrementRawsClick
+    TabOrder = 3
+  end
+  object IncrementRaws: TButton
+    Left = 340
+    Height = 24
+    Top = 215
+    Width = 27
+    Caption = '+'
+    OnClick = IncrementRawsClick
+    TabOrder = 4
+  end
+  object CleanTable: TButton
+    Left = 83
+    Height = 29
+    Top = 247
+    Width = 115
+    Caption = 'Очистить таблицу'
+    OnClick = CleanTableClick
+    TabOrder = 5
+  end
+  object dataFromTemplate: TButton
+    Left = 464
+    Height = 38
+    Top = 214
+    Width = 150
+    Caption = 'Данные из базы'
+    OnClick = dataFromTemplateClick
+    TabOrder = 6
+  end
+  object searchDetailInformation: TButton
+    Left = 347
+    Height = 24
+    Top = 328
+    Width = 141
+    Caption = 'Детальная информация'
+    OnClick = searchDetailInformationClick
+    TabOrder = 7
+  end
+  object Label1: TLabel
+    Left = 237
+    Height = 20
+    Top = 263
+    Width = 42
+    Caption = 'Label1'
+    ParentColor = False
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'Все файлы|*.*|Текстовые файлы|*.txt'
+    left = 728
+    top = 288
+  end
+  object SaveDialog1: TSaveDialog
+    Filter = 'Все файлы|*.*|Текстовые файлы|*.txt'
+    left = 768
+    top = 232
+  end
+  object menuM: TMainMenu
+    Tag = 1
+    left = 40
+    top = 16
+    object MenuItem1: TMenuItem
+      Caption = 'Файл'
+      object Open: TMenuItem
+        Caption = 'Открыть'
+        OnClick = OpenClick
+      end
+      object SaveFile: TMenuItem
+        Caption = 'Сохранить'
+        OnClick = SaveFileClick
+      end
+      object SaveAs: TMenuItem
+        Caption = 'Сохранить как'
+      end
+      object Escape: TMenuItem
+        Caption = 'Выход'
+        OnClick = EscapeClick
+      end
+    end
+  end
+end
