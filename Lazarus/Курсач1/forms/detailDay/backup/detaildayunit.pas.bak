@@ -53,7 +53,7 @@ begin
   //WeatherForecast.c
   currentlist := WeatherForecast.getCommonWeather();
   searchListElementByDate(currentList, dateSelect.Date);
-  drawCharts();
+  drawColumnCharts(Image1);
 end;
 
 end.

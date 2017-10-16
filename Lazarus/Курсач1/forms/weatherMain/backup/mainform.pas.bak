@@ -51,7 +51,7 @@ type
 
   public
     { public declarations }
-    function WeatherForecast.getCommonWeather() : list;
+    function getCommonWeather() : list;
   end;
 
 var
