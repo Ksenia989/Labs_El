@@ -37,6 +37,23 @@ begin
   Image.Canvas.TextOut(x + 10, y - 22, s);
 end;
 
+//writeScaleTemperature(image : TImage);
+//var
+//  i : integer;
+//  istr : string;
+//  x, y : integer;
+//begin
+//  x := 15;
+//  y := 153;
+//  for i := 0 to 60 do
+//    begin
+//      str(i, istr);
+//      writeLittleLine(image);
+//      if (i mod 5 = 0) then
+//        Image.Canvas.TextOut(x + 10, y - 22, iStr);
+//    end;
+//end;
+
 procedure writeTemperature(image : Timage);
 begin
   image.canvas.Font.Color:= clblack;
@@ -54,7 +71,7 @@ begin
   image.Canvas.Line(125, 148, 135, 153);
   image.Canvas.Line(125, 159, 135, 153);
   image.canvas.Font.Size := 7;
-  image.canvas.TextOut(137, 143, 'Сутки');
+  image.canvas.TextOut(137, 146, 'Сутки');
 end;
 
 procedure draw(image : TImage; currentList : list
@@ -83,9 +100,13 @@ begin
           calculatedHeight := round(maxSize * (inputHeight / sum));
           image.Canvas.Brush.Color := selectColours(i);
           Image.Canvas.Rectangle(x + 25,y - calculatedHeight, x, y);
-          stringPerCents :=  intToStr(round(inputHeight / sum * 100)) + '%';
+          // На линии отметки с температурой
+          image.canvas.Line(13, calculatedHeight + 10, 17, calculatedHeight + 10);
+          // текст - температура
+          //image.canvas.Font.Size := 7;
+          //image.canvas.TextOut(137, 146, 'Сутки');
+
           image.Canvas.Brush.Color := clwhite;
-          Image.Canvas.TextOut(x, y - calculatedHeight - 30,stringPerCents);
           x := x + 30;
           if (i = 1) then name := 'День' else name := 'Ночь';
           writecColoursAndNames(image, i, image.Canvas.Brush.Color, name);
