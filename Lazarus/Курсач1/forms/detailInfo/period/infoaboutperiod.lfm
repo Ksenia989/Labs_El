@@ -1,7 +1,7 @@
 object datailPeriodInfo: TdatailPeriodInfo
-  Left = 275
+  Left = 209
   Height = 479
-  Top = 173
+  Top = 107
   Width = 1127
   Caption = 'Детальная информация о периоде'
   ClientHeight = 479

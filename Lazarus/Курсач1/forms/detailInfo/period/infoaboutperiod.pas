@@ -42,8 +42,18 @@ implementation
 { TdatailPeriodInfo }
 
 procedure TdatailPeriodInfo.FormCreate(Sender: TObject);
+  procedure initializeWeekDays;
+  begin
+    dayArray[0] := monday;
+    dayArray[1] := Tuersday;
+    dayArray[2] := Wednesday;
+    dayArray[3] := Thursday;
+    dayArray[4] := Friday;
+    dayArray[5] := Saturday;
+    dayArray[6] := Sunday;
+  end;
 begin
-  dayArray[0] := monday;
+  initializeWeekDays;
 
 end;
 
