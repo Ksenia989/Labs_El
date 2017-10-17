@@ -65,7 +65,7 @@ var
 
 implementation
 uses About,
-     detailDayUnit;
+     detailDayUnit, fileSaver;
 
 {$R *.lfm}
 
@@ -132,67 +132,6 @@ begin
   getCommonWeather := commonWeather;
 end;
 
-(*
-    Запись в текстовый файл
-*)
-procedure writeToTextFile(filename : String);
-var
-  fullFileName : string;
-  temp : list;
-    begin
-         temp := commonWeather;
-         fullFileName := filename + '.txt';
-         assign(textfile, fullFileName);
-         rewrite(textfile);
-         while (temp <> nil)do
-            begin
-                write(textfile, dateToStr(temp^.date));
-                write(textfile, #13#10);
-                write(textfile, temp^.dayOrNight);
-                write(textfile, #13#10);
-                write(textfile, temp^.temperature);
-                write(textfile, #13#10);
-                write(textfile, temp^.humidity);
-                write(textfile, #13#10);
-                write(textfile, temp^.atmospherePressure);
-                write(textfile, #13#10);
-                write(textfile, #13#10);
-                temp := temp^.next;
-            end;
-        close(textfile);
-    end;
-
-(*
-    Чтение из текстового файла
-*)
-procedure readFromTextFile(filename : String);
-var
-  fullFileName : string;
-  temperature, humidity, atmospherePressure : integer;
-  dayForSelect : String;
-  date : TDateTime;
-  dayOrNight : string;
-  a : string;
-    begin
-      fullFileName := filename;
-      assign(textfile, fullFileName);
-      reset(textFile);
-      while (not (eof(textFile))) do
-        begin
-          read(textfile, dayForSelect);
-          date := strTODateTime(dayForSelect);
-          readln(textfile, dayOrNight);
-          read(textfile, temperature);
-          read(textfile, humidity);
-          read(textfile, atmospherePressure);
-          readln(textFile);
-          readln(textFile, a);
-          add(commonWeather, date, dayOrNight, temperature, humidity,
-                                atmospherePressure)
-        end;
-      close(textfile);
-    end;
-
 procedure fillData();
 var
   temp : list;
@@ -225,7 +164,7 @@ begin
  //присваиваем переменной myfile адрес и имя выбранного файла:
  fileName := OpenDialog1.FileName;
  //читаем этот файл в Memo:
- readFromTextFile(fileName);
+ readFromTextFile(textFile, fileName, commonWeather);
  fillData();
  tableChanged := False; //файл только открыт, изменений еще нет
  end;
@@ -259,7 +198,7 @@ var
 begin
   commonWeather := nil;
   filename := 'D:\Home\Desktop\Repos\Labs_El\Lazarus\Курсач1\dataTemplate.txt';
-  readFromTextFile(fileName);
+  readFromTextFile(textFile, fileName, commonWeather);
   fillData();
   tableChanged := False;
 end;
@@ -277,7 +216,7 @@ begin
     //есть его адрес и имя, просто перезаписываем этот файл:
     if fileName <> '' then
     begin
-      writeToTextFile(filename);
+      writeToTextFile(textfile, filename, commonWeather);
       tableChanged := false;
       Exit; //выходим после сохранения
     end;
@@ -289,7 +228,7 @@ begin
       //прописываем адрес и имя файла в переменную:
       fileName := SaveDialog1.FileName;
       //если нет расширения *.txt то добавляем его:
-      writeToTextFile(filename);
+      writeToTextFile(textfile, filename, commonWeather);
       //сохраняем табличку в указанный файл:
       tableChanged := False;
     end

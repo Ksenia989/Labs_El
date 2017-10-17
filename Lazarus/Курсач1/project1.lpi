@@ -35,7 +35,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="10">
+    <Units Count="11">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -76,7 +76,7 @@
       <Unit6>
         <Filename Value="forms/detailDay/detaildayunit.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="makeSearch"/>
+        <ComponentName Value="detailDayInfo"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="detailDayUnit"/>
@@ -97,6 +97,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="columnChart"/>
       </Unit9>
+      <Unit10>
+        <Filename Value="utils/inputOutput/filesaver.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="fileSaver"/>
+      </Unit10>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -106,7 +111,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="forms;forms/weatherMain;forms/detailDay;utils/list;forms/aboutProgram;forms/detailInfo/period;utils/sort;utils/charts"/>
+      <OtherUnitFiles Value="forms;forms/weatherMain;forms/detailDay;utils/list;forms/aboutProgram;forms/detailInfo/period;utils/sort;utils/charts;utils/inputOutput"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

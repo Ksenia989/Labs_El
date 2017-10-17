@@ -1,5 +1,5 @@
 object makeSearch: TmakeSearch
-  Left = 586
+  Left = 135
   Height = 305
   Top = 336
   Width = 593
@@ -27,7 +27,6 @@ object makeSearch: TmakeSearch
     ButtonWidth = 23
     NumGlyphs = 1
     MaxLength = 0
-    OnChange = DateEdit1Change
     TabOrder = 1
   end
   object dayForSearchMessage: TLabel

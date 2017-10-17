@@ -10,9 +10,9 @@ uses
 
 type
 
-  { TmakeSearch }
+  { TdetailDayInfo }
 
-  TmakeSearch = class(TForm)
+  TdetailDayInfo = class(TForm)
     Image1: TImage;
     Image2: TImage;
     Image3: TImage;
@@ -20,7 +20,6 @@ type
     dateSelect: TDateEdit;
     dayForSearchMessage: TLabel;
     procedure showDayInfoClick(Sender: TObject);
-    procedure DateEdit1Change(Sender: TObject);
   private
     { private declarations }
   public
@@ -28,7 +27,7 @@ type
   end;
 
 var
-  makeSearch: TmakeSearch;
+  detailDayInfo: TdetailDayInfo;
 
 implementation
 
@@ -37,22 +36,18 @@ implementation
 uses
   MainForm, ColumnChart;
 
-{ TmakeSearch }
+{ TdetailDayInfo }
 
-procedure TmakeSearch.DateEdit1Change(Sender: TObject);
-begin
-
-end;
-
-procedure TmakeSearch.showDayInfoClick(Sender: TObject);
+procedure TdetailDayInfo.showDayInfoClick(Sender: TObject);
 var
   dayList, nightlist, listTemplate : list;
 begin
   listTemplate := WeatherForecast.getCommonWeather(); // todo по дню и ночи поиск
   dayList := searchListElementByDate(listTemplate, dateSelect.Date, 'День');
   nightList := searchListElementByDate(listTemplate, dateSelect.Date, 'Ночь');
-  dayList^.next := nightList;
-  draw(Image1, dayList, 'Температура');
+  draw(Image1, dayList^.temperature, nightlist^.temperature, 'Температура');
+  draw(Image2, dayList^.humidity, nightlist^.humidity, 'Влажность');
+  draw(Image3, dayList^.atmospherePressure, nightList^.atmospherePressure, 'Атм. давление');
 end;
 
 end.
