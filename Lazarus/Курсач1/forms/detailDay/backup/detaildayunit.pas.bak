@@ -35,7 +35,7 @@ implementation
 {$R *.lfm}
 
 uses
-  MainForm;
+  MainForm, ColumnChart;
 
 { TmakeSearch }
 
@@ -46,14 +46,13 @@ end;
 
 procedure TmakeSearch.showDayInfoClick(Sender: TObject);
 var
-  d1 : TDateTime;
-  currentlist : list;
-  // выборка по дню
+  dayList, nightlist, listTemplate : list;
 begin
-  //WeatherForecast.c
-  currentlist := WeatherForecast.getCommonWeather();
-  searchListElementByDate(currentList, dateSelect.Date);
-  drawColumnCharts(Image1);
+  listTemplate := WeatherForecast.getCommonWeather(); // todo по дню и ночи поиск
+  dayList := searchListElementByDate(listTemplate, dateSelect.Date);
+  nightList := searchListElementByDate(listTemplate, dateSelect.Date);
+  dayList^.next := nightList;
+  draw(Image1, dayList, 'Температура');
 end;
 
 end.

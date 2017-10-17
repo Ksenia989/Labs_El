@@ -1,18 +1,18 @@
 object WeatherForecast: TWeatherForecast
-  Left = 615
-  Height = 394
-  Top = 218
-  Width = 835
+  Left = 47
+  Height = 419
+  Top = 324
+  Width = 1061
   Caption = 'Сводка погоды'
-  ClientHeight = 366
-  ClientWidth = 835
+  ClientHeight = 391
+  ClientWidth = 1061
   Menu = menuM
   OnShow = FormShow
   LCLVersion = '1.6.4.0'
   object About: TButton
-    Left = 712
+    Left = 880
     Height = 52
-    Top = 48
+    Top = 72
     Width = 114
     Caption = 'About'
     OnClick = AboutClick
@@ -22,8 +22,8 @@ object WeatherForecast: TWeatherForecast
     Left = 80
     Height = 144
     Top = 48
-    Width = 608
-    ColCount = 4
+    Width = 752
+    AutoAdvance = aaNone
     DefaultColWidth = 150
     FixedCols = 0
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goTabs, goSmoothScroll]

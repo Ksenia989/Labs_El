@@ -14,25 +14,35 @@ type
     temperature : integer;
     humidity : integer;
     atmospherePressure : integer;
+    dayOrNight : string[20];
     next : list;
   end;
 
-procedure add(var listForAdd : List; date : TDateTime; temperature : integer;
-                             humidity : integer; atmospherePressure : integer);
+
+{public declarations}
+procedure add(var listForAdd : List; date : TDateTime; dayOrNight : String;
+                             temperature : integer;
+                             humidity : integer; atmospherePressure : integer
+                             );
+function searchListElementByDate(currentList : list; date : TDateTime) : list;
+
 
 implementation
 
 procedure readValue(var target : list; date : TDateTime; temperature : integer; humidity : integer;
-                             atmospherePressure : integer);
+                             atmospherePressure : integer; dayOrNight : string);
 begin
   target^.date := date;
   target^.temperature := temperature;
   target^.humidity := humidity;
   target^.atmospherePressure := atmospherePressure;
+  target^.dayOrNight := dayOrNight;
 end;
 
-procedure add(var listForAdd : List; date : TDateTime; temperature : integer;
-                             humidity : integer; atmospherePressure : integer);
+procedure add(var listForAdd : List; date : TDateTime; dayOrNight : String;
+                             temperature : integer;
+                             humidity : integer; atmospherePressure : integer
+                             );
 var
   temp:List;
 begin
@@ -56,7 +66,7 @@ begin
   // сейчас указатель на следующий элемент пуст - его нет
   temp^.next := nil;
   // заносим значения в зависимости от реализации.
-  readValue(temp, date, temperature, humidity, atmospherePressure);
+  readValue(temp, date, temperature, humidity, atmospherePressure, dayOrNight);
 end;
 
 function searchListElementByDate(currentList : list; date : TDateTime) : list;

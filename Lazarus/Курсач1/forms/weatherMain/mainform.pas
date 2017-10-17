@@ -13,6 +13,11 @@ type
 
   { TWeatherForecast }
 
+  //TStringGrid = class(grids.TStringGrid)
+  //private
+  //  procedure GetCbxItems(ACol, ARow: Integer; Items: TStrings);
+  //end;
+
   TWeatherForecast = class(TForm)
     About: TButton;
     DecrementRaws: TButton;
@@ -64,8 +69,6 @@ uses About,
 
 {$R *.lfm}
 
- //function getCommonWeather() : list;
-
 const
   filename : string = '';
 
@@ -75,6 +78,54 @@ var
   textfile : text;
 
 { TWeatherForecast }
+
+procedure TWeatherForecast.FormShow(Sender: TObject);
+//var
+  //inplace : TInplaceEditList;
+begin
+  StringGrid1.Cells[0,0]:= 'Дата';
+  StringGrid1.Cells[1,0]:= 'День/Ночь';
+  StringGrid1.Cells[2,0]:= 'Температура воздуха, C';
+  StringGrid1.Cells[3,0]:= 'Влажность воздуха, %';
+  StringGrid1.Cells[4,0]:= 'Атмосферное давление, мм.рт.ст';
+
+  // Меняем ширину столбцоы
+  StringGrid1.ColWidths[0]:= 100;
+  StringGrid1.ColWidths[1]:= 100;
+  StringGrid1.ColWidths[2]:= 170;
+  StringGrid1.ColWidths[3]:= 150;
+  StringGrid1.ColWidths[4]:= 230;
+
+  //inplace := TInplaceEditList.Create(Self);
+  ////inplace.DropDownRows := 5;
+  //inplace.OnGetPickListitems := GetCbxItems;
+  //Result := inplace;
+end;
+
+//procedure TStringGrid.GetCbxItems(ACol, ARow: Integer; Items: TStrings);
+//begin
+//  Items.Clear;
+//  // Хоть дя каждого столбца разные данные
+//  case ACol of
+//  1 :
+//  begin
+//    Items.Add('Вариант 1');
+//    Items.Add('Вариант 2');
+//    Items.Add('Вариант 3');
+//  end;
+//  else
+//  begin
+//    Items.Add('Поле 1');
+//    Items.Add('Поле 2');
+//    Items.Add('Поле 3');
+//  end;
+//  end;
+//end;
+
+//function TStringGrid.GetEditStyle(ACol, ARow: Integer): TEditStyle;
+//begin
+//  Result := esPickList;
+//end;
 
 function TWeatherForecast.getCommonWeather() : list;
 begin
@@ -89,13 +140,15 @@ var
   fullFileName : string;
   temp : list;
     begin
-         temp :=commonWeather;
+         temp := commonWeather;
          fullFileName := filename + '.txt';
          assign(textfile, fullFileName);
          rewrite(textfile);
          while (temp <> nil)do
             begin
-                write(textfile, temp^.date);
+                write(textfile, dateToStr(temp^.date));
+                write(textfile, #13#10);
+                write(textfile, temp^.dayOrNight);
                 write(textfile, #13#10);
                 write(textfile, temp^.temperature);
                 write(textfile, #13#10);
@@ -118,6 +171,7 @@ var
   temperature, humidity, atmospherePressure : integer;
   dayForSelect : String;
   date : TDateTime;
+  dayOrNight : string;
   a : string;
     begin
       fullFileName := filename;
@@ -127,36 +181,24 @@ var
         begin
           read(textfile, dayForSelect);
           date := strTODateTime(dayForSelect);
+          readln(textfile);
+          readln(textfile, dayOrNight);
           read(textfile, temperature);
           read(textfile, humidity);
           read(textfile, atmospherePressure);
           readln(textFile);
           readln(textFile, a);
-          add(commonWeather, date, temperature, humidity,
+          add(commonWeather, date, dayOrNight, temperature, humidity,
                                 atmospherePressure)
         end;
       close(textfile);
     end;
 
-procedure TWeatherForecast.FormShow(Sender: TObject);
-begin
-  StringGrid1.Cells[0,0]:= 'Дата';
-  StringGrid1.Cells[1,0]:= 'Температура воздуха, C';
-  StringGrid1.Cells[2,0]:= 'Влажность воздуха, %';
-  StringGrid1.Cells[3,0]:= 'Атмосферное давление, мм.рт.ст';
-
-  // Меняем высоту
-  StringGrid1.ColWidths[0]:= 100;
-  StringGrid1.ColWidths[1]:= 150;
-  StringGrid1.ColWidths[2]:= 150;
-  StringGrid1.ColWidths[3]:= 190;
-end;
-
 procedure fillData();
 var
   temp : list;
   i : integer;
-  a : string[20];
+  a : string;
 begin
   i := 1;
   temp := commonWeather;
@@ -165,12 +207,14 @@ begin
   begin
     weatherForecast.StringGrid1.RowCount := weatherForecast.StringGrid1.RowCount + 1;
     weatherForecast.StringGrid1.Cells[0, i] := dateTimeTOStr(temp^.date, false);
-    str(temp^.temperature, a);
+    a := temp^.dayOrNight;
     weatherForecast.StringGrid1.Cells[1, i] := a;
-    str(temp^.humidity, a);
+    str(temp^.temperature, a);
     weatherForecast.StringGrid1.Cells[2, i] := a;
-    str(temp^.atmospherePressure, a);
+    str(temp^.humidity, a);
     weatherForecast.StringGrid1.Cells[3, i] := a;
+    str(temp^.atmospherePressure, a);
+    weatherForecast.StringGrid1.Cells[4, i] := a;
     inc(i);
     temp := temp^.next;
   end;
@@ -261,15 +305,18 @@ var
   n : integer;
   temperature, humidity, atmospherePressure : integer;
   day : TDateTime;
+  dayOrNight : string;
 begin
   n := StringGrid1.RowCount;
   for i := 0 to n - 2 do
   begin
     day := strToDateTime(StringGrid1.Cells[0, i + 1]);
-    val(StringGrid1.Cells[1, i + 1], temperature, errCode);
-    val(StringGrid1.Cells[2, i + 1], humidity, errCode);
-    val(StringGrid1.Cells[3, i + 1], atmospherePressure, errCode);
-    LinkedList.add(commonWeather, day,  temperature, humidity, atmospherePressure);
+    dayOrNight := StringGrid1.Cells[1, i + 1];
+    val(StringGrid1.Cells[2, i + 1], temperature, errCode);
+    val(StringGrid1.Cells[3, i + 1], humidity, errCode);
+    val(StringGrid1.Cells[4, i + 1], atmospherePressure, errCode);
+    LinkedList.add(commonWeather, day, dayOrNight, temperature, humidity, atmospherePressure
+                                        );
   end;
 end;
 

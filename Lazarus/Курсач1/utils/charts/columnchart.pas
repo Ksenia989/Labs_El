@@ -5,14 +5,72 @@ unit columnChart;
 interface
 
 uses
-  Classes, SysUtils;
+  Classes, SysUtils, linkedList,  ExtCtrls, Graphics;
+
+{public declarations}
+procedure draw(image : TImage; currentList : list
+                                           ; header : string);
 
 implementation
 
-procedure draw(image : TImage);
+function selectColours(i : integer) : TColor;
+var
+  coloursArray : array[0 .. 1] of TColor;
 begin
+  coloursArray[1] := clBlue;
+  coloursArray[2] := clRed;
+  selectColours := coloursArray[i mod 2];
+end;
 
+procedure writecColoursAndNames(image : TImage; i : Integer; colour: TColor; s : string);
+var
+  y : integer;
+  x : integer;
+begin
+  image.Canvas.Brush.Color := colour;
+  x := 120;
+  y := 45 + (i * 20 + (i-1) * 10 );
+  image.Canvas.brush.Style := bsSolid;
+  image.Canvas.Brush.Color := selectColours(i);
+  Image.Canvas.Rectangle(x - 25, y - 25, x, y);
+  image.Canvas.Brush.Color := clwhite;
+  Image.Canvas.TextOut(x + 10, y - 22, s);
+end;
 
+procedure draw(image : TImage; currentList : list
+                     ; header : string);
+var
+  sum : integer;
+  i : integer;
+  inputHeight, calculatedHeight: integer;
+  maxSize : integer;
+  x, y : integer;
+  stringPerCents : string;
+  name : String;
+begin
+  Image.Canvas.Brush.Color := clWhite;
+  image.Canvas.Rectangle(0, 0, image.Width, image.Height);
+  Image.Canvas.TextOut(20,10, header);
+  image.Color := clwhite;
+  sum := 0;
+    sum := currentList^.temperature + currentList ^.next^.temperature;
+    maxsize := 140;
+    x := 20;
+    y := 150;
+      for i := 1 to 2 do
+        begin
+          inputHeight := currentList^.temperature;
+          calculatedHeight := round(maxSize * (inputHeight / sum));
+          image.Canvas.Brush.Color := selectColours(i);
+          Image.Canvas.Rectangle(x + 25,y - calculatedHeight, x, y);
+          stringPerCents :=  intToStr(round(inputHeight / sum * 100)) + '%';
+          image.Canvas.Brush.Color := clwhite;
+          Image.Canvas.TextOut(x, y - calculatedHeight - 30,stringPerCents);
+          x := x + 30;
+          if (i = 1) then name := 'День' else name := 'Ночь';
+          writecColoursAndNames(image, i, image.Canvas.Brush.Color, name);
+          currentList := currentList^.next;
+        end;
 end;
 
 end.
