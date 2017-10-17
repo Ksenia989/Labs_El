@@ -9,7 +9,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="40" Y="12"/>
-        <UsageCount Value="123"/>
+        <UsageCount Value="124"/>
       </Unit0>
       <Unit1>
         <Filename Value="forms/weatherMain/mainform.pas"/>
@@ -18,10 +18,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MainForm"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="163"/>
-        <CursorPos X="12" Y="179"/>
-        <UsageCount Value="123"/>
+        <TopLine Value="286"/>
+        <CursorPos X="52" Y="189"/>
+        <UsageCount Value="124"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -33,7 +32,7 @@
         <UnitName Value="About"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="25" Y="12"/>
-        <UsageCount Value="123"/>
+        <UsageCount Value="124"/>
       </Unit2>
       <Unit3>
         <Filename Value="unit2.pas"/>
@@ -43,15 +42,17 @@
         <UnitName Value="Unit2"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="65" Y="10"/>
-        <UsageCount Value="110"/>
+        <UsageCount Value="111"/>
       </Unit3>
       <Unit4>
         <Filename Value="utils/list/linkedlist.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LinkedList"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="25" Y="17"/>
-        <UsageCount Value="85"/>
+        <TopLine Value="48"/>
+        <CursorPos X="7" Y="89"/>
+        <UsageCount Value="86"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
@@ -60,7 +61,7 @@
         <UnitName Value="LinkedWeatherList"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="10"/>
-        <UsageCount Value="85"/>
+        <UsageCount Value="86"/>
       </Unit5>
       <Unit6>
         <Filename Value="forms/detailDay/detaildayunit.pas"/>
@@ -69,10 +70,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="detailDayUnit"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="1"/>
         <TopLine Value="15"/>
-        <CursorPos X="16" Y="54"/>
-        <UsageCount Value="70"/>
+        <CursorPos X="24" Y="52"/>
+        <UsageCount Value="71"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
@@ -83,24 +84,24 @@
         <UnitName Value="infoAboutPeriod"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="8" Y="21"/>
-        <UsageCount Value="34"/>
+        <UsageCount Value="35"/>
       </Unit7>
       <Unit8>
         <Filename Value="utils/sort/sorting.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="5"/>
         <CursorPos X="40" Y="20"/>
-        <UsageCount Value="31"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
       </Unit8>
       <Unit9>
         <Filename Value="utils/charts/columnchart.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="columnChart"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="3"/>
         <TopLine Value="33"/>
         <CursorPos X="9" Y="53"/>
-        <UsageCount Value="30"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
       </Unit9>
       <Unit10>
@@ -205,11 +206,10 @@
       <Unit24>
         <Filename Value="/usr/lib64/lazarus/lcl/lclmessageglue.pas"/>
         <UnitName Value="LCLMessageGlue"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="92"/>
         <CursorPos Y="114"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit24>
       <Unit25>
         <Filename Value="/usr/lib64/lazarus/lcl/editbtn.pas"/>
@@ -245,7 +245,7 @@
       </Unit28>
       <Unit29>
         <Filename Value="/usr/lib64/lazarus/lcl/include/customimage.inc"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="34"/>
         <CursorPos Y="60"/>
         <UsageCount Value="13"/>
@@ -268,128 +268,128 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="153" TopLine="127"/>
+        <Caret Line="163" TopLine="127"/>
       </Position1>
       <Position2>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="154" TopLine="127"/>
+        <Caret Line="281" TopLine="259"/>
       </Position2>
       <Position3>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="155" TopLine="127"/>
+        <Caret Line="282" TopLine="259"/>
       </Position3>
       <Position4>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="156" TopLine="127"/>
+        <Caret Line="298" TopLine="261"/>
       </Position4>
       <Position5>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="157" TopLine="127"/>
+        <Caret Line="184" Column="18" TopLine="163"/>
       </Position5>
       <Position6>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="158" TopLine="127"/>
+        <Caret Line="183" Column="43" TopLine="163"/>
       </Position6>
       <Position7>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="159" TopLine="127"/>
+        <Caret Line="179" Column="12" TopLine="163"/>
       </Position7>
       <Position8>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="160" TopLine="127"/>
+        <Caret Line="186" TopLine="163"/>
       </Position8>
       <Position9>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="147" TopLine="127"/>
+        <Caret Line="187" Column="41" TopLine="163"/>
       </Position9>
       <Position10>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="149" TopLine="127"/>
+        <Caret Line="188" Column="33" TopLine="163"/>
       </Position10>
       <Position11>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="150" TopLine="127"/>
+        <Caret Line="186" TopLine="163"/>
       </Position11>
       <Position12>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="151" TopLine="127"/>
+        <Caret Line="190" TopLine="163"/>
       </Position12>
       <Position13>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="152" TopLine="127"/>
+        <Caret Line="191" TopLine="163"/>
       </Position13>
       <Position14>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="153" TopLine="127"/>
+        <Caret Line="180" TopLine="163"/>
       </Position14>
       <Position15>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="154" TopLine="127"/>
+        <Caret Line="182" TopLine="163"/>
       </Position15>
       <Position16>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="155" TopLine="127"/>
+        <Caret Line="183" TopLine="163"/>
       </Position16>
       <Position17>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="156" TopLine="127"/>
+        <Caret Line="184" TopLine="163"/>
       </Position17>
       <Position18>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="157" TopLine="127"/>
+        <Caret Line="185" TopLine="163"/>
       </Position18>
       <Position19>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="158" TopLine="127"/>
+        <Caret Line="186" TopLine="163"/>
       </Position19>
       <Position20>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="159" TopLine="127"/>
+        <Caret Line="187" TopLine="163"/>
       </Position20>
       <Position21>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="160" TopLine="127"/>
+        <Caret Line="188" TopLine="163"/>
       </Position21>
       <Position22>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="147" TopLine="127"/>
+        <Caret Line="189" TopLine="163"/>
       </Position22>
       <Position23>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="162" TopLine="127"/>
+        <Caret Line="190" TopLine="163"/>
       </Position23>
       <Position24>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="163" TopLine="127"/>
+        <Caret Line="191" TopLine="163"/>
       </Position24>
       <Position25>
-        <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="281" TopLine="259"/>
+        <Filename Value="forms/detailDay/detaildayunit.pas"/>
+        <Caret Line="39" Column="67" TopLine="15"/>
       </Position25>
       <Position26>
-        <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="282" TopLine="259"/>
+        <Filename Value="utils/list/linkedlist.pas"/>
+        <Caret Line="56" Column="27" TopLine="48"/>
       </Position26>
       <Position27>
-        <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="298" TopLine="261"/>
+        <Filename Value="forms/detailDay/detaildayunit.pas"/>
+        <Caret Line="39" Column="67" TopLine="15"/>
       </Position27>
       <Position28>
-        <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="184" Column="18" TopLine="163"/>
+        <Filename Value="forms/detailDay/detaildayunit.pas"/>
+        <Caret Line="53" Column="80" TopLine="15"/>
       </Position28>
       <Position29>
-        <Filename Value="/usr/lib64/lazarus/lcl/lclmessageglue.pas"/>
-        <Caret Line="114" TopLine="92"/>
+        <Filename Value="forms/detailDay/detaildayunit.pas"/>
+        <Caret Line="50" Column="51" TopLine="15"/>
       </Position29>
       <Position30>
-        <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="183" Column="43" TopLine="163"/>
+        <Filename Value="forms/detailDay/detaildayunit.pas"/>
+        <Caret Line="52" Column="24" TopLine="15"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="3">
+    <BreakPoints Count="4">
       <Item1>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
@@ -402,17 +402,24 @@
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="forms/weatherMain/mainform.pas"/>
-        <Line Value="186"/>
+        <Line Value="149"/>
       </Item2>
       <Item3>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
-        <Source Value="forms/weatherMain/mainform.pas"/>
-        <Line Value="149"/>
+        <Source Value="forms/detailDay/detaildayunit.pas"/>
+        <Line Value="54"/>
       </Item3>
+      <Item4>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="forms/detailDay/detaildayunit.pas"/>
+        <Line Value="53"/>
+      </Item4>
     </BreakPoints>
-    <Watches Count="12">
+    <Watches Count="11">
       <Item1>
         <Expression Value="fullFileName"/>
       </Item1>
@@ -426,29 +433,26 @@
         <Expression Value="commonWeather"/>
       </Item4>
       <Item5>
-        <Expression Value="nightList"/>
+        <Expression Value="day"/>
       </Item5>
       <Item6>
-        <Expression Value="dayList"/>
+        <Expression Value="temp"/>
       </Item6>
       <Item7>
-        <Expression Value="sum"/>
+        <Expression Value="dayOrNight"/>
       </Item7>
       <Item8>
-        <Expression Value="commonWeather"/>
+        <Expression Value="temperature"/>
       </Item8>
       <Item9>
-        <Expression Value="dayornight"/>
+        <Expression Value="humidity"/>
       </Item9>
       <Item10>
-        <Expression Value="day"/>
+        <Expression Value="atmospherepressure"/>
       </Item10>
       <Item11>
-        <Expression Value="temp"/>
+        <Expression Value="dayList"/>
       </Item11>
-      <Item12>
-        <Expression Value="dayOrNight"/>
-      </Item12>
     </Watches>
   </Debugging>
 </CONFIG>

@@ -24,7 +24,8 @@ procedure add(var listForAdd : List; date : TDateTime; dayOrNight : String;
                              temperature : integer;
                              humidity : integer; atmospherePressure : integer
                              );
-function searchListElementByDate(currentList : list; date : TDateTime) : list;
+function searchListElementByDate(currentList : list; date : TDateTime
+                             ; dayOrNight : string) : list;
 
 
 implementation
@@ -69,24 +70,23 @@ begin
   readValue(temp, date, temperature, humidity, atmospherePressure, dayOrNight);
 end;
 
-function searchListElementByDate(currentList : list; date : TDateTime) : list;
+function searchListElementByDate(currentList : list; date : TDateTime; dayOrNight : string) : list;
 var
   founded : boolean;
   temp : List;
-  res : List;
 begin
+  searchListElementByDate := nil;
   temp := currentList;
   founded := false;
   while ((founded = false) and (currentList^.next <> nil)) do
   begin
-    if (date = temp^.date) then
+    if ((date = temp^.date) and (temp^.dayOrNight = dayOrNight)) then
     begin
       founded := true;
-      res := temp;
+      searchListElementByDate := temp;
     end;
     temp := currentList^.next;
   end;
-  searchListElementByDate := temp;
 end;
 end.
 

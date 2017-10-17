@@ -49,8 +49,8 @@ var
   dayList, nightlist, listTemplate : list;
 begin
   listTemplate := WeatherForecast.getCommonWeather(); // todo по дню и ночи поиск
-  dayList := searchListElementByDate(listTemplate, dateSelect.Date);
-  nightList := searchListElementByDate(listTemplate, dateSelect.Date);
+  dayList := searchListElementByDate(listTemplate, dateSelect.Date, 'День');
+  nightList := searchListElementByDate(listTemplate, dateSelect.Date, 'Ночь');
   dayList^.next := nightList;
   draw(Image1, dayList, 'Температура');
 end;
