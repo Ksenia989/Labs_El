@@ -64,7 +64,7 @@ begin
           image.Canvas.Brush.Color := selectColours(i);
           Image.Canvas.Rectangle(x + 25,y - calculatedHeight, x, y);
           stringPerCents :=  intToStr(round(inputHeight / sum * 100)) + '%';
-          //image.Canvas.Brush.Color := selectColours(i);
+          image.Canvas.Brush.Color := clwhite;
           Image.Canvas.TextOut(x, y - calculatedHeight - 30,stringPerCents);
           x := x + 30;
           if (i = 1) then name := 'День' else name := 'Ночь';

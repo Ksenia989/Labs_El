@@ -17,8 +17,8 @@ function selectColours(i : integer) : TColor;
 var
   coloursArray : array[0 .. 1] of TColor;
 begin
-  coloursArray[1] := clBlue;
-  coloursArray[2] := clRed;
+  coloursArray[0] := clBlue;
+  coloursArray[1] := clRed;
   selectColours := coloursArray[i mod 2];
 end;
 
