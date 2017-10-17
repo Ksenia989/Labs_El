@@ -37,6 +37,16 @@ begin
   Image.Canvas.TextOut(x + 10, y - 22, s);
 end;
 
+procedure writeScale(image : Timage);
+begin
+  image.canvas.Font.Color:= clblack;
+  image.Canvas.Line(10, 153, 135, 153);
+  image.Canvas.Line(125, 146, 135, 153);
+  image.Canvas.Line(125, 159, 135, 153);
+  image.canvas.Font.Size := 7;
+  image.canvas.TextOut(137, 143, 'Сутки');
+end;
+
 procedure draw(image : TImage; currentList : list
                      ; header : string);
 var
@@ -71,6 +81,7 @@ begin
           writecColoursAndNames(image, i, image.Canvas.Brush.Color, name);
           currentList := currentList^.next;
         end;
+      writeScale(image);
 end;
 
 end.
