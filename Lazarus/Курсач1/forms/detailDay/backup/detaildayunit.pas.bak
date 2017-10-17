@@ -10,9 +10,9 @@ uses
 
 type
 
-  { TmakeSearch }
+  { TdetailDayInfo }
 
-  TmakeSearch = class(TForm)
+  TdetailDayInfo = class(TForm)
     Image1: TImage;
     Image2: TImage;
     Image3: TImage;
@@ -27,7 +27,7 @@ type
   end;
 
 var
-  makeSearch: TmakeSearch;
+  detailDayInfo: TdetailDayInfo;
 
 implementation
 
@@ -36,9 +36,9 @@ implementation
 uses
   MainForm, ColumnChart;
 
-{ TmakeSearch }
+{ TdetailDayInfo }
 
-procedure TmakeSearch.showDayInfoClick(Sender: TObject);
+procedure TdetailDayInfo.showDayInfoClick(Sender: TObject);
 var
   dayList, nightlist, listTemplate : list;
 begin

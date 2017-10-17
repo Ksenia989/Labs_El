@@ -9,14 +9,8 @@ uses
   ExtCtrls, Grids, Menus, ColorBox,
   LinkedList;
 
-type
-
-  { TWeatherForecast }
-
-  //TStringGrid = class(grids.TStringGrid)
-  //private
-  //  procedure GetCbxItems(ACol, ARow: Integer; Items: TStrings);
-  //end;
+{ TWeatherForecast }
+  type
 
   TWeatherForecast = class(TForm)
     About: TButton;
@@ -50,6 +44,10 @@ type
     procedure searchDetailInformationClick(Sender: TObject);
     procedure StringGrid1GetEditMask(Sender: TObject; ACol, ARow: Integer;
       var Value: string);
+    procedure StringGrid1PickListSelect(Sender: TObject);
+    procedure StringGrid1SelectEditor(Sender: TObject; aCol, aRow: Integer;
+      var Editor: TWinControl);
+    //procedure StringGrid1PickListSelect(Sender: TObject);
 
   private
     { private declarations }
@@ -80,8 +78,6 @@ var
 { TWeatherForecast }
 
 procedure TWeatherForecast.FormShow(Sender: TObject);
-//var
-  //inplace : TInplaceEditList;
 begin
   StringGrid1.Cells[0,0]:= 'Дата';
   StringGrid1.Cells[1,0]:= 'День/Ночь';
@@ -95,37 +91,7 @@ begin
   StringGrid1.ColWidths[2]:= 170;
   StringGrid1.ColWidths[3]:= 150;
   StringGrid1.ColWidths[4]:= 230;
-
-  //inplace := TInplaceEditList.Create(Self);
-  ////inplace.DropDownRows := 5;
-  //inplace.OnGetPickListitems := GetCbxItems;
-  //Result := inplace;
 end;
-
-//procedure TStringGrid.GetCbxItems(ACol, ARow: Integer; Items: TStrings);
-//begin
-//  Items.Clear;
-//  // Хоть дя каждого столбца разные данные
-//  case ACol of
-//  1 :
-//  begin
-//    Items.Add('Вариант 1');
-//    Items.Add('Вариант 2');
-//    Items.Add('Вариант 3');
-//  end;
-//  else
-//  begin
-//    Items.Add('Поле 1');
-//    Items.Add('Поле 2');
-//    Items.Add('Поле 3');
-//  end;
-//  end;
-//end;
-
-//function TStringGrid.GetEditStyle(ACol, ARow: Integer): TEditStyle;
-//begin
-//  Result := esPickList;
-//end;
 
 function TWeatherForecast.getCommonWeather() : list;
 begin
@@ -260,13 +226,37 @@ end;
 
 procedure TWeatherForecast.searchDetailInformationClick(Sender: TObject);
 begin
-  makeSearch.showModal;
+  detailDayInfo.showModal;
 end;
 
 procedure TWeatherForecast.StringGrid1GetEditMask(Sender: TObject; ACol,
   ARow: Integer; var Value: string);
 begin
   if (ACol = 0) then value := '99.99.9999';
+end;
+
+//procedure TWeatherForecast.StringGrid1PickListSelect(Sender: TObject);
+//begin
+//  with StringGrid1 do
+//    begin
+//      case Cells[Col, Row] of
+//        'День': CurrentColour := clWhite;
+//        'Aqua': CurrentColour := clAqua;
+//        'Blue': CurrentColour := clBlue;
+//        'Fuchsia': CurrentColour := clFuchsia;
+//        'Yellow': CurrentColour := clYellow;
+//        'Teal': CurrentColour := clTeal;
+//      end;
+//    end;
+//end;
+
+procedure TWeatherForecast.StringGrid1SelectEditor(Sender: TObject; aCol, aRow: Integer;
+  var Editor: TWinControl);
+begin
+  if aCol=1 then begin
+    Editor := StringGrid1.EditorByStyle(cbsPickList);
+    TCustomComboBox(Editor).Items.CommaText := 'День, Ночь';
+  end;
 end;
 
 end.

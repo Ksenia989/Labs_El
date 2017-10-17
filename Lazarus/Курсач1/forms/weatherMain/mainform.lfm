@@ -1,7 +1,7 @@
 object WeatherForecast: TWeatherForecast
-  Left = 47
+  Left = 395
   Height = 419
-  Top = 324
+  Top = 416
   Width = 1061
   Caption = 'Сводка погоды'
   ClientHeight = 391
@@ -30,6 +30,7 @@ object WeatherForecast: TWeatherForecast
     RowCount = 1
     TabOrder = 1
     OnGetEditMask = StringGrid1GetEditMask
+    OnSelectEditor = StringGrid1SelectEditor
   end
   object SaveInLinkedList: TButton
     Left = 80
