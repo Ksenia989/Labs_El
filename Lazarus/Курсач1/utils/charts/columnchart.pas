@@ -84,6 +84,7 @@ var
   x, y : integer;
   stringPerCents : string;
   name : String;
+  value : String;
 begin
   Image.Canvas.Brush.Color := clWhite;
   image.Canvas.Rectangle(0, 0, image.Width, image.Height);
@@ -103,8 +104,11 @@ begin
           // На линии отметки с температурой
           image.canvas.Line(13, calculatedHeight + 10, 17, calculatedHeight + 10);
           // текст - температура
-          //image.canvas.Font.Size := 7;
-          //image.canvas.TextOut(137, 146, 'Сутки');
+          str(currentList^.temperature, value);
+          image.Canvas.Brush.Color := clwhite; //
+          image.canvas.Font.Color:= clblack;
+          image.canvas.Font.Size := 7;
+          image.canvas.textOut(5, calculatedHeight + 10, value);
 
           image.Canvas.Brush.Color := clwhite;
           x := x + 30;

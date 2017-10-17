@@ -1,5 +1,5 @@
 object makeSearch: TmakeSearch
-  Left = 586
+  Left = 135
   Height = 305
   Top = 336
   Width = 593
