@@ -44,7 +44,7 @@ uses
     procedure searchDetailInformationClick(Sender: TObject);
     procedure StringGrid1GetEditMask(Sender: TObject; ACol, ARow: Integer;
       var Value: string);
-    procedure StringGrid1PickListSelect(Sender: TObject);
+    //procedure StringGrid1PickListSelect(Sender: TObject);
     procedure StringGrid1SelectEditor(Sender: TObject; aCol, aRow: Integer;
       var Editor: TWinControl);
     //procedure StringGrid1PickListSelect(Sender: TObject);

@@ -30,7 +30,6 @@ object WeatherForecast: TWeatherForecast
     RowCount = 1
     TabOrder = 1
     OnGetEditMask = StringGrid1GetEditMask
-    OnPickListSelect = StringGrid1PickListSelect
     OnSelectEditor = StringGrid1SelectEditor
   end
   object SaveInLinkedList: TButton
