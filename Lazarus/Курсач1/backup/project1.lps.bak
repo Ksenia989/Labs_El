@@ -99,8 +99,8 @@
         <UnitName Value="columnChart"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="30"/>
-        <CursorPos X="29" Y="46"/>
+        <TopLine Value="26"/>
+        <CursorPos X="23" Y="45"/>
         <UsageCount Value="32"/>
         <Loaded Value="True"/>
       </Unit9>
@@ -248,7 +248,7 @@
         <EditorIndex Value="3"/>
         <TopLine Value="34"/>
         <CursorPos Y="60"/>
-        <UsageCount Value="13"/>
+        <UsageCount Value="14"/>
         <Loaded Value="True"/>
       </Unit29>
       <Unit30>

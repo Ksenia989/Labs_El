@@ -1,7 +1,7 @@
 object makeSearch: TmakeSearch
-  Left = 45
+  Left = 65
   Height = 305
-  Top = 375
+  Top = 350
   Width = 593
   Caption = 'Детальная информация по дню'
   ClientHeight = 305

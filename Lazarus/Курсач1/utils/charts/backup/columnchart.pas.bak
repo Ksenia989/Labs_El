@@ -37,11 +37,20 @@ begin
   Image.Canvas.TextOut(x + 10, y - 22, s);
 end;
 
+procedure writeTemperature(image : Timage);
+begin
+  image.canvas.Font.Color:= clblack;
+  image.Canvas.Line(15, 22, 15, 153);
+  image.Canvas.Line(10, 37, 15, 22);
+  image.Canvas.Line(20, 37, 15, 22);
+  image.canvas.Font.Size := 7;
+  image.canvas.TextOut(5, 10, 't °C');
+end;
+
 procedure writeScale(image : Timage);
 begin
-  //image.Canvas.Brush.Color := clBlack;
   image.canvas.Font.Color:= clblack;
-  image.Canvas.Line(10, 153, 135, 153);
+  image.Canvas.Line(15, 153, 135, 153);
   image.Canvas.Line(125, 148, 135, 153);
   image.Canvas.Line(125, 159, 135, 153);
   image.canvas.Font.Size := 7;
@@ -83,6 +92,7 @@ begin
           currentList := currentList^.next;
         end;
       writeScale(image);
+      writeTemperature(image);
 end;
 
 end.
