@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, Grids, Menus, ColorBox,
+  ExtCtrls, Grids, Menus, ColorBox, Buttons,
   LinkedList;
 
 { TWeatherForecast }
@@ -14,6 +14,7 @@ uses
 
   TWeatherForecast = class(TForm)
     About: TButton;
+    weekForekast: TButton;
     DecrementRaws: TButton;
     CleanTable: TButton;
     searchDetailInformation: TButton;
@@ -44,10 +45,9 @@ uses
     procedure searchDetailInformationClick(Sender: TObject);
     procedure StringGrid1GetEditMask(Sender: TObject; ACol, ARow: Integer;
       var Value: string);
-    //procedure StringGrid1PickListSelect(Sender: TObject);
     procedure StringGrid1SelectEditor(Sender: TObject; aCol, aRow: Integer;
       var Editor: TWinControl);
-    //procedure StringGrid1PickListSelect(Sender: TObject);
+    procedure weekForekastClick(Sender: TObject);
 
   private
     { private declarations }
@@ -63,7 +63,7 @@ var
 
 implementation
 uses About,
-     detailDayUnit, fileSaver;
+     DetailDayUnit, fileSaver, InfoAboutPeriod;
 
 {$R *.lfm}
 
@@ -257,6 +257,11 @@ begin
     Editor := StringGrid1.EditorByStyle(cbsPickList);
     TCustomComboBox(Editor).Items.CommaText := 'День, Ночь';
   end;
+end;
+
+procedure TWeatherForecast.weekForekastClick(Sender: TObject);
+begin
+  datailPeriodInfo.showModal;
 end;
 
 end.

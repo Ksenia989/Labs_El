@@ -1,7 +1,7 @@
 object WeatherForecast: TWeatherForecast
-  Left = 395
+  Left = 171
   Height = 419
-  Top = 416
+  Top = 235
   Width = 1061
   Caption = 'Сводка погоды'
   ClientHeight = 391
@@ -93,6 +93,15 @@ object WeatherForecast: TWeatherForecast
     Width = 42
     Caption = 'Label1'
     ParentColor = False
+  end
+  object weekForekast: TButton
+    Left = 97
+    Height = 46
+    Top = 299
+    Width = 141
+    Caption = 'Прогноз на неделю'
+    OnClick = weekForekastClick
+    TabOrder = 8
   end
   object OpenDialog1: TOpenDialog
     Filter = 'Все файлы|*.*|Текстовые файлы|*.txt'

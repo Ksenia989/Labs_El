@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, Grids, Menus, ColorBox,
+  ExtCtrls, Grids, Menus, ColorBox, Buttons,
   LinkedList;
 
 { TWeatherForecast }
@@ -14,6 +14,7 @@ uses
 
   TWeatherForecast = class(TForm)
     About: TButton;
+    weekForekast: TButton;
     DecrementRaws: TButton;
     CleanTable: TButton;
     searchDetailInformation: TButton;
@@ -44,10 +45,9 @@ uses
     procedure searchDetailInformationClick(Sender: TObject);
     procedure StringGrid1GetEditMask(Sender: TObject; ACol, ARow: Integer;
       var Value: string);
-    //procedure StringGrid1PickListSelect(Sender: TObject);
     procedure StringGrid1SelectEditor(Sender: TObject; aCol, aRow: Integer;
       var Editor: TWinControl);
-    //procedure StringGrid1PickListSelect(Sender: TObject);
+    procedure weekForekastClick(Sender: TObject);
 
   private
     { private declarations }
@@ -63,7 +63,7 @@ var
 
 implementation
 uses About,
-     detailDayUnit, fileSaver;
+     DetailDayUnit, fileSaver, InfoAboutPeriod;
 
 {$R *.lfm}
 
@@ -235,21 +235,6 @@ begin
   if (ACol = 0) then value := '99.99.9999';
 end;
 
-//procedure TWeatherForecast.StringGrid1PickListSelect(Sender: TObject);
-//begin
-//  with StringGrid1 do
-//    begin
-//      case Cells[Col, Row] of
-//        'День': CurrentColour := clWhite;
-//        'Aqua': CurrentColour := clAqua;
-//        'Blue': CurrentColour := clBlue;
-//        'Fuchsia': CurrentColour := clFuchsia;
-//        'Yellow': CurrentColour := clYellow;
-//        'Teal': CurrentColour := clTeal;
-//      end;
-//    end;
-//end;
-
 procedure TWeatherForecast.StringGrid1SelectEditor(Sender: TObject; aCol, aRow: Integer;
   var Editor: TWinControl);
 begin
@@ -257,6 +242,11 @@ begin
     Editor := StringGrid1.EditorByStyle(cbsPickList);
     TCustomComboBox(Editor).Items.CommaText := 'День, Ночь';
   end;
+end;
+
+procedure TWeatherForecast.weekForekastClick(Sender: TObject);
+begin
+  datailPeriodInfo.showModal;
 end;
 
 end.

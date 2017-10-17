@@ -5,7 +5,8 @@ unit infoAboutPeriod;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, EditBtn;
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, EditBtn,
+  StdCtrls, ExtCtrls;
 
 type
 
@@ -13,7 +14,17 @@ type
 
   TdatailPeriodInfo = class(TForm)
     DateEdit1: TDateEdit;
-    DateEdit2: TDateEdit;
+    Thursday: TImage;
+    majorChart: TImage;
+    Monday: TImage;
+    Tuersday: TImage;
+    Wednesday: TImage;
+    Friday: TImage;
+    Saturday: TImage;
+    Sunday: TImage;
+    additionInfo: TImage;
+    Label1: TLabel;
+    procedure FormCreate(Sender: TObject);
   private
     { private declarations }
   public
@@ -22,10 +33,19 @@ type
 
 var
   datailPeriodInfo: TdatailPeriodInfo;
+  dayArray : array [0 .. 6] of TImage;
 
 implementation
 
 {$R *.lfm}
+
+{ TdatailPeriodInfo }
+
+procedure TdatailPeriodInfo.FormCreate(Sender: TObject);
+begin
+  dayArray[0] := monday;
+
+end;
 
 end.
 

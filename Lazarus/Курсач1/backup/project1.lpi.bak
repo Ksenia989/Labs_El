@@ -85,6 +85,7 @@
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="datailPeriodInfo"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="infoAboutPeriod"/>
       </Unit7>

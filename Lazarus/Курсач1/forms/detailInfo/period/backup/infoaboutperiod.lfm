@@ -1,8 +1,85 @@
 object datailPeriodInfo: TdatailPeriodInfo
-  Left = 476
-  Height = 240
-  Top = 267
-  Width = 320
+  Left = 333
+  Height = 479
+  Top = 174
+  Width = 1127
   Caption = 'Детальная информация о периоде'
+  ClientHeight = 479
+  ClientWidth = 1127
+  OnCreate = FormCreate
   LCLVersion = '1.6.4.0'
+  object DateEdit1: TDateEdit
+    Left = 40
+    Height = 37
+    Top = 48
+    Width = 241
+    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+    DateOrder = doNone
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    Left = 42
+    Height = 20
+    Top = 12
+    Width = 239
+    Caption = 'Выберете неделю для отображения'
+    ParentColor = False
+  end
+  object majorChart: TImage
+    Left = 40
+    Height = 186
+    Top = 113
+    Width = 608
+  end
+  object Monday: TImage
+    Left = 40
+    Height = 130
+    Top = 328
+    Width = 144
+  end
+  object Tuersday: TImage
+    Left = 192
+    Height = 130
+    Top = 328
+    Width = 144
+  end
+  object Wednesday: TImage
+    Left = 344
+    Height = 130
+    Top = 328
+    Width = 144
+  end
+  object Friday: TImage
+    Left = 648
+    Height = 130
+    Top = 328
+    Width = 144
+  end
+  object Saturday: TImage
+    Left = 800
+    Height = 130
+    Top = 328
+    Width = 144
+  end
+  object Sunday: TImage
+    Left = 952
+    Height = 130
+    Top = 328
+    Width = 144
+  end
+  object additionInfo: TImage
+    Left = 680
+    Height = 186
+    Top = 113
+    Width = 403
+  end
+  object Thursday: TImage
+    Left = 496
+    Height = 130
+    Top = 328
+    Width = 144
+  end
 end
