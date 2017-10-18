@@ -13,18 +13,22 @@ type
   { TdatailPeriodInfo }
 
   TdatailPeriodInfo = class(TForm)
-    DateEdit1: TDateEdit;
-    Thursday: TImage;
+    Button1: TButton;
+    dateFrom: TDateEdit;
+    dateTo: TDateEdit;
+    Label10: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
     majorChart: TImage;
-    Monday: TImage;
-    Tuersday: TImage;
-    Wednesday: TImage;
-    Friday: TImage;
-    Saturday: TImage;
-    Sunday: TImage;
     additionInfo: TImage;
     Label1: TLabel;
-    procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { private declarations }
   public
@@ -41,20 +45,15 @@ implementation
 
 { TdatailPeriodInfo }
 
-procedure TdatailPeriodInfo.FormCreate(Sender: TObject);
-  procedure initializeWeekDays;
-  begin
-    dayArray[0] := monday;
-    dayArray[1] := Tuersday;
-    dayArray[2] := Wednesday;
-    dayArray[3] := Thursday;
-    dayArray[4] := Friday;
-    dayArray[5] := Saturday;
-    dayArray[6] := Sunday;
-  end;
+procedure showInfo(var labell : TLabel; day : TDate);
 begin
-  initializeWeekDays;
+  labell.caption := dateToStr(day);
 
+end;
+
+procedure TdatailPeriodInfo.Button1Click(Sender: TObject);
+begin
+  showInfo(label4, dateFrom.Date);
 end;
 
 end.

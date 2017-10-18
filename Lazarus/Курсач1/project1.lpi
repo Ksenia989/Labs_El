@@ -35,7 +35,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="11">
+    <Units Count="9">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -57,52 +57,40 @@
         <UnitName Value="About"/>
       </Unit2>
       <Unit3>
-        <Filename Value="unit2.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form1"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="Unit2"/>
-      </Unit3>
-      <Unit4>
         <Filename Value="utils/list/linkedlist.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LinkedList"/>
-      </Unit4>
-      <Unit5>
-        <Filename Value="linkedweatherlist.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="LinkedWeatherList"/>
-      </Unit5>
-      <Unit6>
+      </Unit3>
+      <Unit4>
         <Filename Value="forms/detailDay/detaildayunit.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="detailDayInfo"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="detailDayUnit"/>
-      </Unit6>
-      <Unit7>
+      </Unit4>
+      <Unit5>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="datailPeriodInfo"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="infoAboutPeriod"/>
-      </Unit7>
-      <Unit8>
+      </Unit5>
+      <Unit6>
         <Filename Value="utils/sort/sorting.pas"/>
         <IsPartOfProject Value="True"/>
-      </Unit8>
-      <Unit9>
+      </Unit6>
+      <Unit7>
         <Filename Value="utils/charts/columnchart.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="columnChart"/>
-      </Unit9>
-      <Unit10>
+      </Unit7>
+      <Unit8>
         <Filename Value="utils/inputOutput/filesaver.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="fileSaver"/>
-      </Unit10>
+      </Unit8>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -1,15 +1,14 @@
 object datailPeriodInfo: TdatailPeriodInfo
-  Left = 209
+  Left = 258
   Height = 479
-  Top = 107
+  Top = 204
   Width = 1127
   Caption = 'Детальная информация о периоде'
   ClientHeight = 479
   ClientWidth = 1127
-  OnCreate = FormCreate
   LCLVersion = '1.6.4.0'
-  object DateEdit1: TDateEdit
-    Left = 40
+  object dateFrom: TDateEdit
+    Left = 168
     Height = 37
     Top = 48
     Width = 241
@@ -34,52 +33,109 @@ object datailPeriodInfo: TdatailPeriodInfo
     Top = 113
     Width = 608
   end
-  object Monday: TImage
-    Left = 40
-    Height = 130
-    Top = 328
-    Width = 144
-  end
-  object Tuersday: TImage
-    Left = 192
-    Height = 130
-    Top = 328
-    Width = 144
-  end
-  object Wednesday: TImage
-    Left = 344
-    Height = 130
-    Top = 328
-    Width = 144
-  end
-  object Friday: TImage
-    Left = 648
-    Height = 130
-    Top = 328
-    Width = 144
-  end
-  object Saturday: TImage
-    Left = 800
-    Height = 130
-    Top = 328
-    Width = 144
-  end
-  object Sunday: TImage
-    Left = 952
-    Height = 130
-    Top = 328
-    Width = 144
-  end
   object additionInfo: TImage
     Left = 680
     Height = 186
     Top = 113
     Width = 403
   end
-  object Thursday: TImage
-    Left = 496
-    Height = 130
+  object dateTo: TDateEdit
+    Left = 576
+    Height = 37
+    Top = 48
+    Width = 241
+    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+    DateOrder = doNone
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
+    TabOrder = 1
+  end
+  object Label2: TLabel
+    Left = 64
+    Height = 20
+    Top = 65
+    Width = 18
+    Caption = 'От'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 456
+    Height = 20
+    Top = 64
+    Width = 19
+    Caption = 'До'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 40
+    Height = 128
     Top = 328
-    Width = 144
+    Width = 138
+    AutoSize = False
+    ParentColor = False
+  end
+  object Button1: TButton
+    Left = 872
+    Height = 40
+    Top = 46
+    Width = 156
+    Caption = 'Button1'
+    OnClick = Button1Click
+    TabOrder = 2
+  end
+  object Label5: TLabel
+    Left = 208
+    Height = 128
+    Top = 328
+    Width = 138
+    AutoSize = False
+    Caption = 'Label5'
+    ParentColor = False
+  end
+  object Label6: TLabel
+    Left = 360
+    Height = 128
+    Top = 328
+    Width = 138
+    AutoSize = False
+    Caption = 'Label6'
+    ParentColor = False
+  end
+  object Label7: TLabel
+    Left = 504
+    Height = 128
+    Top = 320
+    Width = 138
+    AutoSize = False
+    Caption = 'Label7'
+    ParentColor = False
+  end
+  object Label8: TLabel
+    Left = 664
+    Height = 128
+    Top = 320
+    Width = 138
+    AutoSize = False
+    Caption = 'Label8'
+    ParentColor = False
+  end
+  object Label9: TLabel
+    Left = 816
+    Height = 128
+    Top = 320
+    Width = 138
+    AutoSize = False
+    Caption = 'Label9'
+    ParentColor = False
+  end
+  object Label10: TLabel
+    Left = 968
+    Height = 128
+    Top = 320
+    Width = 138
+    AutoSize = False
+    Caption = 'Label10'
+    ParentColor = False
   end
 end
