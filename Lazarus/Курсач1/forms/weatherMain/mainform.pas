@@ -67,7 +67,7 @@ var
 
 implementation
 uses About,
-     DetailDayUnit, fileSaver, InfoAboutPeriod;
+     DetailDayUnit, fileSaver, InfoAboutPeriod, sorting;
 
 {$R *.lfm}
 
@@ -99,12 +99,14 @@ end;
 
 procedure TWeatherForecast.DateSortingClick(Sender: TObject);
 begin
-  stringGrid1.SortColRow(true, 0);
+  sortDate(stringGrid1, 0);
+  tableChanged := true;
 end;
 
 procedure TWeatherForecast.temperatureSortingClick(Sender: TObject);
 begin
-  stringGrid1.SortColRow(true, 2);
+  sortInteger(StringGrid1, 2);
+  tableChanged := true;
 end;
 
 function TWeatherForecast.getCommonWeather() : list;
