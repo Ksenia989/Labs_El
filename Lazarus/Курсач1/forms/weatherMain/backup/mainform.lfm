@@ -1,27 +1,27 @@
 object WeatherForecast: TWeatherForecast
-  Left = 171
-  Height = 419
-  Top = 235
-  Width = 1061
+  Left = 28
+  Height = 322
+  Top = 230
+  Width = 947
   Caption = 'Сводка погоды'
-  ClientHeight = 391
-  ClientWidth = 1061
+  ClientHeight = 294
+  ClientWidth = 947
   Menu = menuM
   OnShow = FormShow
   LCLVersion = '1.6.4.0'
   object About: TButton
-    Left = 880
+    Left = 824
     Height = 52
-    Top = 72
+    Top = 80
     Width = 114
     Caption = 'About'
     OnClick = AboutClick
     TabOrder = 0
   end
   object StringGrid1: TStringGrid
-    Left = 80
-    Height = 144
-    Top = 48
+    Left = 56
+    Height = 184
+    Top = 16
     Width = 752
     AutoAdvance = aaNone
     DefaultColWidth = 150
@@ -33,7 +33,7 @@ object WeatherForecast: TWeatherForecast
     OnSelectEditor = StringGrid1SelectEditor
   end
   object SaveInLinkedList: TButton
-    Left = 80
+    Left = 56
     Height = 30
     Top = 209
     Width = 120
@@ -60,16 +60,16 @@ object WeatherForecast: TWeatherForecast
     TabOrder = 4
   end
   object CleanTable: TButton
-    Left = 83
+    Left = 56
     Height = 29
-    Top = 247
+    Top = 248
     Width = 115
     Caption = 'Очистить таблицу'
     OnClick = CleanTableClick
     TabOrder = 5
   end
   object dataFromTemplate: TButton
-    Left = 464
+    Left = 658
     Height = 38
     Top = 214
     Width = 150
@@ -78,47 +78,40 @@ object WeatherForecast: TWeatherForecast
     TabOrder = 6
   end
   object searchDetailInformation: TButton
-    Left = 347
+    Left = 464
     Height = 24
-    Top = 328
+    Top = 208
     Width = 141
     Caption = 'Детальная информация'
     OnClick = searchDetailInformationClick
     TabOrder = 7
   end
-  object Label1: TLabel
-    Left = 237
-    Height = 20
-    Top = 263
-    Width = 42
-    Caption = 'Label1'
-    ParentColor = False
-  end
   object weekForekast: TButton
-    Left = 97
-    Height = 46
-    Top = 299
-    Width = 141
+    Left = 464
+    Height = 24
+    Top = 248
+    Width = 144
     Caption = 'Прогноз на неделю'
     OnClick = weekForekastClick
     TabOrder = 8
   end
   object OpenDialog1: TOpenDialog
     Filter = 'Все файлы|*.*|Текстовые файлы|*.txt'
-    left = 728
-    top = 288
+    left = 864
+    top = 232
   end
   object SaveDialog1: TSaveDialog
     Filter = 'Все файлы|*.*|Текстовые файлы|*.txt'
-    left = 768
-    top = 232
+    left = 864
+    top = 152
   end
   object menuM: TMainMenu
     Tag = 1
-    left = 40
+    left = 16
     top = 16
-    object MenuItem1: TMenuItem
+    object MenuFile: TMenuItem
       Caption = 'Файл'
+      ShortCut = 16454
       object Open: TMenuItem
         Caption = 'Открыть'
         OnClick = OpenClick
@@ -133,6 +126,18 @@ object WeatherForecast: TWeatherForecast
       object Escape: TMenuItem
         Caption = 'Выход'
         OnClick = EscapeClick
+      end
+    end
+    object SortingButton: TMenuItem
+      Caption = 'Сортировка'
+      ShortCut = 24659
+      object DateSorting: TMenuItem
+        Caption = 'По дате'
+        OnClick = DateSortingClick
+      end
+      object temperatureSorting: TMenuItem
+        Caption = 'По температуре'
+        OnClick = temperatureSortingClick
       end
     end
   end

@@ -7,6 +7,8 @@ interface
 uses
   Classes, SysUtils;
 
+procedure sort(var arr : array of string);
+
 implementation
 
 procedure sort(var arr : array of string);

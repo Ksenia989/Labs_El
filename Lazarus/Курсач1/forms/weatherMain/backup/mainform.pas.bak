@@ -14,15 +14,17 @@ uses
 
   TWeatherForecast = class(TForm)
     About: TButton;
+    DateSorting: TMenuItem;
+    temperatureSorting: TMenuItem;
+    SortingButton: TMenuItem;
     weekForekast: TButton;
     DecrementRaws: TButton;
     CleanTable: TButton;
     searchDetailInformation: TButton;
     dataFromTemplate: TButton;
     IncrementRaws: TButton;
-    Label1: TLabel;
     menuM: TMainMenu;
-    MenuItem1: TMenuItem;
+    MenuFile: TMenuItem;
     Escape: TMenuItem;
     Open: TMenuItem;
     SaveAs: TMenuItem;
@@ -39,6 +41,8 @@ uses
     procedure dataFromTemplateClick(Sender: TObject);
     procedure EscapeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure DateSortingClick(Sender: TObject);
+    procedure temperatureSortingClick(Sender: TObject);
     procedure OpenClick(Sender: TObject);
     procedure SaveFileClick(Sender: TObject);
     procedure SaveInLinkedListClick(Sender: TObject);
@@ -91,6 +95,16 @@ begin
   StringGrid1.ColWidths[2]:= 170;
   StringGrid1.ColWidths[3]:= 150;
   StringGrid1.ColWidths[4]:= 230;
+end;
+
+procedure TWeatherForecast.DateSortingClick(Sender: TObject);
+begin
+  stringGrid1.SortColRow(true, 0);
+end;
+
+procedure TWeatherForecast.temperatureSortingClick(Sender: TObject);
+begin
+  stringGrid1.SortColRow(true, 2);
 end;
 
 function TWeatherForecast.getCommonWeather() : list;
@@ -197,6 +211,7 @@ begin
       writeToTextFile(textfile, filename, commonWeather);
       //сохраняем табличку в указанный файл:
       tableChanged := False;
+      showMessage('Таблица успешно сохранена!');
     end
  //если не выбрал файл:
  else ShowMessage('Вы не указали имя файла, файл не сохранен!');
