@@ -87,7 +87,6 @@ begin
     end;
     temp := currentList^.next;
   end;
-
 end;
 end.
 

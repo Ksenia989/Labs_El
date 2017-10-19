@@ -78,14 +78,14 @@ begin
   searchListElementByDate := nil;
   temp := currentList;
   founded := false;
-  while ((founded = false) and (currentList^.next <> nil)) do
+  while ((founded = false) and (temp^.next <> nil)) do
   begin
     if ((date = temp^.date) and (temp^.dayOrNight = dayOrNight)) then
     begin
       founded := true;
       searchListElementByDate := temp;
     end;
-    temp := currentList^.next;
+    temp := temp^.next;
   end;
 end;
 end.

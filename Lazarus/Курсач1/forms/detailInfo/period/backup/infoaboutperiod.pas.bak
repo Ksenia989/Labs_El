@@ -47,16 +47,23 @@ implementation
 
 procedure showInfo(var labell : TLabel; date : TDate; day : list; night : list);
 begin
+  labell.Font.Size := 10;;
   labell.caption := dateToStr(date)
                  + #13#10
                  + 'День:'
+                 + #13#10
                  + '  Температура = ' + day^.temperature.toString
+                 + #13#10
                  + '  Влажность = ' + day^.humidity.toString
+                 + #13#10
                  + '  Атм. давление = ' + day^.atmospherePressure.toString
                  + #13#10
                  + 'Ночь:'
+                 + #13#10
                  + '  Температура = ' + night^.temperature.toString
+                 + #13#10
                  + '  Влажность = ' + night^.humidity.toString
+                 + #13#10
                  + '  Атм. давление = ' + night^.atmospherePressure.toString
                  + #13#10;
 
@@ -65,7 +72,7 @@ end;
 procedure TdatailPeriodInfo.Button1Click(Sender: TObject);
 var
   dayList, nightlist, listTemplate : list;
-  dateSelected : TDate;
+  dateSelected : TDateTime;
 begin
   dateSelected := dateFrom.Date;
   listTemplate := WeatherForecast.getCommonWeather(); // todo по дню и ночи поиск
