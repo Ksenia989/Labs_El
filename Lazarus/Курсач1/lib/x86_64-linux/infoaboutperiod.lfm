@@ -1,11 +1,11 @@
 object datailPeriodInfo: TdatailPeriodInfo
-  Left = 258
+  Left = 239
   Height = 479
-  Top = 204
-  Width = 1127
+  Top = 300
+  Width = 1134
   Caption = 'Детальная информация о периоде'
   ClientHeight = 479
-  ClientWidth = 1127
+  ClientWidth = 1134
   LCLVersion = '1.6.4.0'
   object dateFrom: TDateEdit
     Left = 168

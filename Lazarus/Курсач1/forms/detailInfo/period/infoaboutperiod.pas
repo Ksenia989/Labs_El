@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, EditBtn,
-  StdCtrls, ExtCtrls;
+  StdCtrls, ExtCtrls, LinkedList, MainForm;
 
 type
 
@@ -45,21 +45,34 @@ implementation
 
 { TdatailPeriodInfo }
 
-procedure showInfo(var labell : TLabel; day : TDate);
+procedure showInfo(var labell : TLabel; date : TDate; day : list; night : list);
 begin
-  labell.caption := dateToStr(day)
+  labell.caption := dateToStr(date)
                  + #13#10
-                 + 'День'
+                 + 'День:'
+                 + '  Температура = ' + day^.temperature.toString
+                 + '  Влажность = ' + day^.humidity.toString
+                 + '  Атм. давление = ' + day^.atmospherePressure.toString
                  + #13#10
-                 + 'Ночь'
+                 + 'Ночь:'
+                 + '  Температура = ' + night^.temperature.toString
+                 + '  Влажность = ' + night^.humidity.toString
+                 + '  Атм. давление = ' + night^.atmospherePressure.toString
                  + #13#10;
 
 end;
 
 procedure TdatailPeriodInfo.Button1Click(Sender: TObject);
+var
+  dayList, nightlist, listTemplate : list;
+  dateSelected : TDate;
 begin
-  showInfo(label4, dateFrom.Date);
-end;
+  dateSelected := dateFrom.Date;
+  listTemplate := WeatherForecast.getCommonWeather(); // todo по дню и ночи поиск
+  dayList := searchListElementByDate(listTemplate, dateSelected, 'День');
+  nightList := searchListElementByDate(listTemplate, dateSelected, 'Ночь');
+  showInfo(label4, date, dayList, nightList);
 
+end;
 end.
 
