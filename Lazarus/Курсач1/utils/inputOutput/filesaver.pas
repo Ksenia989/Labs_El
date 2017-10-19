@@ -51,7 +51,7 @@ var
   fullFileName : string;
   temperature, humidity, atmospherePressure : integer;
   dayForSelect : String;
-  date : TDateTime;
+  date : TDate;
   dayOrNight : string;
   a : string;
     begin
@@ -61,7 +61,7 @@ var
       while (not (eof(textFile))) do
         begin
           read(textfile, dayForSelect);
-          date := strTODateTime(dayForSelect);
+          date := strTODate(dayForSelect, '.');
           readln(textfile);
           readln(textfile, dayOrNight);
           read(textfile, temperature);

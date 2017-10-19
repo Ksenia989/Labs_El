@@ -9,7 +9,7 @@ uses
 
 {public declarations}
 procedure writeToTextFile(var textFile : text; filename : String; commonWeather : list);
-procedure readFromTextFile(var textFile : text; filename : String; commonWeather : list);
+procedure readFromTextFile(var textFile : text; filename : String; var commonWeather : list);
 
 implementation
 
@@ -46,12 +46,12 @@ var
 (*
     Чтение из текстового файла
 *)
-procedure readFromTextFile(var textFile : text; filename : String; commonWeather : list);
+procedure readFromTextFile(var textFile : text; filename : String; var commonWeather : list);
 var
   fullFileName : string;
   temperature, humidity, atmospherePressure : integer;
   dayForSelect : String;
-  date : TDateTime;
+  date : TDate;
   dayOrNight : string;
   a : string;
     begin
@@ -61,7 +61,7 @@ var
       while (not (eof(textFile))) do
         begin
           read(textfile, dayForSelect);
-          date := strTODateTime(dayForSelect);
+          date := strTODate(dayForSelect);
           readln(textfile);
           readln(textfile, dayOrNight);
           read(textfile, temperature);

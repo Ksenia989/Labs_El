@@ -47,7 +47,12 @@ implementation
 
 procedure showInfo(var labell : TLabel; day : TDate);
 begin
-  labell.caption := dateToStr(day);
+  labell.caption := dateToStr(day)
+                 + #13#10
+                 + 'День'
+                 + #13#10
+                 + 'Ночь'
+                 + #13#10;
 
 end;
 
