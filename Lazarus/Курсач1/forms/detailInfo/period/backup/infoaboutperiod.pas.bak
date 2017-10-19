@@ -37,7 +37,8 @@ type
 
 var
   datailPeriodInfo: TdatailPeriodInfo;
-  dayArray : array [0 .. 6] of TImage;
+  dayArray : array [0 .. 6] of Tlabel;
+  dayArrayList : array [0..6, 0..1] of List;
 
 implementation
 
@@ -45,10 +46,21 @@ implementation
 
 { TdatailPeriodInfo }
 
-procedure showInfo(var labell : TLabel; date : TDate; day : list; night : list);
+procedure initialize();
+begin
+  dayArray[0] := datailPeriodInfo.Label4;
+  dayArray[1] := datailPeriodInfo.label5;
+  dayArray[2] := datailPeriodInfo.label6;
+  dayArray[3] := datailPeriodInfo.label7;
+  dayArray[4] := datailPeriodInfo.label8;
+  dayArray[5] := datailPeriodInfo.label9;
+  dayArray[6] := datailPeriodInfo.label10;
+end;
+
+procedure showInfo(var labell : TLabel; day : list; night : list);
 begin
   labell.Font.Size := 10;;
-  labell.caption := dateToStr(date)
+  labell.caption := '   ' + dateToStr(day^.date)
                  + #13#10
                  + 'День:'
                  + #13#10
@@ -69,17 +81,43 @@ begin
 
 end;
 
+procedure fillDate();
+var
+  i : integer;
+  x, x1 : TDateTime;
+  dayList, nightList, listTemplate : list;
+
+begin   // todo проверка, что что - то  (одна из дат) не введена
+  i := 0;
+  x := datailPeriodInfo.dateFrom.Date;
+  x1 := datailPeriodInfo.dateTo.date;
+  listTemplate := WeatherForecast.getCommonWeather();
+  while (x <= x1) do
+  begin
+    dayList := searchListElementByDate(listTemplate, x, 'День');
+    nightList := searchListElementByDate(listTemplate, x, 'Ночь');
+    if ((dayList <> nil) and (nightList <> nil)) then
+    begin
+      dayArrayList[i, 0] := dayList;
+      dayArrayList[i, 1] := nightList;
+    end
+    else
+    showMessage('Недостаточно данных!');
+    x := x + 1;
+    inc (i);
+  end;
+end;
+
 procedure TdatailPeriodInfo.Button1Click(Sender: TObject);
 var
-  dayList, nightlist, listTemplate : list;
-  dateSelected : TDateTime;
+  i : integer;
 begin
-  dateSelected := dateFrom.Date;
-  listTemplate := WeatherForecast.getCommonWeather(); // todo по дню и ночи поиск
-  dayList := searchListElementByDate(listTemplate, dateSelected, 'День');
-  nightList := searchListElementByDate(listTemplate, dateSelected, 'Ночь');
-  showInfo(label4, date, dayList, nightList);
-
+  initialize();
+  fillDate();
+  for i := 0 to length(dayArrayList) - 1 do
+  begin
+  showInfo(dayArray[i], dayArrayList[i, 0], dayArrayList[i, 1]);
+  end;
 end;
 end.
 

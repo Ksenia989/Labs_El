@@ -1,7 +1,7 @@
 object detailDayInfo: TdetailDayInfo
-  Left = 263
+  Left = 457
   Height = 305
-  Top = 310
+  Top = 485
   Width = 593
   Caption = 'Детальная информация по дню'
   ClientHeight = 305

@@ -1,10 +1,10 @@
 object datailPeriodInfo: TdatailPeriodInfo
-  Left = 239
-  Height = 479
-  Top = 300
+  Left = 165
+  Height = 529
+  Top = 179
   Width = 1134
   Caption = 'Детальная информация о периоде'
-  ClientHeight = 479
+  ClientHeight = 529
   ClientWidth = 1134
   LCLVersion = '1.6.4.0'
   object dateFrom: TDateEdit
@@ -69,7 +69,7 @@ object datailPeriodInfo: TdatailPeriodInfo
   end
   object Label4: TLabel
     Left = 40
-    Height = 128
+    Height = 176
     Top = 328
     Width = 138
     AutoSize = False
@@ -86,7 +86,7 @@ object datailPeriodInfo: TdatailPeriodInfo
   end
   object Label5: TLabel
     Left = 208
-    Height = 128
+    Height = 176
     Top = 328
     Width = 138
     AutoSize = False
@@ -95,7 +95,7 @@ object datailPeriodInfo: TdatailPeriodInfo
   end
   object Label6: TLabel
     Left = 360
-    Height = 128
+    Height = 176
     Top = 328
     Width = 138
     AutoSize = False
@@ -104,7 +104,7 @@ object datailPeriodInfo: TdatailPeriodInfo
   end
   object Label7: TLabel
     Left = 504
-    Height = 128
+    Height = 184
     Top = 320
     Width = 138
     AutoSize = False
@@ -113,7 +113,7 @@ object datailPeriodInfo: TdatailPeriodInfo
   end
   object Label8: TLabel
     Left = 664
-    Height = 128
+    Height = 184
     Top = 320
     Width = 138
     AutoSize = False
@@ -122,7 +122,7 @@ object datailPeriodInfo: TdatailPeriodInfo
   end
   object Label9: TLabel
     Left = 816
-    Height = 128
+    Height = 184
     Top = 320
     Width = 138
     AutoSize = False
@@ -131,7 +131,7 @@ object datailPeriodInfo: TdatailPeriodInfo
   end
   object Label10: TLabel
     Left = 968
-    Height = 128
+    Height = 184
     Top = 320
     Width = 138
     AutoSize = False
