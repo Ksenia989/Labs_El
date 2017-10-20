@@ -111,12 +111,19 @@ end;
 procedure TdatailPeriodInfo.Button1Click(Sender: TObject);
 var
   i : integer;
+  x, x1 : TDateTime;
+
 begin
   initialize();
   fillDate();
-  for i := 0 to 0 do     // todo
+  i := 0;
+    x := datailPeriodInfo.dateFrom.Date;
+  x1 := datailPeriodInfo.dateTo.date;
+  while (x <= x1) do
   begin
-  showInfo(dayArray[i], dayArrayList[i, 0], dayArrayList[i, 1]);
+    showInfo(dayArray[i], dayArrayList[i, 0], dayArrayList[i, 1]);
+    x := x + 1;
+    inc (i);
   end;
 end;
 end.
