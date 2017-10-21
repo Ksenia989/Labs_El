@@ -1,11 +1,11 @@
 object datailPeriodInfo: TdatailPeriodInfo
-  Left = 40
-  Height = 529
-  Top = 133
+  Left = 159
+  Height = 614
+  Top = 55
   Width = 1134
   Caption = 'Детальная информация о периоде'
-  ClientHeight = 529
-  ClientWidth = 1134
+  ClientHeight = 0
+  ClientWidth = 0
   LCLVersion = '1.6.4.0'
   object dateFrom: TDateEdit
     Left = 168
@@ -29,7 +29,7 @@ object datailPeriodInfo: TdatailPeriodInfo
   end
   object majorChart: TImage
     Left = 40
-    Height = 186
+    Height = 287
     Top = 113
     Width = 608
   end
@@ -70,7 +70,7 @@ object datailPeriodInfo: TdatailPeriodInfo
   object Label4: TLabel
     Left = 40
     Height = 176
-    Top = 328
+    Top = 424
     Width = 138
     AutoSize = False
     ParentColor = False
@@ -85,27 +85,27 @@ object datailPeriodInfo: TdatailPeriodInfo
     TabOrder = 2
   end
   object Label5: TLabel
-    Left = 208
+    Left = 200
     Height = 176
-    Top = 328
+    Top = 424
     Width = 138
     AutoSize = False
     Caption = 'Label5'
     ParentColor = False
   end
   object Label6: TLabel
-    Left = 360
+    Left = 352
     Height = 176
-    Top = 328
+    Top = 424
     Width = 138
     AutoSize = False
     Caption = 'Label6'
     ParentColor = False
   end
   object Label7: TLabel
-    Left = 504
+    Left = 512
     Height = 184
-    Top = 320
+    Top = 424
     Width = 138
     AutoSize = False
     Caption = 'Label7'
@@ -114,7 +114,7 @@ object datailPeriodInfo: TdatailPeriodInfo
   object Label8: TLabel
     Left = 664
     Height = 184
-    Top = 320
+    Top = 424
     Width = 138
     AutoSize = False
     Caption = 'Label8'
@@ -123,7 +123,7 @@ object datailPeriodInfo: TdatailPeriodInfo
   object Label9: TLabel
     Left = 816
     Height = 184
-    Top = 320
+    Top = 424
     Width = 138
     AutoSize = False
     Caption = 'Label9'
@@ -132,7 +132,7 @@ object datailPeriodInfo: TdatailPeriodInfo
   object Label10: TLabel
     Left = 968
     Height = 184
-    Top = 320
+    Top = 424
     Width = 138
     AutoSize = False
     Caption = 'Label10'

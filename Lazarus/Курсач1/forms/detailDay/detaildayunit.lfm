@@ -1,7 +1,7 @@
 object detailDayInfo: TdetailDayInfo
-  Left = 457
+  Left = 210
   Height = 305
-  Top = 485
+  Top = 213
   Width = 593
   Caption = 'Детальная информация по дню'
   ClientHeight = 305
@@ -9,9 +9,9 @@ object detailDayInfo: TdetailDayInfo
   LCLVersion = '1.6.4.0'
   object showDayInfo: TButton
     Left = 212
-    Height = 36
+    Height = 25
     Top = 56
-    Width = 75
+    Width = 76
     AutoSize = True
     Caption = 'Показать'
     OnClick = showDayInfoClick
@@ -19,7 +19,7 @@ object detailDayInfo: TdetailDayInfo
   end
   object dateSelect: TDateEdit
     Left = 24
-    Height = 37
+    Height = 23
     Top = 56
     Width = 148
     CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]

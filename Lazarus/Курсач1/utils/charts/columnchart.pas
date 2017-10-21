@@ -37,23 +37,6 @@ begin
   Image.Canvas.TextOut(x + 10, y - 22, s);
 end;
 
-//writeScaleTemperature(image : TImage);
-//var
-//  i : integer;
-//  istr : string;
-//  x, y : integer;
-//begin
-//  x := 15;
-//  y := 153;
-//  for i := 0 to 60 do
-//    begin
-//      str(i, istr);
-//      writeLittleLine(image);
-//      if (i mod 5 = 0) then
-//        Image.Canvas.TextOut(x + 10, y - 22, iStr);
-//    end;
-//end;
-
 procedure writeTemperature(image : Timage);
 begin
   image.canvas.Font.Color:= clblack;
