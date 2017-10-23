@@ -54,6 +54,7 @@ var
   date : TDate;
   dayOrNight : string;
   a : string;
+  settings : TFormatSettings;
     begin
       fullFileName := filename;
       assign(textfile, fullFileName);
@@ -61,7 +62,7 @@ var
       while (not (eof(textFile))) do
         begin
           read(textfile, dayForSelect);
-          date := strTODate(dayForSelect);
+          date := strToDate(dayForSelect, '.');
           readln(textfile);
           readln(textfile, dayOrNight);
           read(textfile, temperature);

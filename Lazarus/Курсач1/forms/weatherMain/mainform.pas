@@ -119,14 +119,20 @@ var
   temp : list;
   i : integer;
   a : string;
+  settings : TFormatSettings;
+  x,y,z : string;
 begin
   i := 1;
   temp := commonWeather;
   weatherForecast.StringGrid1.RowCount := 1;
+  settings.DateSeparator:='.';
+  settings.LongDateFormat:='dd.mm.yyyy';
+  settings.ShortDateFormat:='dd.mm.yyyy';
   while (temp <> nil) do
   begin
+
     weatherForecast.StringGrid1.RowCount := weatherForecast.StringGrid1.RowCount + 1;
-    weatherForecast.StringGrid1.Cells[0, i] := dateToStr(temp^.date);
+    weatherForecast.StringGrid1.Cells[0, i] := dateToStr(temp^.date, settings);
     a := temp^.dayOrNight;
     weatherForecast.StringGrid1.Cells[1, i] := a;
     str(temp^.temperature, a);
@@ -225,13 +231,13 @@ var
   errCode : integer;
   n : integer;
   temperature, humidity, atmospherePressure : integer;
-  day : TDate;
+  day : TDateTime;
   dayOrNight : string;
 begin
   n := StringGrid1.RowCount;
   for i := 0 to n - 2 do
   begin
-    day := strToDate(StringGrid1.Cells[0, i + 1], 'dd/mm/yy', '.');
+    day := strToDateTime(StringGrid1.Cells[0, i + 1]);
     dayOrNight := StringGrid1.Cells[1, i + 1];
     val(StringGrid1.Cells[2, i + 1], temperature, errCode);
     val(StringGrid1.Cells[3, i + 1], humidity, errCode);

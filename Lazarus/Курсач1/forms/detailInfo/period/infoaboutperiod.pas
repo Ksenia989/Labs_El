@@ -227,6 +227,7 @@ begin
     startDate := startDate + 1;
     inc(i);
   end;
+  showInfo(dayArray[i], dayArrayList[i, 0], dayArrayList[i, 1]);
 end;
 end.
 

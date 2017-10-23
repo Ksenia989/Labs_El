@@ -217,7 +217,7 @@ begin
 
   while (startDate <= endDate) do    // todo проработать ситуацию, когда нет следующей точки
   begin
-    showInfo(dayArray[i], dayArrayList[i, 0], dayArrayList[i, 1]);
+
 
     currentWidth :=  currentWidth + oneScaleToRightPosition;
     nextPoint := drawImage(dayArrayList[i + 1, 0], currentWidth);
@@ -225,6 +225,8 @@ begin
     h := nextPoint;
 
     startDate := startDate + 1;
+    inc(i);
+    showInfo(dayArray[i - 1], dayArrayList[i - 1, 0], dayArrayList[i - 1, 1]);
   end;
 end;
 end.
