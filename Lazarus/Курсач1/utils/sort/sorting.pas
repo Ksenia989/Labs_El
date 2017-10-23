@@ -51,8 +51,8 @@ begin
   for i := 1 to RowCount - 2 do
     for j := 1 to RowCount - 2 do
       begin
-      d1 := strToDate(cells[sortIndex, j]);
-      d2 := strToDate(cells[sortIndex, j + 1]);
+      d1 := strToDate(cells[sortIndex, j], 'dd/mm/yy', '.');
+      d2 := strToDate(cells[sortIndex, j + 1], 'dd/mm/yy', '.');
       if (d1 > d2) then
       begin
         k := d1;

@@ -86,7 +86,6 @@ var
   i : integer;
   x, x1 : TDateTime;
   dayList, nightList, listTemplate : list;
-
 begin   // todo проверка, что что - то  (одна из дат) не введена
   i := 0;
   x := datailPeriodInfo.dateFrom.Date;
@@ -122,8 +121,8 @@ procedure writeScale(var image : Timage);
 begin
   image.canvas.Font.Color:= clblack;
   image.Canvas.Line(47, 153, 540, 153);
-  image.Canvas.Line(530, 148, 540, 153);
-  image.Canvas.Line(530, 159, 540, 153);
+  image.Canvas.Line(525, 148, 540, 153);
+  image.Canvas.Line(525, 159, 540, 153);
   image.canvas.Font.Size := 7;
   image.canvas.TextOut(542, 146, 'Сутки');
   image.canvas.Font.Color:= clwhite;
@@ -162,27 +161,71 @@ begin
   writeChertochki(datailPeriodInfo.majorChart);
 end;
 
+function drawImage(day : list; width : integer) : integer;
+var
+  maxHeight: integer;
+  currentHeight : integer;
+  oneDegreeHeight : integer;
+  degreesCount : integer;
+begin   // todo возвращать сложный тип
+  maxHeight := 255;
+  degreesCount := 85;
+  oneDegreeHeight := maxHeight div degreesCount;
+  //dayTemperature
+  currentHeight := maxHeight - oneDegreeHeight * abs(((-40) - (day^.temperature)));
+  datailPeriodInfo.majorChart.Canvas.Brush.Color := clRed;
+  datailPeriodInfo.majorChart.Canvas.EllipseC(width, currentHeight, 4, 4);
+  drawImage := currentHeight;
+  ////night temperature
+  //currentHeight := maxHeight - oneDegreeHeight * abs(((-40) - (night^.temperature)));
+  //datailPeriodInfo.majorChart.Canvas.Brush.Color := clBlue;
+  //datailPeriodInfo.majorChart.Canvas.EllipseC(width, currentHeight, 4, 4);
+  //nightHeight := currentHeight;
+end;
+
 procedure TdatailPeriodInfo.Button1Click(Sender: TObject);
 var
   i : integer;
-  x, x1 : TDateTime;
-
+  startDate, endDate : TDate;
+  currentWidth : integer;
+  oneScaleToRightPosition : integer;
+  startPosition, endPosition : integer;
+  daysPerWeek : integer;
+  h, nextPoint : integer;
 begin
   majorchart.Canvas.Brush.Color := clWhite;
   majorchart.Canvas.Rectangle(0, 0, majorchart.Width, majorchart.Height);
   majorchart.Canvas.Brush.Color := clwhite;
   drawCanvas();
-  //initialize();
-  //fillDate();
-  //i := 0;
-  //  x := datailPeriodInfo.dateFrom.Date;
-  //x1 := datailPeriodInfo.dateTo.date;
-  //while (x <= x1) do
-  //begin
-  //  showInfo(dayArray[i], dayArrayList[i, 0], dayArrayList[i, 1]);
-  //  x := x + 1;
-  //  inc (i);
-  //end;
+  initialize();
+  fillDate();
+  i := 0;
+  startDate := datailPeriodInfo.dateFrom.Date;
+  endDate := datailPeriodInfo.dateTo.date;
+
+  startPosition := 47;
+  endPosition := 470;
+  daysPerWeek := 7;
+
+  oneScaleToRightPosition := (endPosition - startPosition) div daysPerWeek;
+  currentWidth := startPosition;
+
+  // + 1 т.к. для одного дня уже посчитали
+  currentWidth := currentWidth + oneScaleToRightPosition;
+  h := drawImage(dayArrayList[i, 0], currentWidth);
+  startDate := startDate + 1;
+
+  while (startDate <= endDate) do    // todo проработать ситуацию, когда нет следующей точки
+  begin
+    showInfo(dayArray[i], dayArrayList[i, 0], dayArrayList[i, 1]);
+
+    currentWidth :=  currentWidth + oneScaleToRightPosition;
+    nextPoint := drawImage(dayArrayList[i + 1, 0], currentWidth);
+    datailPeriodInfo.majorChart.Canvas.Line(currentWidth - oneScaleToRightPosition, h, currentWidth, nextPoint);
+    h := nextPoint;
+
+    startDate := startDate + 1;
+  end;
 end;
 end.
 

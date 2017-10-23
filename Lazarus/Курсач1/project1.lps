@@ -9,7 +9,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
         <CursorPos X="49" Y="11"/>
-        <UsageCount Value="196"/>
+        <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -19,9 +19,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MainForm"/>
-        <TopLine Value="178"/>
-        <CursorPos X="63" Y="139"/>
-        <UsageCount Value="196"/>
+        <TopLine Value="112"/>
+        <CursorPos X="68" Y="129"/>
+        <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -33,7 +33,7 @@
         <UnitName Value="About"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="25" Y="12"/>
-        <UsageCount Value="196"/>
+        <UsageCount Value="200"/>
       </Unit2>
       <Unit3>
         <Filename Value="utils/list/linkedlist.pas"/>
@@ -42,7 +42,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="58"/>
         <CursorPos Y="88"/>
-        <UsageCount Value="158"/>
+        <UsageCount Value="162"/>
       </Unit3>
       <Unit4>
         <Filename Value="forms/detailDay/detaildayunit.pas"/>
@@ -54,7 +54,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="20"/>
         <CursorPos X="4" Y="48"/>
-        <UsageCount Value="143"/>
+        <UsageCount Value="147"/>
       </Unit4>
       <Unit5>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
@@ -65,10 +65,9 @@
         <UnitName Value="infoAboutPeriod"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="114"/>
-        <CursorPos X="24" Y="126"/>
-        <ComponentState Value="1"/>
-        <UsageCount Value="107"/>
+        <TopLine Value="198"/>
+        <CursorPos X="12" Y="228"/>
+        <UsageCount Value="111"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
@@ -76,8 +75,9 @@
         <Filename Value="utils/sort/sorting.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="54" Y="15"/>
-        <UsageCount Value="104"/>
+        <TopLine Value="36"/>
+        <CursorPos X="63" Y="55"/>
+        <UsageCount Value="108"/>
       </Unit6>
       <Unit7>
         <Filename Value="utils/charts/columnchart.pas"/>
@@ -86,7 +86,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="68"/>
         <CursorPos X="56" Y="72"/>
-        <UsageCount Value="103"/>
+        <UsageCount Value="107"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
@@ -96,7 +96,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="34"/>
         <CursorPos X="49" Y="48"/>
-        <UsageCount Value="89"/>
+        <UsageCount Value="93"/>
       </Unit8>
       <Unit9>
         <Filename Value="unit2.pas"/>
@@ -117,9 +117,9 @@
       <Unit11>
         <Filename Value="C:/lazarus/lcl/include/control.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="3655"/>
-        <CursorPos Y="3668"/>
-        <UsageCount Value="0"/>
+        <TopLine Value="2722"/>
+        <CursorPos Y="2738"/>
+        <UsageCount Value="8"/>
       </Unit11>
       <Unit12>
         <Filename Value="C:/lazarus/lcl/lclmessageglue.pas"/>
@@ -127,21 +127,21 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="173"/>
         <CursorPos Y="207"/>
-        <UsageCount Value="0"/>
+        <UsageCount Value="10"/>
       </Unit12>
       <Unit13>
         <Filename Value="C:/lazarus/lcl/interfaces/win32/win32callback.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2558"/>
         <CursorPos Y="2574"/>
-        <UsageCount Value="0"/>
+        <UsageCount Value="10"/>
       </Unit13>
       <Unit14>
         <Filename Value="C:/lazarus/lcl/include/menuitem.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="70"/>
         <CursorPos X="40" Y="78"/>
-        <UsageCount Value="0"/>
+        <UsageCount Value="10"/>
       </Unit14>
       <Unit15>
         <Filename Value="C:/lazarus/lcl/editbtn.pas"/>
@@ -164,19 +164,19 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="389"/>
         <CursorPos X="3" Y="406"/>
-        <UsageCount Value="0"/>
+        <UsageCount Value="10"/>
       </Unit17>
       <Unit18>
         <Filename Value="C:/lazarus/fpc/3.0.2/source/rtl/objpas/sysutils/datih.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="122"/>
         <CursorPos X="10" Y="139"/>
-        <UsageCount Value="0"/>
+        <UsageCount Value="10"/>
       </Unit18>
       <Unit19>
         <Filename Value="C:/lazarus/fpc/3.0.2/source/packages/rtl-objpas/src/inc/dateutils.pp"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="0"/>
+        <UsageCount Value="10"/>
       </Unit19>
       <Unit20>
         <Filename Value="/usr/share/fpcsrc/packages/rtl-objpas/src/inc/dateutils.pp"/>
@@ -269,135 +269,135 @@
         <Filename Value="C:/lazarus/lcl/include/control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2722"/>
-        <CursorPos Y="2738"/>
-        <UsageCount Value="8"/>
+        <CursorPos X="25" Y="2740"/>
+        <UsageCount Value="10"/>
       </Unit32>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="174" TopLine="148"/>
+        <Caret Line="171" TopLine="152"/>
       </Position1>
       <Position2>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="137" Column="6" TopLine="118"/>
+        <Caret Line="172" Column="31" TopLine="152"/>
       </Position2>
       <Position3>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="113" TopLine="113"/>
+        <Caret Line="207" TopLine="179"/>
       </Position3>
       <Position4>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="114" TopLine="108"/>
+        <Caret Line="170" TopLine="152"/>
       </Position4>
       <Position5>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="115" TopLine="108"/>
+        <Caret Line="171" TopLine="152"/>
       </Position5>
       <Position6>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="116" TopLine="108"/>
+        <Caret Line="172" TopLine="152"/>
       </Position6>
       <Position7>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="117" TopLine="108"/>
+        <Caret Line="173" TopLine="152"/>
       </Position7>
       <Position8>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="118" TopLine="108"/>
+        <Caret Line="174" TopLine="152"/>
       </Position8>
       <Position9>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="119" TopLine="108"/>
+        <Caret Line="208" TopLine="179"/>
       </Position9>
       <Position10>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="158" TopLine="142"/>
+        <Caret Line="173" Column="12" TopLine="156"/>
       </Position10>
       <Position11>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="159" TopLine="142"/>
+        <Caret Line="174" TopLine="160"/>
       </Position11>
       <Position12>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="179" TopLine="149"/>
+        <Caret Line="175" Column="58" TopLine="158"/>
       </Position12>
       <Position13>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="96" Column="11" TopLine="62"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="221" Column="68" TopLine="198"/>
       </Position13>
       <Position14>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="113" TopLine="97"/>
+        <Caret Line="203" Column="7" TopLine="198"/>
       </Position14>
       <Position15>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="168" Column="40" TopLine="148"/>
+        <Caret Line="219" Column="10" TopLine="198"/>
       </Position15>
       <Position16>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="111" Column="32" TopLine="135"/>
+        <Caret Line="221" TopLine="197"/>
       </Position16>
       <Position17>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="158" Column="30" TopLine="141"/>
+        <Caret Line="219" Column="12" TopLine="197"/>
       </Position17>
       <Position18>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="171" Column="16" TopLine="149"/>
+        <Caret Line="222" Column="6" TopLine="197"/>
       </Position18>
       <Position19>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="113" Column="2" TopLine="106"/>
+        <Caret Line="224" TopLine="197"/>
       </Position19>
       <Position20>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="114" TopLine="106"/>
+        <Caret Line="226" TopLine="198"/>
       </Position20>
       <Position21>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="115" TopLine="106"/>
+        <Caret Line="217" TopLine="197"/>
       </Position21>
       <Position22>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="116" TopLine="106"/>
+        <Caret Line="220" Column="15" TopLine="197"/>
       </Position22>
       <Position23>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="117" TopLine="106"/>
+        <Caret Line="222" TopLine="197"/>
       </Position23>
       <Position24>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="118" TopLine="106"/>
+        <Caret Line="223" TopLine="197"/>
       </Position24>
       <Position25>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="119" TopLine="106"/>
+        <Caret Line="224" TopLine="197"/>
       </Position25>
       <Position26>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="161" TopLine="145"/>
+        <Caret Line="226" TopLine="197"/>
       </Position26>
       <Position27>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="140" Column="19" TopLine="127"/>
+        <Caret Line="228" TopLine="197"/>
       </Position27>
       <Position28>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="171" Column="65" TopLine="155"/>
+        <Caret Line="222" Column="64" TopLine="197"/>
       </Position28>
       <Position29>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="151" Column="42" TopLine="130"/>
+        <Caret Line="214" Column="67" TopLine="197"/>
       </Position29>
       <Position30>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="150" Column="28" TopLine="134"/>
+        <Caret Line="218" Column="19" TopLine="197"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="1">
+    <BreakPoints Count="2">
       <Item1>
         <Kind Value="bpkData"/>
         <WatchScope Value="wpsGlobal"/>
@@ -405,44 +405,33 @@
         <Expression Value="i = 8"/>
         <InitialEnabled Value="False"/>
       </Item1>
+      <Item2>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Line Value="222"/>
+      </Item2>
     </BreakPoints>
-    <Watches Count="12">
+    <Watches Count="6">
       <Item1>
-        <Expression Value="j"/>
+        <Expression Value="startDate"/>
       </Item1>
       <Item2>
-        <Expression Value="i"/>
+        <Expression Value="endDate"/>
       </Item2>
       <Item3>
-        <Expression Value="rowcount"/>
+        <Expression Value="h"/>
       </Item3>
       <Item4>
-        <Expression Value="grid.rowcount"/>
+        <Expression Value="currentWidth"/>
       </Item4>
       <Item5>
-        <Expression Value="v1"/>
+        <Expression Value="oneScaleToRightPosition"/>
       </Item5>
       <Item6>
-        <Expression Value="v2"/>
+        <Expression Value="nextPoint"/>
       </Item6>
-      <Item7>
-        <Expression Value="day"/>
-      </Item7>
-      <Item8>
-        <Expression Value="dateToStr(day)"/>
-      </Item8>
-      <Item9>
-        <Expression Value="x"/>
-      </Item9>
-      <Item10>
-        <Expression Value="dayArray[i]"/>
-      </Item10>
-      <Item11>
-        <Expression Value="dayarraylist"/>
-      </Item11>
-      <Item12>
-        <Expression Value="x"/>
-      </Item12>
     </Watches>
   </Debugging>
 </CONFIG>

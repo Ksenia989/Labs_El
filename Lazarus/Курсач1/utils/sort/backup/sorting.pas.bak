@@ -8,7 +8,7 @@ uses
   Classes, SysUtils, Grids;
 
 procedure sortInteger(var grid : TStringGrid; sortIndex : integer);
-procedure sortString(var grid : TStringGrid; sortIndex : integer);
+procedure sortDate(var grid : TStringGrid; sortIndex : integer);
 
 implementation
 
@@ -40,7 +40,7 @@ begin
   end;
 end;
 
-procedure sortString(var grid : TStringGrid; sortIndex : integer);
+procedure sortDate(var grid : TStringGrid; sortIndex : integer);
 var
   i, j : integer;
   k : tDate;

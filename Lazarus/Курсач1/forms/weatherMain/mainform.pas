@@ -126,7 +126,7 @@ begin
   while (temp <> nil) do
   begin
     weatherForecast.StringGrid1.RowCount := weatherForecast.StringGrid1.RowCount + 1;
-    weatherForecast.StringGrid1.Cells[0, i] := dateTimeTOStr(temp^.date, false);
+    weatherForecast.StringGrid1.Cells[0, i] := dateToStr(temp^.date);
     a := temp^.dayOrNight;
     weatherForecast.StringGrid1.Cells[1, i] := a;
     str(temp^.temperature, a);
@@ -225,13 +225,13 @@ var
   errCode : integer;
   n : integer;
   temperature, humidity, atmospherePressure : integer;
-  day : TDateTime;
+  day : TDate;
   dayOrNight : string;
 begin
   n := StringGrid1.RowCount;
   for i := 0 to n - 2 do
   begin
-    day := strToDateTime(StringGrid1.Cells[0, i + 1]);
+    day := strToDate(StringGrid1.Cells[0, i + 1], 'dd/mm/yy', '.');
     dayOrNight := StringGrid1.Cells[1, i + 1];
     val(StringGrid1.Cells[2, i + 1], temperature, errCode);
     val(StringGrid1.Cells[3, i + 1], humidity, errCode);
