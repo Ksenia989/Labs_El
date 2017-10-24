@@ -20,14 +20,18 @@ procedure writeToTextFile(var textFile : text; filename : String; commonWeather 
 var
   fullFileName : string;
   temp : list;
+  settings : TFormatSettings;
     begin
          temp := commonWeather;
          fullFileName := filename + '.txt';
          assign(textfile, fullFileName);
          rewrite(textfile);
+         settings.DateSeparator:='.';
+         settings.LongDateFormat:='dd.mm.yyyy';
+         settings.ShortDateFormat:='dd.mm.yyyy';
          while (temp <> nil)do
             begin
-                write(textfile, dateToStr(temp^.date));
+                write(textfile, dateTimeToStr(temp^.date, settings, false));
                 write(textfile, #13#10);
                 write(textfile, temp^.dayOrNight);
                 write(textfile, #13#10);
@@ -51,7 +55,7 @@ var
   fullFileName : string;
   temperature, humidity, atmospherePressure : integer;
   dayForSelect : String;
-  date : TDate;
+  date : TDateTime;
   dayOrNight : string;
   a : string;
   settings : TFormatSettings;
@@ -59,10 +63,13 @@ var
       fullFileName := filename;
       assign(textfile, fullFileName);
       reset(textFile);
+      settings.DateSeparator:='.';
+      settings.LongDateFormat:='dd.mm.yyyy';
+      settings.ShortDateFormat:='dd.mm.yyyy';
       while (not (eof(textFile))) do
         begin
           read(textfile, dayForSelect);
-          date := strToDate(dayForSelect, 'dd.mm.yyyy', '.');
+          date := strToDateTime(dayForSelect, settings);
           readln(textfile);
           readln(textfile, dayOrNight);
           read(textfile, temperature);
