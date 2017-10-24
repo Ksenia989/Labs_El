@@ -176,11 +176,6 @@ begin   // todo возвращать сложный тип
   datailPeriodInfo.majorChart.Canvas.Brush.Color := clRed;
   datailPeriodInfo.majorChart.Canvas.EllipseC(width, currentHeight, 4, 4);
   drawImage := currentHeight;
-  ////night temperature
-  //currentHeight := maxHeight - oneDegreeHeight * abs(((-40) - (night^.temperature)));
-  //datailPeriodInfo.majorChart.Canvas.Brush.Color := clBlue;
-  //datailPeriodInfo.majorChart.Canvas.EllipseC(width, currentHeight, 4, 4);
-  //nightHeight := currentHeight;
 end;
 
 procedure TdatailPeriodInfo.Button1Click(Sender: TObject);

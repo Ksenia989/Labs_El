@@ -42,7 +42,7 @@ procedure TdetailDayInfo.showDayInfoClick(Sender: TObject);
 var
   dayList, nightlist, listTemplate : list;
 begin
-  listTemplate := WeatherForecast.getCommonWeather(); // todo по дню и ночи поиск
+  listTemplate := WeatherForecast.getCommonWeather();
   dayList := searchListElementByDate(listTemplate, dateSelect.Date, 'День');
   nightList := searchListElementByDate(listTemplate, dateSelect.Date, 'Ночь');
   draw(Image1, dayList^.temperature, nightlist^.temperature, 'Температура');

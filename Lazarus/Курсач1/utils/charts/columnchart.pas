@@ -22,19 +22,19 @@ begin
   selectColours := coloursArray[i mod 2];
 end;
 
-procedure writecColoursAndNames(image : TImage; i : Integer; colour: TColor; s : string);
+procedure writecColoursAndNames(image : TImage; i : integer; colour: TColor; s : string);
 var
   y : integer;
   x : integer;
 begin
   image.Canvas.Brush.Color := colour;
-  x := 120;
-  y := 45 + (i * 20 + (i-1) * 10 );
+  x := 120;   // todo расстояние между графиком
+  y := 15 + (i * 20);
   image.Canvas.brush.Style := bsSolid;
   image.Canvas.Brush.Color := selectColours(i);
-  Image.Canvas.Rectangle(x - 25, y - 25, x, y);
+  Image.Canvas.Rectangle(x - 10, y - 10, x, y);
   image.Canvas.Brush.Color := clwhite;
-  Image.Canvas.TextOut(x + 10, y - 22, s);
+  Image.Canvas.TextOut(x + 5, y - 12, s);
 end;
 
 procedure writeTemperature(image : Timage);
@@ -48,59 +48,61 @@ begin
 end;
 
 procedure writeScale(image : Timage);
+const
+  height : integer = 85;
+  width : integer = 135;
 begin
   image.canvas.Font.Color:= clblack;
-  image.Canvas.Line(15, 153, 135, 153);
-  image.Canvas.Line(125, 148, 135, 153);
-  image.Canvas.Line(125, 159, 135, 153);
+  image.Canvas.Line(15, height, width, height);
+  image.Canvas.Line(125, height - 6, width, height);
+  image.Canvas.Line(125, height + 6, width, height);
   image.canvas.Font.Size := 7;
-  image.canvas.TextOut(137, 146, 'Сутки');
+  image.canvas.TextOut(width + 2, height + 2, 'Сутки');
 end;
 
 procedure draw(image : TImage; val1 : integer; val2 : integer
                      ; header : string);
 var
-  sum : integer;
   i : integer;
-  inputHeight, calculatedHeight: integer;
-  maxSize : integer;
+  calculatedHeight: integer;
   x, y : integer;
-  stringPerCents : string;
   name : String;
   value : String;
+  sum : integer;
+  maxHeight, minHeight : integer;
 begin
   Image.Canvas.Brush.Color := clWhite;
   image.Canvas.Rectangle(0, 0, image.Width, image.Height);
   Image.Canvas.TextOut(30,10, header);
   image.Color := clwhite;
-  //todo вынести сумму в отдельную подпрограмму
-    sum := val1 + val2;
-    maxsize := 140;
-    x := 20;
-    y := 150;
-      for i := 1 to 2 do
-        begin
-          inputHeight := val1;
-          calculatedHeight := round(maxSize * (inputHeight / sum));
-          image.Canvas.Brush.Color := selectColours(i);
-          Image.Canvas.Rectangle(x + 25,y - calculatedHeight, x, y);
-          // На линии отметки с температурой
-          image.canvas.Line(13, calculatedHeight + 10, 17, calculatedHeight + 10);
-          // текст - температура
-          str(val1, value);
-          image.Canvas.Brush.Color := clwhite;
-          image.canvas.Font.Color:= clblack;
-          image.canvas.Font.Size := 7;
-          image.canvas.textOut(1, calculatedHeight + 7, value);
+  minHeight := 35;
+  maxHeight := 140;
+  sum := val1 + val2;
+  x := 20;
+  y := 85; // середина шкалы
+    for i := 1 to 2 do
+    begin
+      calculatedHeight := round((maxheight - minHeight) * val1 / sum);
+      image.Canvas.Brush.Color := selectColours(i);
+      // 135 - это середина шкалы
+      Image.Canvas.Rectangle(x + 25, y, x, calculatedHeight);
+      // На линии отметки с температурой
+      image.canvas.Line(14, calculatedHeight, 17, calculatedHeight);
+      // текст - температура
+      str(val1, value);
+      image.Canvas.Brush.Color := clwhite;
+      image.canvas.Font.Color:= clblack;
+      image.canvas.Font.Size := 6;
+      image.canvas.textOut(2, calculatedHeight - 7, value);
 
-          image.Canvas.Brush.Color := clwhite;
-          x := x + 30;
-          if (i = 1) then name := 'День' else name := 'Ночь';
-          writecColoursAndNames(image, i, image.Canvas.Brush.Color, name);
-         val1 := val2;
-        end;
-      writeScale(image);
-      writeTemperature(image);
+      image.Canvas.Brush.Color := clwhite;
+      x := x + 30;
+      if (i = 1) then name := 'День' else name := 'Ночь';
+      writecColoursAndNames(image, i, image.Canvas.Brush.Color, name);
+      val1 := val2;
+    end;
+    writeScale(image);
+    writeTemperature(image);
 end;
 
 end.

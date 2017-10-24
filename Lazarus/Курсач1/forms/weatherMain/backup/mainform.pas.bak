@@ -100,12 +100,14 @@ end;
 procedure TWeatherForecast.DateSortingClick(Sender: TObject);
 begin
   sortDate(stringGrid1, 0);
+  //SaveInLinkedListClick
   tableChanged := true;
 end;
 
 procedure TWeatherForecast.temperatureSortingClick(Sender: TObject);
 begin
   sortInteger(StringGrid1, 2);
+  //SaveInLinkedListClick
   tableChanged := true;
 end;
 
@@ -171,11 +173,13 @@ end;
 procedure TWeatherForecast.CleanTableClick(Sender: TObject);
 begin
   StringGrid1.RowCount := 1;
+  tableChanged := true;
 end;
 
 procedure TWeatherForecast.IncrementRawsClick(Sender: TObject);
 begin
   StringGrid1.RowCount := StringGrid1.RowCount + 1;
+  tableChanged := true;
 end;
 
 procedure TWeatherForecast.dataFromTemplateClick(Sender: TObject);
@@ -233,6 +237,8 @@ var
   settings : TFormatSettings;
   dayOrNight : string;
 begin
+ // todo удаление всех элементов из листа
+ //linkedList := nil; // заново записываем
   n := StringGrid1.RowCount;
   settings.DateSeparator:='.';
   settings.LongDateFormat:='dd.mm.yyyy';
@@ -247,7 +253,7 @@ begin
     LinkedList.add(commonWeather, day, dayOrNight, temperature, humidity, atmospherePressure
                                         );
   end;
-,end;
+end;
 
 procedure TWeatherForecast.searchDetailInformationClick(Sender: TObject);
 begin
