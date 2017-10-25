@@ -1,12 +1,14 @@
 object WeatherForecast: TWeatherForecast
-  Left = 194
+  Left = 196
   Height = 322
-  Top = 139
+  Top = 216
   Width = 1095
   Caption = 'Сводка погоды'
   ClientHeight = 302
   ClientWidth = 1095
   Menu = menuM
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '1.6.4.0'
   object About: TButton
@@ -32,15 +34,6 @@ object WeatherForecast: TWeatherForecast
     OnGetEditMask = StringGrid1GetEditMask
     OnSelectEditor = StringGrid1SelectEditor
   end
-  object SaveInLinkedList: TButton
-    Left = 56
-    Height = 30
-    Top = 209
-    Width = 120
-    Caption = 'Сохранить в лист'
-    OnClick = SaveInLinkedListClick
-    TabOrder = 2
-  end
   object DecrementRaws: TButton
     Left = 287
     Height = 25
@@ -48,7 +41,7 @@ object WeatherForecast: TWeatherForecast
     Width = 33
     Caption = '-'
     OnClick = DecrementRawsClick
-    TabOrder = 3
+    TabOrder = 2
   end
   object IncrementRaws: TButton
     Left = 340
@@ -57,7 +50,7 @@ object WeatherForecast: TWeatherForecast
     Width = 27
     Caption = '+'
     OnClick = IncrementRawsClick
-    TabOrder = 4
+    TabOrder = 3
   end
   object CleanTable: TButton
     Left = 56
@@ -66,7 +59,7 @@ object WeatherForecast: TWeatherForecast
     Width = 115
     Caption = 'Очистить таблицу'
     OnClick = CleanTableClick
-    TabOrder = 5
+    TabOrder = 4
   end
   object dataFromTemplate: TButton
     Left = 658
@@ -75,7 +68,7 @@ object WeatherForecast: TWeatherForecast
     Width = 150
     Caption = 'Данные из базы'
     OnClick = dataFromTemplateClick
-    TabOrder = 6
+    TabOrder = 5
   end
   object searchDetailInformation: TButton
     Left = 464
@@ -84,7 +77,7 @@ object WeatherForecast: TWeatherForecast
     Width = 141
     Caption = 'Детальная информация'
     OnClick = searchDetailInformationClick
-    TabOrder = 7
+    TabOrder = 6
   end
   object weekForekast: TButton
     Left = 464
@@ -93,7 +86,7 @@ object WeatherForecast: TWeatherForecast
     Width = 144
     Caption = 'Прогноз на неделю'
     OnClick = weekForekastClick
-    TabOrder = 8
+    TabOrder = 7
   end
   object OpenDialog1: TOpenDialog
     Filter = 'Все файлы|*.*|Текстовые файлы|*.txt'

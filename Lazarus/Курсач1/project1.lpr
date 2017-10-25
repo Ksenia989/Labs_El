@@ -8,7 +8,7 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, datetimectrls, MainForm, About, LinkedList, detailDayUnit,
-infoAboutPeriod, fileSaver, sorting
+infoAboutPeriod, fileSaver, sorting, savingFileHandler, saveOrNotForm
   { you can add units after this };
 
 {$R *.res}
@@ -20,6 +20,7 @@ begin
   Application.CreateForm(TaboutProgram, aboutProgram);
   Application.CreateForm(TdetailDayInfo, detailDayInfo);
   Application.CreateForm(TdatailPeriodInfo, datailPeriodInfo);
+  Application.CreateForm(TExitWithSave, ExitWithSave);
   Application.Run;
 end.
 

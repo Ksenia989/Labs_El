@@ -13,7 +13,7 @@ type
   { TdatailPeriodInfo }
 
   TdatailPeriodInfo = class(TForm)
-    Button1: TButton;
+    ShowPeriodInfo: TButton;
     dateFrom: TDateEdit;
     dateTo: TDateEdit;
     Label10: TLabel;
@@ -28,7 +28,7 @@ type
     majorChart: TImage;
     additionInfo: TImage;
     Label1: TLabel;
-    procedure Button1Click(Sender: TObject);
+    procedure ShowPeriodInfoClick(Sender: TObject);
   private
     { private declarations }
   public
@@ -169,18 +169,17 @@ var
   currentHeight : integer;
   oneDegreeHeight : integer;
   degreesCount : integer;
-begin   // todo возвращать сложный тип
+begin
   maxHeight := 255;
   degreesCount := 85;
   oneDegreeHeight := maxHeight div degreesCount;
-  //dayTemperature
   currentHeight := maxHeight - oneDegreeHeight * abs(((-40) - (day^.temperature)));
   datailPeriodInfo.majorChart.Canvas.Brush.Color := clRed;
   datailPeriodInfo.majorChart.Canvas.EllipseC(width, currentHeight, 4, 4);
   drawImage := currentHeight;
 end;
 
-procedure TdatailPeriodInfo.Button1Click(Sender: TObject);
+procedure TdatailPeriodInfo.ShowPeriodInfoClick(Sender: TObject);
 var
   i : integer;
   startDate, endDate : TDate;
@@ -211,7 +210,7 @@ begin
   // + 1 т.к. для одного дня уже посчитали
   currentWidth := currentWidth + oneScaleToRightPosition;
   dayHeight := drawImage(dayArrayList[i, 0], currentWidth);
-  nightHeight := drawImage(dayArrayList[i, 1], currentWidth)
+  nightHeight := drawImage(dayArrayList[i, 1], currentWidth);
   startDate := startDate + 1;
 
   while (startDate <= endDate) do    // todo проработать ситуацию, когда нет следующей точки

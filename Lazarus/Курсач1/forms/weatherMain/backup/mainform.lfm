@@ -1,12 +1,14 @@
 object WeatherForecast: TWeatherForecast
-  Left = -4
+  Left = 196
   Height = 322
-  Top = 623
+  Top = 216
   Width = 1095
   Caption = 'Сводка погоды'
   ClientHeight = 302
   ClientWidth = 1095
   Menu = menuM
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '1.6.4.0'
   object About: TButton
@@ -38,7 +40,6 @@ object WeatherForecast: TWeatherForecast
     Top = 209
     Width = 120
     Caption = 'Сохранить в лист'
-    OnClick = SaveInLinkedListClick
     TabOrder = 2
   end
   object DecrementRaws: TButton

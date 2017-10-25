@@ -1,0 +1,35 @@
+object ExitWithSave: TExitWithSave
+  Left = 723
+  Height = 105
+  Top = 297
+  Width = 298
+  ClientHeight = 105
+  ClientWidth = 298
+  LCLVersion = '1.6.4.0'
+  object Label1: TLabel
+    Left = 96
+    Height = 15
+    Top = 16
+    Width = 95
+    Caption = 'Сохранить файл?'
+    ParentColor = False
+  end
+  object yes: TButton
+    Left = 40
+    Height = 26
+    Top = 48
+    Width = 84
+    Caption = 'Да'
+    OnClick = yesClick
+    TabOrder = 0
+  end
+  object No: TButton
+    Left = 176
+    Height = 26
+    Top = 48
+    Width = 84
+    Caption = 'Нет'
+    OnClick = NoClick
+    TabOrder = 1
+  end
+end

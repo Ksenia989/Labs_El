@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
   ExtCtrls, Grids, Menus, ColorBox, Buttons,
-  LinkedList;
+  LinkedList, savingFileHandler;
 
 { TWeatherForecast }
   type
@@ -37,6 +37,8 @@ uses
     procedure AboutClick(Sender: TObject);
     procedure DecrementRawsClick(Sender: TObject);
     procedure CleanTableClick(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
+    procedure FormCreate(Sender: TObject);
     procedure IncrementRawsClick(Sender: TObject);
     procedure dataFromTemplateClick(Sender: TObject);
     procedure EscapeClick(Sender: TObject);
@@ -45,7 +47,6 @@ uses
     procedure temperatureSortingClick(Sender: TObject);
     procedure OpenClick(Sender: TObject);
     procedure SaveFileClick(Sender: TObject);
-    procedure SaveInLinkedListClick(Sender: TObject);
     procedure searchDetailInformationClick(Sender: TObject);
     procedure StringGrid1GetEditMask(Sender: TObject; ACol, ARow: Integer;
       var Value: string);
@@ -59,6 +60,7 @@ uses
   public
     { public declarations }
     function getCommonWeather() : list;
+    function getStringGrid() : TStringGrid;
   end;
 
 var
@@ -114,6 +116,11 @@ end;
 function TWeatherForecast.getCommonWeather() : list;
 begin
   getCommonWeather := commonWeather;
+end;
+
+function TWeatherForecast.getStringGrid() : TStringGrid;
+begin
+  getStringGrid := StringGrid1;
 end;
 
 procedure fillData();
@@ -173,7 +180,20 @@ end;
 procedure TWeatherForecast.CleanTableClick(Sender: TObject);
 begin
   StringGrid1.RowCount := 1;
+  commonWeather := nil;
   tableChanged := true;
+end;
+
+procedure TWeatherForecast.FormCloseQuery(Sender: TObject; var CanClose: boolean
+  );
+begin
+
+
+end;
+
+procedure TWeatherForecast.FormCreate(Sender: TObject);
+begin
+
 end;
 
 procedure TWeatherForecast.IncrementRawsClick(Sender: TObject);
@@ -198,10 +218,49 @@ begin
   WeatherForecast.Close;
 end;
 
+(*
+  Вспомогательная функция, заносящая данные в список
+*)
+procedure saveInLList(var weatherList : list; grid : TStringGrid);
+var
+  i : integer;
+  errCode : integer;
+  rowsNumber : integer;
+  temperature, humidity, atmospherePressure : integer;
+  day : TDateTime;
+  settings : TFormatSettings;
+  dayOrNight : string;
+begin
+  // todo удаление всех элементов из листа
+  weatherList := nil; // заново записываем
+
+  rowsNumber := grid.RowCount;
+  settings.DateSeparator:='.';
+  settings.LongDateFormat:='dd.mm.yyyy';
+  settings.ShortDateFormat:='dd.mm.yyyy';
+  for i := 0 to rowsNumber - 2 do
+  begin
+    day := strToDateTime(grid.Cells[0, i + 1], settings);
+    dayOrNight := grid.Cells[1, i + 1];
+    val(grid.Cells[2, i + 1], temperature, errCode);
+    val(grid.Cells[3, i + 1], humidity, errCode);
+    val(grid.Cells[4, i + 1], atmospherePressure, errCode);
+    LinkedList.add(weatherList, day, dayOrNight, temperature, humidity, atmospherePressure
+                                        );
+  end;
+end;
+
+procedure saveInFileProxy(var commonWeather : list; grid : TStringGrid);
+begin
+  saveInLList(commonWeather, grid);
+  tableChanged := true;
+end;
+
 procedure TWeatherForecast.SaveFileClick(Sender: TObject);
 begin
     //если изменений не было, выходим
-    //if (not tableChanged) then Exit;
+    if (tableChanged) then
+         saveInFileProxy(commonWeather, getStringGrid());
     //Если файл уже открывался, и в переменной myfile
     //есть его адрес и имя, просто перезаписываем этот файл:
     if fileName <> '' then
@@ -225,34 +284,6 @@ begin
     end
  //если не выбрал файл:
  else ShowMessage('Вы не указали имя файла, файл не сохранен!');
-end;
-
-procedure TWeatherForecast.SaveInLinkedListClick(Sender: TObject);
-var
-  i : integer;
-  errCode : integer;
-  n : integer;
-  temperature, humidity, atmospherePressure : integer;
-  day : TDateTime;
-  settings : TFormatSettings;
-  dayOrNight : string;
-begin
- // todo удаление всех элементов из листа
- //linkedList := nil; // заново записываем
-  n := StringGrid1.RowCount;
-  settings.DateSeparator:='.';
-  settings.LongDateFormat:='dd.mm.yyyy';
-  settings.ShortDateFormat:='dd.mm.yyyy';
-  for i := 0 to n - 2 do
-  begin
-    day := strToDateTime(StringGrid1.Cells[0, i + 1], settings);
-    dayOrNight := StringGrid1.Cells[1, i + 1];
-    val(StringGrid1.Cells[2, i + 1], temperature, errCode);
-    val(StringGrid1.Cells[3, i + 1], humidity, errCode);
-    val(StringGrid1.Cells[4, i + 1], atmospherePressure, errCode);
-    LinkedList.add(commonWeather, day, dayOrNight, temperature, humidity, atmospherePressure
-                                        );
-  end;
 end;
 
 procedure TWeatherForecast.searchDetailInformationClick(Sender: TObject);
