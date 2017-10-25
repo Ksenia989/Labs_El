@@ -7,7 +7,7 @@
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="3"/>
         <CursorPos X="49" Y="11"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -40,10 +40,11 @@
         <Filename Value="utils/list/linkedlist.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LinkedList"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="26"/>
-        <CursorPos Y="36"/>
-        <UsageCount Value="170"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="61"/>
+        <CursorPos X="5" Y="92"/>
+        <UsageCount Value="172"/>
+        <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="forms/detailDay/detaildayunit.pas"/>
@@ -52,12 +53,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="detailDayUnit"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="20"/>
         <CursorPos Y="48"/>
-        <UsageCount Value="155"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="157"/>
       </Unit4>
       <Unit5>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
@@ -66,10 +65,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="infoAboutPeriod"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="195"/>
-        <CursorPos X="63" Y="204"/>
-        <UsageCount Value="119"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="202"/>
+        <CursorPos X="113" Y="223"/>
+        <UsageCount Value="121"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
@@ -79,28 +79,25 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="27"/>
         <CursorPos Y="54"/>
-        <UsageCount Value="116"/>
+        <UsageCount Value="118"/>
       </Unit6>
       <Unit7>
         <Filename Value="utils/charts/columnchart.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="columnChart"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="69"/>
-        <CursorPos X="25" Y="86"/>
-        <UsageCount Value="115"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="67"/>
+        <CursorPos X="30" Y="79"/>
+        <UsageCount Value="117"/>
       </Unit7>
       <Unit8>
         <Filename Value="utils/inputOutput/filesaver.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="fileSaver"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="50"/>
         <CursorPos X="27" Y="68"/>
-        <UsageCount Value="101"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="103"/>
       </Unit8>
       <Unit9>
         <Filename Value="unit2.pas"/>
@@ -272,129 +269,129 @@
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="88" TopLine="70"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="96" Column="70" TopLine="83"/>
       </Position1>
       <Position2>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="89" TopLine="70"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="97" TopLine="83"/>
       </Position2>
       <Position3>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="91" TopLine="70"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="98" TopLine="83"/>
       </Position3>
       <Position4>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="102" Column="24" TopLine="76"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="100" TopLine="83"/>
       </Position4>
       <Position5>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="37" Column="38" TopLine="10"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="101" TopLine="83"/>
       </Position5>
       <Position6>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="31" Column="71" TopLine="16"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="105" TopLine="83"/>
       </Position6>
       <Position7>
-        <Filename Value="forms/detailDay/detaildayunit.pas"/>
-        <Caret Line="25" Column="65" TopLine="21"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="106" TopLine="83"/>
       </Position7>
       <Position8>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="206" Column="42" TopLine="184"/>
+        <Caret Line="96" TopLine="83"/>
       </Position8>
       <Position9>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="207" Column="25" TopLine="200"/>
+        <Caret Line="97" TopLine="83"/>
       </Position9>
       <Position10>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="71" Column="6" TopLine="63"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="96" TopLine="83"/>
       </Position10>
       <Position11>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="85" Column="63" TopLine="69"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="97" TopLine="83"/>
       </Position11>
       <Position12>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="87" Column="79" TopLine="73"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="98" TopLine="83"/>
       </Position12>
       <Position13>
-        <Filename Value="utils/inputOutput/filesaver.pas"/>
-        <Caret Line="68" Column="27" TopLine="50"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="100" TopLine="83"/>
       </Position13>
       <Position14>
-        <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="200" Column="3" TopLine="166"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="96" TopLine="83"/>
       </Position14>
       <Position15>
-        <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="151" Column="2" TopLine="146"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="97" TopLine="83"/>
       </Position15>
       <Position16>
-        <Filename Value="forms/detailDay/detaildayunit.pas"/>
-        <Caret Line="48" Column="4" TopLine="20"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="98" TopLine="83"/>
       </Position16>
       <Position17>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="88" Column="42" TopLine="73"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="96" TopLine="83"/>
       </Position17>
       <Position18>
-        <Filename Value="forms/detailDay/detaildayunit.pas"/>
-        <Caret Line="48" TopLine="20"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="97" TopLine="83"/>
       </Position18>
       <Position19>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="85" TopLine="68"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="98" TopLine="83"/>
       </Position19>
       <Position20>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="86" TopLine="68"/>
+        <Filename Value="utils/list/linkedlist.pas"/>
+        <Caret Line="92" Column="5" TopLine="61"/>
       </Position20>
       <Position21>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="85" TopLine="68"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="96" TopLine="83"/>
       </Position21>
       <Position22>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="86" TopLine="68"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="97" Column="14" TopLine="83"/>
       </Position22>
       <Position23>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="85" TopLine="68"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="96" TopLine="83"/>
       </Position23>
       <Position24>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="86" TopLine="68"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="97" TopLine="83"/>
       </Position24>
       <Position25>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="85" TopLine="68"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="98" TopLine="83"/>
       </Position25>
       <Position26>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="86" TopLine="68"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="96" TopLine="83"/>
       </Position26>
       <Position27>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="89" TopLine="69"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="97" TopLine="83"/>
       </Position27>
       <Position28>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="87" TopLine="69"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="98" TopLine="83"/>
       </Position28>
       <Position29>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="83" Column="3" TopLine="69"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="180" Column="31" TopLine="185"/>
       </Position29>
       <Position30>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="89" TopLine="69"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="96" TopLine="79"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="3">
+    <BreakPoints Count="1">
       <Item1>
         <Kind Value="bpkData"/>
         <WatchScope Value="wpsGlobal"/>
@@ -402,49 +399,17 @@
         <Expression Value="i = 8"/>
         <InitialEnabled Value="False"/>
       </Item1>
-      <Item2>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="utils/charts/columnchart.pas"/>
-        <Line Value="87"/>
-      </Item2>
-      <Item3>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="utils/charts/columnchart.pas"/>
-        <Line Value="89"/>
-      </Item3>
     </BreakPoints>
-    <Watches Count="9">
+    <Watches Count="3">
       <Item1>
-        <Expression Value="h"/>
+        <Expression Value="dayList"/>
       </Item1>
       <Item2>
-        <Expression Value="dayLlist"/>
+        <Expression Value="nightList"/>
       </Item2>
       <Item3>
-        <Expression Value="nightlist"/>
+        <Expression Value="x"/>
       </Item3>
-      <Item4>
-        <Expression Value="daylist"/>
-      </Item4>
-      <Item5>
-        <Expression Value="calculatedheight"/>
-      </Item5>
-      <Item6>
-        <Expression Value="val1"/>
-      </Item6>
-      <Item7>
-        <Expression Value="sum"/>
-      </Item7>
-      <Item8>
-        <Expression Value="round((maxheight - minHeight) * val1 / sum)"/>
-      </Item8>
-      <Item9>
-        <Expression Value="(maxheight - minHeight) * val1 / sum"/>
-      </Item9>
     </Watches>
   </Debugging>
 </CONFIG>

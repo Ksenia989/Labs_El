@@ -118,11 +118,13 @@ begin
 end;
 
 procedure writeScale(var image : Timage);
+const
+  zeroPointerHeight : integer = 135;
 begin
   image.canvas.Font.Color:= clblack;
-  image.Canvas.Line(47, 153, 540, 153);
-  image.Canvas.Line(525, 148, 540, 153);
-  image.Canvas.Line(525, 159, 540, 153);
+  image.Canvas.Line(47, zeroPointerHeight, 540, zeroPointerHeight);
+  image.Canvas.Line(525, zeroPointerHeight - 6, 540, zeroPointerHeight);
+  image.Canvas.Line(525, zeroPointerHeight + 6, 540, zeroPointerHeight);
   image.canvas.Font.Size := 7;
   image.canvas.TextOut(542, 146, 'Сутки');
   image.canvas.Font.Color:= clwhite;
@@ -186,7 +188,8 @@ var
   oneScaleToRightPosition : integer;
   startPosition, endPosition : integer;
   daysPerWeek : integer;
-  h, nextPoint : integer;
+  dayHeight, nextDayPoint : integer;
+  nightHeight, nextNightPoint : integer;
 begin
   majorchart.Canvas.Brush.Color := clWhite;
   majorchart.Canvas.Rectangle(0, 0, majorchart.Width, majorchart.Height);
@@ -207,7 +210,8 @@ begin
 
   // + 1 т.к. для одного дня уже посчитали
   currentWidth := currentWidth + oneScaleToRightPosition;
-  h := drawImage(dayArrayList[i, 0], currentWidth);
+  dayHeight := drawImage(dayArrayList[i, 0], currentWidth);
+  nightHeight := drawImage(dayArrayList[i, 1], currentWidth);
   startDate := startDate + 1;
 
   while (startDate <= endDate) do    // todo проработать ситуацию, когда нет следующей точки
@@ -215,9 +219,14 @@ begin
     showInfo(dayArray[i], dayArrayList[i, 0], dayArrayList[i, 1]);
 
     currentWidth :=  currentWidth + oneScaleToRightPosition;
-    nextPoint := drawImage(dayArrayList[i + 1, 0], currentWidth);
-    datailPeriodInfo.majorChart.Canvas.Line(currentWidth - oneScaleToRightPosition, h, currentWidth, nextPoint);
-    h := nextPoint;
+    nextDayPoint := drawImage(dayArrayList[i + 1, 0], currentWidth);
+    datailPeriodInfo.majorChart.Canvas.Line(currentWidth - oneScaleToRightPosition, dayHeight, currentWidth, nextDayPoint);
+
+    nextNightPoint := drawImage(dayArrayList[i + 1, 1], currentWidth);
+    datailPeriodInfo.majorChart.Canvas.Line(currentWidth - oneScaleToRightPosition, nightHeight, currentWidth, nextNightPoint);
+
+    dayHeight := nextDayPoint;
+    nightHeight := nextNightPoint;
 
     startDate := startDate + 1;
     inc(i);

@@ -87,6 +87,9 @@ begin
     end;
     temp := temp^.next;
   end;
+  // todo придумать нормально условие, чтобы находил последний элемент
+  if ((date = temp^.date) and (temp^.dayOrNight = dayOrNight)) then
+    searchListElementByDate := temp;
 end;
 end.
 

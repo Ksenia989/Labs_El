@@ -75,7 +75,7 @@ begin
   image.Canvas.Rectangle(0, 0, image.Width, image.Height);
   Image.Canvas.TextOut(30,10, header);
   image.Color := clwhite;
-  minHeight := 55;
+  minHeight := 60;
   maxHeight := 140;
   sum := abs(val1) + abs(val2);
   x := 20;
