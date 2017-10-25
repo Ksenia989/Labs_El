@@ -34,7 +34,7 @@ begin
   image.Canvas.Brush.Color := selectColours(i);
   Image.Canvas.Rectangle(x - 10, y - 10, x, y);
   image.Canvas.Brush.Color := clwhite;
-  Image.Canvas.TextOut(x + 5, y - 12, s);
+  Image.Canvas.TextOut(x + 5, y - 10, s);
 end;
 
 procedure writeTemperature(image : Timage);
@@ -75,14 +75,19 @@ begin
   image.Canvas.Rectangle(0, 0, image.Width, image.Height);
   Image.Canvas.TextOut(30,10, header);
   image.Color := clwhite;
-  minHeight := 35;
+  minHeight := 55;
   maxHeight := 140;
-  sum := val1 + val2;
+  sum := abs(val1) + abs(val2);
   x := 20;
   y := 85; // середина шкалы
+
     for i := 1 to 2 do
     begin
-      calculatedHeight := round((maxheight - minHeight) * val1 / sum);
+      if (val1 > 0) then
+        calculatedHeight := y - round((maxheight - minHeight) * val1 / sum)
+      else
+         calculatedHeight := y + round((maxheight - minHeight) * abs(val1) / sum);
+
       image.Canvas.Brush.Color := selectColours(i);
       // 135 - это середина шкалы
       Image.Canvas.Rectangle(x + 25, y, x, calculatedHeight);

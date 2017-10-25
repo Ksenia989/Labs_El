@@ -7,7 +7,7 @@
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="5"/>
         <CursorPos X="49" Y="11"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -19,8 +19,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MainForm"/>
-        <TopLine Value="166"/>
-        <CursorPos X="3" Y="200"/>
+        <TopLine Value="126"/>
+        <CursorPos X="18" Y="131"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -43,7 +43,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="26"/>
         <CursorPos Y="36"/>
-        <UsageCount Value="168"/>
+        <UsageCount Value="170"/>
       </Unit3>
       <Unit4>
         <Filename Value="forms/detailDay/detaildayunit.pas"/>
@@ -54,8 +54,8 @@
         <UnitName Value="detailDayUnit"/>
         <EditorIndex Value="1"/>
         <TopLine Value="20"/>
-        <CursorPos X="44" Y="48"/>
-        <UsageCount Value="153"/>
+        <CursorPos Y="48"/>
+        <UsageCount Value="155"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -66,10 +66,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="infoAboutPeriod"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="195"/>
         <CursorPos X="63" Y="204"/>
-        <UsageCount Value="117"/>
+        <UsageCount Value="119"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
@@ -79,7 +79,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="27"/>
         <CursorPos Y="54"/>
-        <UsageCount Value="114"/>
+        <UsageCount Value="116"/>
       </Unit6>
       <Unit7>
         <Filename Value="utils/charts/columnchart.pas"/>
@@ -87,19 +87,20 @@
         <UnitName Value="columnChart"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="73"/>
-        <CursorPos X="67" Y="90"/>
-        <UsageCount Value="113"/>
+        <TopLine Value="67"/>
+        <CursorPos X="18" Y="78"/>
+        <UsageCount Value="115"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
         <Filename Value="utils/inputOutput/filesaver.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="fileSaver"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="53"/>
-        <CursorPos Y="72"/>
-        <UsageCount Value="99"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="50"/>
+        <CursorPos X="27" Y="68"/>
+        <UsageCount Value="101"/>
+        <Loaded Value="True"/>
       </Unit8>
       <Unit9>
         <Filename Value="unit2.pas"/>
@@ -269,119 +270,127 @@
         <UsageCount Value="5"/>
       </Unit31>
     </Units>
-    <JumpHistory Count="28" HistoryIndex="27">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="87" Column="44" TopLine="86"/>
+        <Filename Value="utils/inputOutput/filesaver.pas"/>
+        <Caret Line="68" Column="27" TopLine="50"/>
       </Position1>
       <Position2>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="239" Column="13" TopLine="222"/>
+        <Caret Line="200" Column="3" TopLine="166"/>
       </Position2>
       <Position3>
-        <Filename Value="forms/detailDay/detaildayunit.pas"/>
-        <Caret Line="48" TopLine="20"/>
+        <Filename Value="forms/weatherMain/mainform.pas"/>
+        <Caret Line="151" Column="2" TopLine="146"/>
       </Position3>
       <Position4>
-        <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="200" Column="3" TopLine="166"/>
+        <Filename Value="forms/detailDay/detaildayunit.pas"/>
+        <Caret Line="48" Column="4" TopLine="20"/>
       </Position4>
       <Position5>
-        <Filename Value="forms/detailDay/detaildayunit.pas"/>
-        <Caret Line="47" Column="26" TopLine="20"/>
+        <Filename Value="utils/charts/columnchart.pas"/>
+        <Caret Line="88" Column="42" TopLine="73"/>
       </Position5>
       <Position6>
-        <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="74" TopLine="63"/>
+        <Filename Value="forms/detailDay/detaildayunit.pas"/>
+        <Caret Line="48" TopLine="20"/>
       </Position6>
       <Position7>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="75" TopLine="70"/>
+        <Caret Line="85" TopLine="68"/>
       </Position7>
       <Position8>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="76" TopLine="70"/>
+        <Caret Line="86" TopLine="68"/>
       </Position8>
       <Position9>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="77" TopLine="70"/>
+        <Caret Line="85" TopLine="68"/>
       </Position9>
       <Position10>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="78" TopLine="70"/>
+        <Caret Line="86" TopLine="68"/>
       </Position10>
       <Position11>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="80" TopLine="70"/>
+        <Caret Line="85" TopLine="68"/>
       </Position11>
       <Position12>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="81" TopLine="70"/>
+        <Caret Line="86" TopLine="68"/>
       </Position12>
       <Position13>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="82" TopLine="70"/>
+        <Caret Line="85" TopLine="68"/>
       </Position13>
       <Position14>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="83" TopLine="70"/>
+        <Caret Line="86" TopLine="68"/>
       </Position14>
       <Position15>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="84" TopLine="70"/>
+        <Caret Line="89" TopLine="69"/>
       </Position15>
       <Position16>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="86" TopLine="70"/>
+        <Caret Line="87" TopLine="69"/>
       </Position16>
       <Position17>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="87" TopLine="70"/>
+        <Caret Line="83" Column="3" TopLine="69"/>
       </Position17>
       <Position18>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="88" TopLine="70"/>
+        <Caret Line="89" TopLine="69"/>
       </Position18>
       <Position19>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="89" TopLine="70"/>
+        <Caret Line="86" Column="25" TopLine="69"/>
       </Position19>
       <Position20>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="91" TopLine="70"/>
+        <Caret Line="87" TopLine="69"/>
       </Position20>
       <Position21>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="102" Column="24" TopLine="76"/>
+        <Caret Line="88" TopLine="69"/>
       </Position21>
       <Position22>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="37" Column="38" TopLine="10"/>
+        <Caret Line="91" TopLine="69"/>
       </Position22>
       <Position23>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="31" Column="71" TopLine="16"/>
+        <Caret Line="89" TopLine="69"/>
       </Position23>
       <Position24>
-        <Filename Value="forms/detailDay/detaildayunit.pas"/>
-        <Caret Line="25" Column="65" TopLine="21"/>
+        <Filename Value="utils/charts/columnchart.pas"/>
+        <Caret Line="91" TopLine="69"/>
       </Position24>
       <Position25>
-        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="206" Column="42" TopLine="184"/>
+        <Filename Value="utils/charts/columnchart.pas"/>
+        <Caret Line="87" TopLine="69"/>
       </Position25>
       <Position26>
-        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="207" Column="25" TopLine="200"/>
+        <Filename Value="utils/charts/columnchart.pas"/>
+        <Caret Line="88" TopLine="69"/>
       </Position26>
       <Position27>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="71" Column="6" TopLine="63"/>
+        <Caret Line="91" TopLine="69"/>
       </Position27>
       <Position28>
         <Filename Value="utils/charts/columnchart.pas"/>
-        <Caret Line="85" Column="63" TopLine="69"/>
+        <Caret Line="87" TopLine="69"/>
       </Position28>
+      <Position29>
+        <Filename Value="utils/charts/columnchart.pas"/>
+        <Caret Line="88" TopLine="69"/>
+      </Position29>
+      <Position30>
+        <Filename Value="utils/charts/columnchart.pas"/>
+        <Caret Line="76" Column="62" TopLine="69"/>
+      </Position30>
     </JumpHistory>
   </ProjectSession>
   <Debugging>
@@ -394,58 +403,43 @@
         <InitialEnabled Value="False"/>
       </Item1>
     </BreakPoints>
-    <Watches Count="17">
+    <Watches Count="12">
       <Item1>
-        <Expression Value="startDate"/>
+        <Expression Value="h"/>
       </Item1>
       <Item2>
-        <Expression Value="endDate"/>
+        <Expression Value="dayLlist"/>
       </Item2>
       <Item3>
-        <Expression Value="h"/>
+        <Expression Value="nightlist"/>
       </Item3>
       <Item4>
-        <Expression Value="currentWidth"/>
+        <Expression Value="daylist"/>
       </Item4>
       <Item5>
-        <Expression Value="oneScaleToRightPosition"/>
+        <Expression Value="calculatedheight"/>
       </Item5>
       <Item6>
-        <Expression Value="nextPoint"/>
+        <Expression Value="val1"/>
       </Item6>
       <Item7>
-        <Expression Value="dayForSelect"/>
+        <Expression Value="sum"/>
       </Item7>
       <Item8>
-        <Expression Value="date"/>
+        <Expression Value="round((maxheight - minHeight) * val1 / sum)"/>
       </Item8>
       <Item9>
-        <Expression Value="temp^.date"/>
+        <Expression Value="(maxheight - minHeight) * val1 / sum"/>
       </Item9>
       <Item10>
-        <Expression Value="eatherForecast.StringGrid1.Cells[0, i]"/>
+        <Expression Value="y"/>
       </Item10>
-      <Item11 ClassAutoCast="True">
-        <Expression Value="weatherFOrecast.StringGrid1"/>
+      <Item11>
+        <Expression Value="calculatedHeight"/>
       </Item11>
       <Item12>
-        <Expression Value="day"/>
+        <Expression Value="val1"/>
       </Item12>
-      <Item13>
-        <Expression Value="date"/>
-      </Item13>
-      <Item14>
-        <Expression Value="dayForSelect"/>
-      </Item14>
-      <Item15>
-        <Expression Value="dayLlist"/>
-      </Item15>
-      <Item16>
-        <Expression Value="nightlist"/>
-      </Item16>
-      <Item17>
-        <Expression Value="daylist"/>
-      </Item17>
     </Watches>
   </Debugging>
 </CONFIG>
