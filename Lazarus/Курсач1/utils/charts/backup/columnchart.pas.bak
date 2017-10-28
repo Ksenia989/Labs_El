@@ -5,7 +5,7 @@ unit columnChart;
 interface
 
 uses
-  Classes, SysUtils, linkedList,  ExtCtrls, Graphics;
+  Classes, SysUtils, linkedList,  ExtCtrls;
 
 {public declarations}
 procedure draw(image : TImage; val1 : integer; val2 : integer
@@ -75,7 +75,7 @@ begin
   image.Canvas.Rectangle(0, 0, image.Width, image.Height);
   Image.Canvas.TextOut(30,10, header);
   image.Color := clwhite;
-  minHeight := 55;
+  minHeight := 60;
   maxHeight := 140;
   sum := abs(val1) + abs(val2);
   x := 20;

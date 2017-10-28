@@ -18,6 +18,9 @@ type
     next : list;
   end;
 
+type
+  TArray30 = array [0..30] of integer;
+
 
 {public declarations}
 procedure add(var listForAdd : List; date : TDateTime; dayOrNight : String;
@@ -27,6 +30,7 @@ procedure add(var listForAdd : List; date : TDateTime; dayOrNight : String;
 function searchListElementByDate(currentList : list; date : TDateTime
                              ; dayOrNight : string) : list;
 
+procedure deleteFromList(var list1 : list; fromIndex : integer; toIndex : integer);
 
 implementation
 
@@ -68,6 +72,39 @@ begin
   temp^.next := nil;
   // заносим значения в зависимости от реализации.
   readValue(temp, date, temperature, humidity, atmospherePressure, dayOrNight);
+end;
+
+procedure deleteByIndex(var list1 : list; indexForDeliting : integer);
+var
+  i : integer;
+  temp : list;
+begin
+  temp := list1;  // Запоминаем начало
+  i := 1; // индекс с 1, т.к. в гриде строки нумеруются с одного
+  if (indexForDeliting = 1) then
+    list1 := list1^.next
+  else
+  begin
+  while(list1 <> nil) do
+    begin
+      if (i = indexForDeliting - 1) then // мы на предыдущем элементе
+        begin
+          // todo освободить память temp.next
+          list1^.next := list1^.next^.next;
+        end;
+      list1 := list1^.next;
+      inc(i)
+    end;
+  list1 := temp;
+  end;
+end;
+
+procedure deleteFromList(var list1 : list; fromIndex : integer; toIndex : integer);
+var
+  i : integer;
+begin
+  for i := toIndex downto fromIndex do
+    deleteByIndex(list1, i);
 end;
 
 function searchListElementByDate(currentList : list; date : TDateTime; dayOrNight : string) : list;

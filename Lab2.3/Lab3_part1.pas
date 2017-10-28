@@ -23,6 +23,11 @@ Var
         Для выборки действий
     *)
     q : char;
+    
+    (*
+      Лист для разделения
+    *)
+    mainList : list;
 
 (*
     Функция, считывающая номера в числовых значениях
@@ -72,6 +77,21 @@ begin
   temp^.next := nil; 
   temp^.number := value;
   writeln('Элемент добавлен');
+  writeln();
+end;
+
+procedure divideForTwoLists(mainList : list; 
+                var evenPositiveNumber : list; var oddNegativeNumber : list);
+begin
+    while (mainList <> nil) do 
+    begin
+        if ((mainList^.number > 0) and (mainList^.number mod 2 = 0)) then
+            add(evenPositiveNumber, mainList^.number);
+        if ((mainList^.number < 0) and (mainList^.number mod 2 <> 0)) then
+            add(oddNegativeNumber, mainList^.number);
+            
+        mainList := mainList^.next;
+    end;
 end;
     
 (*
@@ -81,11 +101,8 @@ end;
 procedure readValues() ;
     var number : integer;
     begin
-        number := readNumber;;
-        if ((number > 0) and (number mod 2 = 0)) then
-            add(evenPositiveNumber, number);
-        if ((number < 0) and (number mod 2 <> 0)) then
-            add(oddNegativeNumber, number); 
+        number := readNumber;
+        add(mainList, number); 
     end;
 
 procedure printValues(currentList : List);
@@ -109,11 +126,14 @@ function countElements(currentList : List) : integer;
     var 
         i : integer;
     begin
+        i := 0; // default Value
         while (currentList <> nil) do
         begin
             currentList := currentList^.next;
             inc(i);
-        end;   
+        end;
+        countElements := i;
+        writeln('количетво = ', i)
     end;
 
 function printNumberOfValues(list1 : List; list2 : List) : integer;
@@ -130,12 +150,16 @@ begin
     begin
         writeln('1 - добавление значения');
         writeln('2 - печатание списка значения');
-        writeln('3 - печатание количества значений в двух списках');
-    
-        read(q);
+        writeln('3 - разделить общий список');
+        writeln('4 - печатание количества значений в двух списках');
+        writeln();
+        readln(q);
         case q of
             // считывание значений в список
-            '1' : readValues(); 
+            '1' : 
+                begin
+                    readValues();
+                end;
             '2' : 
                 begin
                     writeln('Четные положительные');
@@ -143,8 +167,17 @@ begin
                     writeln();
                     writeln('Нечентые отрицательные');
                     printValues(oddNegativeNumber);
+                    writeln();
                 end;
-            '3' : printNumberOfValues(evenPositiveNumber, oddNegativeNumber);
+            '3' : 
+                begin
+                    printValues(mainList);
+                    divideForTwoLists(mainList, evenPositiveNumber, oddNegativeNumber);
+                end;
+            '4' : 
+                begin
+                    writeln(printNumberOfValues(evenPositiveNumber, oddNegativeNumber));
+                end;
         end;
     end;
 end.

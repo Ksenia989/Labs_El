@@ -14,6 +14,7 @@ uses
 
   TWeatherForecast = class(TForm)
     About: TButton;
+    deleteSelected: TButton;
     DateSorting: TMenuItem;
     temperatureSorting: TMenuItem;
     SortingButton: TMenuItem;
@@ -21,7 +22,6 @@ uses
     DecrementRaws: TButton;
     CleanTable: TButton;
     searchDetailInformation: TButton;
-    dataFromTemplate: TButton;
     IncrementRaws: TButton;
     menuM: TMainMenu;
     MenuFile: TMenuItem;
@@ -36,13 +36,13 @@ uses
     procedure AboutClick(Sender: TObject);
     procedure DecrementRawsClick(Sender: TObject);
     procedure CleanTableClick(Sender: TObject);
+    procedure deleteSelectedClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
-    procedure FormCreate(Sender: TObject);
     procedure IncrementRawsClick(Sender: TObject);
-    procedure dataFromTemplateClick(Sender: TObject);
     procedure EscapeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DateSortingClick(Sender: TObject);
+    procedure StringGrid1EditingDone(Sender: TObject);
     procedure temperatureSortingClick(Sender: TObject);
     procedure OpenClick(Sender: TObject);
     procedure SaveFileClick(Sender: TObject);
@@ -102,6 +102,11 @@ procedure TWeatherForecast.DateSortingClick(Sender: TObject);
 begin
   sortDate(stringGrid1, 0);
   //SaveInLinkedListClick
+  tableChanged := true;
+end;
+
+procedure TWeatherForecast.StringGrid1EditingDone(Sender: TObject);
+begin
   tableChanged := true;
 end;
 
@@ -183,39 +188,27 @@ begin
   tableChanged := true;
 end;
 
-procedure TWeatherForecast.FormCloseQuery(Sender: TObject; var CanClose: boolean
-  );
-begin
-   //if (tableChanged) then save()
-
-end;
-
-procedure TWeatherForecast.FormCreate(Sender: TObject);
-begin
-
-end;
-
-procedure TWeatherForecast.IncrementRawsClick(Sender: TObject);
-begin
-  StringGrid1.RowCount := StringGrid1.RowCount + 1;
-  tableChanged := true;
-end;
-
-procedure TWeatherForecast.dataFromTemplateClick(Sender: TObject);
+procedure TWeatherForecast.deleteSelectedClick(Sender: TObject);
 var
-  filename : string;
+  selectedFrom,
+  selectedTo : Longint;
+  arrayOfItemsForDeliting : TArray30; // Индексы удаляемых строк
 begin
-  commonWeather := nil;
-  filename := 'D:\Home\Desktop\Repos\Labs_El\Lazarus\Курсач1\dataTemplate.txt';
-  readFromTextFile(textFile, fileName, commonWeather);
-  fillData();
-  tableChanged := False;
+  selectedFrom := WeatherForecast.StringGrid1.Selection.Top;
+  selectedTo := WeatherForecast.StringGrid1.Selection.Bottom;
+  if (selectedTo - selectedFrom > 30 ) then
+    showMessage('Выбрано слишком большое количество записей для удаления!')
+  else
+     begin
+       // todo Выделить массив из индексов
+       deleteFromList(commonWeather, selectedFrom, selectedTo);
+       //WeatherForecast.StringGrid1.deleteRow todo
+       // отображаем новый лист
+       fillData();
+    end;
+  showMessage('Выбранные записи удалены!');
 end;
 
-procedure TWeatherForecast.EscapeClick(Sender: TObject);
-begin
-  WeatherForecast.Close;
-end;
 
 (*
   Вспомогательная функция, заносящая данные в список
@@ -255,34 +248,58 @@ begin
   tableChanged := true;
 end;
 
+procedure save();
+begin
+//если изменений не было, выходим
+  if (tableChanged) then
+       saveInFileProxy(commonWeather, WeatherForecast.getStringGrid());
+  //Если файл уже открывался, и в переменной myfile
+  //есть его адрес и имя, просто перезаписываем этот файл:
+  if fileName <> '' then
+  begin
+    writeToTextFile(textfile, filename, commonWeather);
+    tableChanged := false;
+    Exit; //выходим после сохранения
+  end;
+
+{Файл новый, переменная myfile еще пуста. Дальше есть два варианта:
+пользователь выберет или укажет файл в диалоге, или не сделает этого}
+//если выбрал файл:
+if WeatherForecast.SaveDialog1.Execute then
+  begin
+    //прописываем адрес и имя файла в переменную:
+    fileName := WeatherForecast.SaveDialog1.FileName;
+    //если нет расширения *.txt то добавляем его:
+    writeToTextFile(textfile, filename, commonWeather);
+    //сохраняем табличку в указанный файл:
+    tableChanged := False;
+    showMessage('Таблица успешно сохранена!');
+  end
+//если не выбрал файл:
+else ShowMessage('Вы не указали имя файла, файл не сохранен!');
+end;
+
+procedure TWeatherForecast.FormCloseQuery(Sender: TObject; var CanClose: boolean
+  );
+begin
+   if (tableChanged) then save();
+end;
+
+procedure TWeatherForecast.IncrementRawsClick(Sender: TObject);
+begin
+  StringGrid1.RowCount := StringGrid1.RowCount + 1;
+  tableChanged := true;
+end;
+
+procedure TWeatherForecast.EscapeClick(Sender: TObject);
+begin
+  WeatherForecast.Close;
+end;
+
+
 procedure TWeatherForecast.SaveFileClick(Sender: TObject);
 begin
-    //если изменений не было, выходим
-    if (tableChanged) then
-         saveInFileProxy(commonWeather, getStringGrid());
-    //Если файл уже открывался, и в переменной myfile
-    //есть его адрес и имя, просто перезаписываем этот файл:
-    if fileName <> '' then
-    begin
-      writeToTextFile(textfile, filename, commonWeather);
-      tableChanged := false;
-      Exit; //выходим после сохранения
-    end;
- {Файл новый, переменная myfile еще пуста. Дальше есть два варианта:
- пользователь выберет или укажет файл в диалоге, или не сделает этого}
- //если выбрал файл:
- if SaveDialog1.Execute then
-    begin
-      //прописываем адрес и имя файла в переменную:
-      fileName := SaveDialog1.FileName;
-      //если нет расширения *.txt то добавляем его:
-      writeToTextFile(textfile, filename, commonWeather);
-      //сохраняем табличку в указанный файл:
-      tableChanged := False;
-      showMessage('Таблица успешно сохранена!');
-    end
- //если не выбрал файл:
- else ShowMessage('Вы не указали имя файла, файл не сохранен!');
+  save();
 end;
 
 procedure TWeatherForecast.searchDetailInformationClick(Sender: TObject);
