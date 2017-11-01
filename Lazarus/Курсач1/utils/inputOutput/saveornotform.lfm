@@ -1,7 +1,7 @@
 object ExitWithSave: TExitWithSave
-  Left = 723
+  Left = 648
   Height = 105
-  Top = 297
+  Top = 326
   Width = 298
   ClientHeight = 105
   ClientWidth = 298

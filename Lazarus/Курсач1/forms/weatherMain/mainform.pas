@@ -6,8 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, Grids, Menus, ColorBox, Buttons,
-  LinkedList, savingFileHandler;
+  ExtCtrls, Grids, Menus, Buttons,
+  LinkedList, savingFileHandler, logo;
 
 { TWeatherForecast }
   type
@@ -16,6 +16,7 @@ uses
     About: TButton;
     deleteSelected: TButton;
     DateSorting: TMenuItem;
+    Image1: TImage;
     temperatureSorting: TMenuItem;
     SortingButton: TMenuItem;
     weekForekast: TButton;
@@ -38,6 +39,8 @@ uses
     procedure CleanTableClick(Sender: TObject);
     procedure deleteSelectedClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
+    procedure FormCreate(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
     procedure IncrementRawsClick(Sender: TObject);
     procedure EscapeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -81,6 +84,26 @@ var
   textfile : text;
 
 { TWeatherForecast }
+
+procedure TWeatherForecast.FormCreate(Sender: TObject);
+var
+  i : integer;
+begin
+  Application.CreateForm(TStartPicture, startPicture);
+
+  //for i := 0 to 10000 do
+  //begin
+  //   startPicture.ShowModal;
+  //  startPicture.FormShow(startPicture);
+  //end;
+  ////startPicture.Clo
+  //startPicture.Close;
+end;
+
+procedure TWeatherForecast.Image1Click(Sender: TObject);
+begin
+
+end;
 
 procedure TWeatherForecast.FormShow(Sender: TObject);
 begin
@@ -202,7 +225,6 @@ begin
      begin
        // todo Выделить массив из индексов
        deleteFromList(commonWeather, selectedFrom, selectedTo);
-       //WeatherForecast.StringGrid1.deleteRow todo
        // отображаем новый лист
        fillData();
     end;
