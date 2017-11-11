@@ -1,99 +1,22 @@
 object WeatherForecast: TWeatherForecast
-  Left = 229
+  Left = 281
   Height = 404
-  Top = 165
-  Width = 985
+  Top = 102
+  Width = 1036
   Caption = 'Сводка погоды'
   ClientHeight = 384
-  ClientWidth = 985
+  ClientWidth = 1036
   Menu = menuM
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '1.6.4.0'
-  object About: TButton
-    Left = 856
-    Height = 52
-    Top = 112
-    Width = 114
-    Caption = 'О программе'
-    OnClick = AboutClick
-    TabOrder = 0
-  end
-  object StringGrid1: TStringGrid
-    Left = 48
-    Height = 184
-    Top = 16
-    Width = 768
-    AutoAdvance = aaNone
-    DefaultColWidth = 150
-    FixedCols = 0
-    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goTabs, goSmoothScroll]
-    RowCount = 1
-    TabOrder = 1
-    OnEditingDone = StringGrid1EditingDone
-    OnGetEditMask = StringGrid1GetEditMask
-    OnSelectEditor = StringGrid1SelectEditor
-  end
-  object DecrementRaws: TButton
-    Left = 272
-    Height = 25
-    Top = 256
-    Width = 33
-    Caption = '-'
-    OnClick = DecrementRawsClick
-    TabOrder = 2
-  end
-  object IncrementRaws: TButton
-    Left = 340
-    Height = 24
-    Top = 256
-    Width = 27
-    Caption = '+'
-    OnClick = IncrementRawsClick
-    TabOrder = 3
-  end
-  object CleanTable: TButton
-    Left = 48
-    Height = 29
-    Top = 304
-    Width = 115
-    Caption = 'Очистить таблицу'
-    OnClick = CleanTableClick
-    TabOrder = 4
-  end
-  object searchDetailInformation: TButton
-    Left = 467
-    Height = 24
-    Top = 256
-    Width = 141
-    Caption = 'Детальная информация'
-    OnClick = searchDetailInformationClick
-    TabOrder = 5
-  end
-  object weekForekast: TButton
-    Left = 464
-    Height = 24
-    Top = 309
-    Width = 144
-    Caption = 'Прогноз на неделю'
-    OnClick = weekForekastClick
-    TabOrder = 6
-  end
-  object deleteSelected: TButton
-    Left = 232
-    Height = 21
-    Top = 312
-    Width = 138
-    Caption = 'Удалить выбранное'
-    OnClick = deleteSelectedClick
-    TabOrder = 7
-  end
   object Image1: TImage
     Left = 0
     Height = 386
     Top = 0
     Width = 1036
+    OnClick = Image1Click
     Picture.Data = {
       0A544A706567496D61676554A80E00FFD8FFE000104A46494600010100000100
       010000FFDB004300030202020202030202020303030304060404040404080606
@@ -30117,20 +30040,110 @@ object WeatherForecast: TWeatherForecast
       1FFFD9
     }
   end
+  object About: TButton
+    Left = 840
+    Height = 52
+    Top = 22
+    Width = 114
+    Caption = 'О программе'
+    OnClick = AboutClick
+    TabOrder = 0
+  end
+  object StringGrid1: TStringGrid
+    Left = 48
+    Height = 184
+    Top = 14
+    Width = 768
+    AutoAdvance = aaNone
+    DefaultColWidth = 150
+    FixedCols = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goTabs, goSmoothScroll]
+    PopupMenu = PopupMenu1
+    RowCount = 1
+    TabOrder = 1
+    OnGetEditMask = StringGrid1GetEditMask
+    OnSelectEditor = StringGrid1SelectEditor
+  end
+  object DecrementRaws: TButton
+    Left = 280
+    Height = 25
+    Top = 222
+    Width = 33
+    Caption = '-'
+    OnClick = DecrementRawsClick
+    TabOrder = 2
+  end
+  object IncrementRaws: TButton
+    Left = 344
+    Height = 24
+    Top = 223
+    Width = 27
+    Caption = '+'
+    OnClick = IncrementRawsClick
+    TabOrder = 3
+  end
+  object CleanTable: TButton
+    Left = 48
+    Height = 29
+    Top = 304
+    Width = 115
+    Caption = 'Очистить таблицу'
+    OnClick = CleanTableClick
+    TabOrder = 4
+  end
+  object searchDetailInformation: TButton
+    Left = 467
+    Height = 24
+    Top = 256
+    Width = 141
+    Caption = 'Детальная информация'
+    OnClick = searchDetailInformationClick
+    TabOrder = 5
+  end
+  object weekForekast: TButton
+    Left = 464
+    Height = 24
+    Top = 309
+    Width = 144
+    Caption = 'Прогноз на неделю'
+    OnClick = weekForekastClick
+    TabOrder = 6
+  end
+  object deleteSelected: TButton
+    Left = 168
+    Height = 32
+    Top = 304
+    Width = 138
+    Caption = 'Удалить выбранное'
+    OnClick = deleteSelectedClick
+    TabOrder = 7
+  end
+  object Memo1: TMemo
+    Left = 648
+    Height = 111
+    Top = 240
+    Width = 270
+    Lines.Strings = (
+      'Это строка 1'
+      'Это строка 2'
+      'Этот компонент - Memo'
+    )
+    TabOrder = 8
+  end
   object OpenDialog1: TOpenDialog
     Filter = 'Все файлы|*.*|Текстовые файлы|*.txt'
-    left = 816
-    top = 272
+    left = 896
+    top = 152
   end
   object SaveDialog1: TSaveDialog
     Filter = 'Все файлы|*.*|Текстовые файлы|*.txt'
-    left = 880
-    top = 264
+    left = 944
+    top = 96
   end
   object menuM: TMainMenu
     Tag = 1
-    left = 816
-    top = 208
+    left = 856
+    top = 96
     object MenuFile: TMenuItem
       Caption = 'Файл'
       ShortCut = 16454
@@ -30140,10 +30153,8 @@ object WeatherForecast: TWeatherForecast
       end
       object SaveFile: TMenuItem
         Caption = 'Сохранить'
+        ShortCut = 16467
         OnClick = SaveFileClick
-      end
-      object SaveAs: TMenuItem
-        Caption = 'Сохранить как'
       end
       object Escape: TMenuItem
         Caption = 'Выход'
@@ -30161,6 +30172,14 @@ object WeatherForecast: TWeatherForecast
         Caption = 'По температуре'
         OnClick = temperatureSortingClick
       end
+    end
+  end
+  object PopupMenu1: TPopupMenu
+    left = 968
+    top = 168
+    object MenuItem1: TMenuItem
+      Caption = 'Удалить'
+      OnClick = MenuItem1Click
     end
   end
 end

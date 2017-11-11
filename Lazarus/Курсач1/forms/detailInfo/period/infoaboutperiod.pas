@@ -13,6 +13,7 @@ type
   { TdatailPeriodInfo }
 
   TdatailPeriodInfo = class(TForm)
+    Image1: TImage;
     ShowPeriodInfo: TButton;
     dateFrom: TDateEdit;
     dateTo: TDateEdit;
@@ -84,27 +85,31 @@ end;
 procedure fillDate();
 var
   i : integer;
-  x, x1 : TDateTime;
+  dateFrom, dateTo : TDateTime;
   dayList, nightList, listTemplate : list;
 begin   // todo проверка, что что - то  (одна из дат) не введена
   i := 0;
-  x := datailPeriodInfo.dateFrom.Date;
-  x1 := datailPeriodInfo.dateTo.date;
+  dateFrom := datailPeriodInfo.dateFrom.Date;
+  dateTo := datailPeriodInfo.dateTo.date;
   listTemplate := WeatherForecast.getCommonWeather();
-  while (x <= x1) do
-  begin
-    dayList := searchListElementByDate(listTemplate, x, 'День');
-    nightList := searchListElementByDate(listTemplate, x, 'Ночь');
-    if ((dayList <> nil) and (nightList <> nil)) then
+  if (listTemplate = nil) then showMessage('Введите данные для прогноза!')
+  else
+  while (dateFrom <= dateTo) do
     begin
-      dayArrayList[i, 0] := dayList;
-      dayArrayList[i, 1] := nightList;
-    end
-    else
-    showMessage('Недостаточно данных!');
-    x := x + 1;
-    inc (i);
-  end;
+      dayList := nil;
+      nightList := nil;
+      dayList := searchListElementByDate(listTemplate, dateFrom, 'День');
+      nightList := searchListElementByDate(listTemplate, dateFrom, 'Ночь');
+      if ((dayList <> nil) and (nightList <> nil)) then
+      begin
+        dayArrayList[i, 0] := dayList;
+        dayArrayList[i, 1] := nightList;
+      end
+      else
+      showMessage('Недостаточно данных!');
+      dateFrom := dateFrom + 1;
+      inc (i);
+    end;
 end;
 
 procedure writeTemperature(var image : Timage);
@@ -213,7 +218,7 @@ begin
   nightHeight := drawImage(dayArrayList[i, 1], currentWidth);
   startDate := startDate + 1;
 
-  while (startDate <= endDate) do    // todo проработать ситуацию, когда нет следующей точки
+  while (startDate <= endDate) do
   begin
     showInfo(dayArray[i], dayArrayList[i, 0], dayArrayList[i, 1]);
 

@@ -1,7 +1,7 @@
 object StartPicture: TStartPicture
-  Left = 542
+  Left = 400
   Height = 193
-  Top = 255
+  Top = 331
   Width = 421
   Caption = 'StartPicture'
   ClientHeight = 193

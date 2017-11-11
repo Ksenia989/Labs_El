@@ -16,6 +16,7 @@ type
     Image1: TImage;
     Image2: TImage;
     Image3: TImage;
+    Image4: TImage;
     showDayInfo: TButton;
     dateSelect: TDateEdit;
     dayForSearchMessage: TLabel;
@@ -42,12 +43,25 @@ procedure TdetailDayInfo.showDayInfoClick(Sender: TObject);
 var
   dayList, nightlist, listTemplate : list;
 begin
+  // инициализация
+  nightList := nil;
+  dayList := nil;
+
+  // получение информации о погоде
   listTemplate := WeatherForecast.getCommonWeather();
   dayList := searchListElementByDate(listTemplate, dateSelect.Date, 'День');
   nightList := searchListElementByDate(listTemplate, dateSelect.Date, 'Ночь');
-  draw(Image1, dayList^.temperature, nightlist^.temperature, 'Температура');
-  draw(Image2, dayList^.humidity, nightlist^.humidity, 'Влажность');
-  draw(Image3, dayList^.atmospherePressure, nightList^.atmospherePressure, 'Атм. давление');
+
+  if ((nightList = nil) or (dayList = nil)) then
+  begin
+    ShowMessage('Нет информации о таком дне, попробуйте снова!');
+  end
+  else
+  begin
+    draw(Image1, dayList^.temperature, nightlist^.temperature, 'Температура');
+    draw(Image2, dayList^.humidity, nightlist^.humidity, 'Влажность');
+    draw(Image3, dayList^.atmospherePressure, nightList^.atmospherePressure, 'Атм. давление');
+  end;
 end;
 
 end.

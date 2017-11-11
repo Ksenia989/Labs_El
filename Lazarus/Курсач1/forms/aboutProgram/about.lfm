@@ -1,11 +1,11 @@
 object aboutProgram: TaboutProgram
-  Left = 508
-  Height = 340
-  Top = 185
+  Left = 452
+  Height = 293
+  Top = 258
   Width = 455
   BorderStyle = bsDialog
   Caption = 'О программе'
-  ClientHeight = 340
+  ClientHeight = 293
   ClientWidth = 455
   Position = poMainFormCenter
   LCLVersion = '1.6.4.0'
