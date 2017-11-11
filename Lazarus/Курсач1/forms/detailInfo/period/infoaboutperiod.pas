@@ -27,7 +27,6 @@ type
     Label8: TLabel;
     Label9: TLabel;
     majorChart: TImage;
-    additionInfo: TImage;
     Label1: TLabel;
     procedure ShowPeriodInfoClick(Sender: TObject);
   private
@@ -238,4 +237,3 @@ begin
   showInfo(dayArray[i], dayArrayList[i, 0], dayArrayList[i, 1]);
 end;
 end.
-

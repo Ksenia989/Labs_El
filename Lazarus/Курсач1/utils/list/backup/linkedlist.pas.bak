@@ -85,7 +85,7 @@ begin
     list1 := list1^.next
   else
   begin
-  while(i <> indexForDeliting) do
+  while(list1 <> nil) do
     begin
       if (i = indexForDeliting - 1) then // мы на предыдущем элементе
         begin
@@ -103,7 +103,7 @@ procedure deleteFromList(var list1 : list; fromIndex : integer; toIndex : intege
 var
   i : integer;
 begin
-  for i := fromIndex to toIndex do
+  for i := toIndex downto fromIndex do
     deleteByIndex(list1, i);
 end;
 

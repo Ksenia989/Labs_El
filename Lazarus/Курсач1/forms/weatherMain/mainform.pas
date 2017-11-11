@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, Grids, Menus, Buttons, LCLType,
+  ExtCtrls, Grids, Menus, Buttons, LCLType, ActnList, StdActns,
   LinkedList, logo;
 
 { TWeatherForecast }
@@ -14,8 +14,13 @@ uses
 
   TWeatherForecast = class(TForm)
     About: TButton;
+    Action1: TAction;
+    Save: TAction;
+    Open1: TAction;
+    ActionList1: TActionList;
     deleteSelected: TButton;
     DateSorting: TMenuItem;
+    ImageList1: TImageList;
     Image1: TImage;
     Memo1: TMemo;
     MenuItem1: TMenuItem;
@@ -35,6 +40,7 @@ uses
     OpenDialog1: TOpenDialog;
     SaveDialog1: TSaveDialog;
     StringGrid1: TStringGrid;
+    maxYeraTemperature: TButton;
 
     procedure AboutClick(Sender: TObject);
     procedure DecrementRawsClick(Sender: TObject);
@@ -47,10 +53,11 @@ uses
     procedure EscapeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DateSortingClick(Sender: TObject);
+    procedure maxYeraTemperatureClick(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
+    procedure Open1Execute(Sender: TObject);
+    procedure SaveExecute(Sender: TObject);
     procedure temperatureSortingClick(Sender: TObject);
-    procedure OpenClick(Sender: TObject);
-    procedure SaveFileClick(Sender: TObject);
     procedure searchDetailInformationClick(Sender: TObject);
     procedure StringGrid1GetEditMask(Sender: TObject; ACol, ARow: Integer;
       var Value: string);
@@ -128,6 +135,14 @@ begin
   sortDate(stringGrid1, 0);
 end;
 
+(*
+  Выборка года, в котором температура в определённый день была максимальной
+*)
+procedure TWeatherForecast.maxYeraTemperatureClick(Sender: TObject);
+begin
+  //
+end;
+
 procedure TWeatherForecast.temperatureSortingClick(Sender: TObject);
 begin
   sortInteger(StringGrid1, 2);
@@ -171,17 +186,6 @@ begin
     inc(i);
     temp := temp^.next;
   end;
-end;
-
-procedure TWeatherForecast.OpenClick(Sender: TObject);
-begin
- if OpenDialog1.Execute then begin //если диалог выполнен
- //присваиваем переменной myfile адрес и имя выбранного файла:
- fileName := OpenDialog1.FileName;
- //читаем этот файл в Memo:
- readFromTextFile(textFile, fileName, commonWeather);
- fillStringGridFromList();
- end;
 end;
 
 procedure TWeatherForecast.AboutClick(Sender: TObject);
@@ -232,6 +236,20 @@ begin
   deleteFromGrid();
 end;
 
+procedure TWeatherForecast.Open1Execute(Sender: TObject);
+begin
+  //если диалог выполнен
+  if OpenDialog1.Execute then
+  begin
+    // присваиваем переменной myfile адрес и имя выбранного файла:
+    fileName := OpenDialog1.FileName;
+    // читаем этот файл в список
+    readFromTextFileToList(textFile, fileName, commonWeather);
+    // заполняем stringGrid данными из списка
+    fillStringGridFromList();
+  end;
+end;
+
 (*
   Вспомогательная функция, заносящая данные в список
 *)
@@ -258,12 +276,12 @@ begin
     val(grid.Cells[2, i + 1], temperature, errCode);
     val(grid.Cells[3, i + 1], humidity, errCode);
     val(grid.Cells[4, i + 1], atmospherePressure, errCode);
-    LinkedList.add(weatherList, day, dayOrNight, temperature, humidity, atmospherePressure
-                                        );
+    LinkedList.add(weatherList, day, dayOrNight,
+                                temperature, humidity, atmospherePressure);
   end;
 end;
 
-procedure save();
+procedure TWeatherForecast.SaveExecute(Sender: TObject);
 begin
   saveToListFromStringGrid(commonWeather, weatherForecast.StringGrid1);
   //Если файл уже открывался, и в переменной myfile
@@ -281,9 +299,8 @@ if WeatherForecast.SaveDialog1.Execute then
   begin
     //прописываем адрес и имя файла в переменную:
     fileName := WeatherForecast.SaveDialog1.FileName;
-    //если нет расширения *.txt то добавляем его:
-    writeToTextFile(textfile, filename, commonWeather);
     //сохраняем табличку в указанный файл:
+    writeToTextFile(textfile, filename, commonWeather);
     showMessage('Таблица успешно сохранена!');
   end
 //если не выбрал файл:
@@ -292,12 +309,33 @@ end;
 
 procedure TWeatherForecast.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
- //    Application.MessageBox('Сохранить файл?', 'Сохранение',
- //$00000003);
   case Application.MessageBox('Выйти из приложения?', 'Выход',
    MB_YESNO+MB_ICONQUESTION) of
    IDYES :
      begin
+         saveToListFromStringGrid(commonWeather, weatherForecast.StringGrid1);
+  //Если файл уже открывался, и в переменной myfile
+  //есть его адрес и имя, просто перезаписываем этот файл:
+  if fileName <> '' then
+  begin
+    writeToTextFile(textfile, filename, commonWeather);
+    Exit; //выходим после сохранения
+  end;
+
+{Файл новый, переменная myfile еще пуста. Дальше есть два варианта:
+пользователь выберет или укажет файл в диалоге, или не сделает этого}
+//если выбрал файл:
+if WeatherForecast.SaveDialog1.Execute then
+  begin
+    //прописываем адрес и имя файла в переменную:
+    fileName := WeatherForecast.SaveDialog1.FileName;
+    //сохраняем табличку в указанный файл:
+    writeToTextFile(textfile, filename, commonWeather);
+    showMessage('Таблица успешно сохранена!');
+  end
+//если не выбрал файл:
+else ShowMessage('Вы не указали имя файла, файл не сохранен!');
+
        CanClose := true;
      end;
    IDNO :
@@ -315,12 +353,6 @@ end;
 procedure TWeatherForecast.EscapeClick(Sender: TObject);
 begin
   WeatherForecast.Close;
-end;
-
-
-procedure TWeatherForecast.SaveFileClick(Sender: TObject);
-begin
-  save();
 end;
 
 procedure TWeatherForecast.searchDetailInformationClick(Sender: TObject);

@@ -9,7 +9,7 @@ uses
 
 {public declarations}
 procedure writeToTextFile(var textFile : text; filename : String; commonWeather : list);
-procedure readFromTextFile(var textFile : text; filename : String; var commonWeather : list);
+procedure readFromTextFileToList(var textFile : text; filename : String; var commonWeather : list);
 
 implementation
 
@@ -18,13 +18,14 @@ implementation
 *)
 procedure writeToTextFile(var textFile : text; filename : String; commonWeather : list);
 var
-  fullFileName : string;
   temp : list;
   settings : TFormatSettings;
     begin
          temp := commonWeather;
-         fullFileName := filename + '.txt';
-         assign(textfile, fullFileName);
+         //если нет расширения *.txt то добавляем его:
+         if (not fileName.Contains('.txt')) then
+            filename := filename + '.txt';
+         assign(textfile, filename);
          rewrite(textfile);
          settings.DateSeparator:='.';
          settings.LongDateFormat:='dd.mm.yyyy';
@@ -50,7 +51,7 @@ var
 (*
     Чтение из текстового файла
 *)
-procedure readFromTextFile(var textFile : text; filename : String; var commonWeather : list);
+procedure readFromTextFileToList(var textFile : text; filename : String; var commonWeather : list);
 var
   fullFileName : string;
   temperature, humidity, atmospherePressure : integer;
@@ -60,6 +61,8 @@ var
   a : string;
   settings : TFormatSettings;
     begin
+      // сначала список пустой
+      commonWeather := nil;
       fullFileName := filename;
       assign(textfile, fullFileName);
       reset(textFile);

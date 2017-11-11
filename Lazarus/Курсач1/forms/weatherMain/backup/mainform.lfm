@@ -1,10 +1,10 @@
 object WeatherForecast: TWeatherForecast
-  Left = 281
-  Height = 404
-  Top = 102
+  Left = 191
+  Height = 460
+  Top = 169
   Width = 1036
   Caption = 'Сводка погоды'
-  ClientHeight = 384
+  ClientHeight = 440
   ClientWidth = 1036
   Menu = menuM
   OnCloseQuery = FormCloseQuery
@@ -13,7 +13,7 @@ object WeatherForecast: TWeatherForecast
   LCLVersion = '1.6.4.0'
   object Image1: TImage
     Left = 0
-    Height = 386
+    Height = 440
     Top = 0
     Width = 1036
     OnClick = Image1Click
@@ -30058,61 +30058,64 @@ object WeatherForecast: TWeatherForecast
     DefaultColWidth = 150
     FixedCols = 0
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goTabs, goSmoothScroll]
+    PopupMenu = PopupMenu1
     RowCount = 1
     TabOrder = 1
     OnGetEditMask = StringGrid1GetEditMask
     OnSelectEditor = StringGrid1SelectEditor
   end
   object DecrementRaws: TButton
-    Left = 280
-    Height = 25
-    Top = 222
-    Width = 33
-    Caption = '-'
+    Left = 48
+    Height = 41
+    Top = 368
+    Width = 146
+    Caption = '- (удалить строку)'
     OnClick = DecrementRawsClick
     TabOrder = 2
   end
   object IncrementRaws: TButton
-    Left = 344
-    Height = 24
-    Top = 223
-    Width = 27
-    Caption = '+'
+    Left = 48
+    Height = 40
+    Top = 320
+    Width = 147
+    Caption = '+ (добавить строку)'
     OnClick = IncrementRawsClick
     TabOrder = 3
   end
   object CleanTable: TButton
     Left = 48
-    Height = 29
-    Top = 304
-    Width = 115
+    Height = 40
+    Top = 272
+    Width = 147
     Caption = 'Очистить таблицу'
     OnClick = CleanTableClick
     TabOrder = 4
   end
   object searchDetailInformation: TButton
-    Left = 467
-    Height = 24
-    Top = 256
-    Width = 141
-    Caption = 'Детальная информация'
+    Left = 280
+    Height = 40
+    Top = 224
+    Width = 168
+    Caption = 'Детальная информация (1 д)'
+    Color = clInactiveBorder
     OnClick = searchDetailInformationClick
     TabOrder = 5
   end
   object weekForekast: TButton
-    Left = 464
-    Height = 24
-    Top = 309
-    Width = 144
+    Left = 280
+    Height = 40
+    Top = 272
+    Width = 168
     Caption = 'Прогноз на неделю'
+    Color = clInactiveBorder
     OnClick = weekForekastClick
     TabOrder = 6
   end
   object deleteSelected: TButton
-    Left = 168
-    Height = 32
-    Top = 304
-    Width = 138
+    Left = 48
+    Height = 40
+    Top = 224
+    Width = 146
     Caption = 'Удалить выбранное'
     OnClick = deleteSelectedClick
     TabOrder = 7
@@ -30147,13 +30150,10 @@ object WeatherForecast: TWeatherForecast
       Caption = 'Файл'
       ShortCut = 16454
       object Open: TMenuItem
-        Caption = 'Открыть'
-        OnClick = OpenClick
+        Action = Open1
       end
       object SaveFile: TMenuItem
-        Caption = 'Сохранить'
-        ShortCut = 16467
-        OnClick = SaveFileClick
+        Action = Save
       end
       object Escape: TMenuItem
         Caption = 'Выход'
@@ -30174,11 +30174,35 @@ object WeatherForecast: TWeatherForecast
     end
   end
   object PopupMenu1: TPopupMenu
-    left = 656
-    top = 120
+    left = 952
+    top = 144
     object MenuItem1: TMenuItem
       Caption = 'Удалить'
       OnClick = MenuItem1Click
     end
+  end
+  object ActionList1: TActionList
+    Images = ImageList1
+    left = 896
+    top = 96
+    object Action1: TAction
+      Caption = 'Удалить'
+      Hint = 'Удалить выбранное'
+    end
+    object Open1: TAction
+      Category = 'File'
+      Caption = 'Открыть'
+      OnExecute = Open1Execute
+    end
+    object Save: TAction
+      Category = 'File'
+      Caption = 'Сохранить'
+      DisableIfNoHandler = False
+      OnExecute = SaveExecute
+    end
+  end
+  object ImageList1: TImageList
+    left = 856
+    top = 152
   end
 end

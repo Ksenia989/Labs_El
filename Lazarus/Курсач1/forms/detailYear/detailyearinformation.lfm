@@ -1,0 +1,65 @@
+object Form1: TForm1
+  Left = 469
+  Height = 407
+  Top = 196
+  Width = 607
+  Caption = 'Form1'
+  ClientHeight = 407
+  ClientWidth = 607
+  Color = clForm
+  LCLVersion = '1.6.4.0'
+  object dateFrom: TDateEdit
+    Left = 88
+    Height = 23
+    Top = 40
+    Width = 241
+    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+    DateOrder = doNone
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    Left = 87
+    Height = 15
+    Top = 7
+    Width = 323
+    Caption = 'Выберете день для отображения максимума температуры'
+    ParentColor = False
+  end
+  object Button1: TButton
+    Left = 344
+    Height = 24
+    Top = 40
+    Width = 77
+    Caption = 'Найти'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object Label2: TLabel
+    Left = 99
+    Height = 15
+    Top = 98
+    Width = 89
+    Caption = 'Год максимума:'
+    ParentColor = False
+  end
+  object MaxYearLabel: TLabel
+    Left = 98
+    Height = 1
+    Top = 150
+    Width = 1
+    Color = clBtnFace
+    ParentColor = False
+    Transparent = False
+  end
+  object DetailInfo: TLabel
+    Left = 332
+    Height = 15
+    Top = 138
+    Width = 51
+    Caption = 'DetailInfo'
+    ParentColor = False
+  end
+end

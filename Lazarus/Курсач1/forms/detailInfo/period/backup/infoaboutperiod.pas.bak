@@ -27,7 +27,6 @@ type
     Label8: TLabel;
     Label9: TLabel;
     majorChart: TImage;
-    additionInfo: TImage;
     Label1: TLabel;
     procedure ShowPeriodInfoClick(Sender: TObject);
   private
@@ -91,11 +90,9 @@ begin   // todo проверка, что что - то  (одна из дат) �
   i := 0;
   dateFrom := datailPeriodInfo.dateFrom.Date;
   dateTo := datailPeriodInfo.dateTo.date;
-  if (dateTo < dateFrom) then
-  showMessage('Недостаточно данных!')
-  else
-  begin
   listTemplate := WeatherForecast.getCommonWeather();
+  if (listTemplate = nil) then showMessage('Введите данные для прогноза!')
+  else
   while (dateFrom <= dateTo) do
     begin
       dayList := nil;
@@ -112,7 +109,6 @@ begin   // todo проверка, что что - то  (одна из дат) �
       dateFrom := dateFrom + 1;
       inc (i);
     end;
-  end;
 end;
 
 procedure writeTemperature(var image : Timage);
@@ -241,4 +237,3 @@ begin
   showInfo(dayArray[i], dayArrayList[i, 0], dayArrayList[i, 1]);
 end;
 end.
-
