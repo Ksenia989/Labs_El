@@ -9,7 +9,7 @@ Type
     // тип - матрица двумерна€ 
     t = 0..n-1;
     TMiniArray = array[t] of real;
-    TArray = array [t, t] of real;     
+    TArray = array [t] of TMiniArray;     
     
 Var
     // основна€ матрица
@@ -99,9 +99,13 @@ function readByRaws(arr : TMiniArray) : boolean;
 var 
     i : integer;
 begin
+// пока не найдено
+   readByRaws := true;// на самом деле нет ни одного положительного числа
    for i := 0 to n - 1 do
    begin
-        // do somethingWItharray   
+        // do somethingWItharray
+        if (arr[i] > 0) then
+          readByRaws := false;
    end;
 end;
 
@@ -109,30 +113,35 @@ end;
     ѕроцедура,вывод€ща€ номер строки и саму строку
           , если она не содержит ни одного положительного элемента
 *)
- procedure writeIfNotPlus(myMatrix : TArray; var res : integer);
+ function writeIfNotPlus(myMatrix : TArray) : integer;
  var
     i, j : integer;
     isNegative : boolean;
     counter : integer;
  begin
-    i := 0;
-    res := -1;
-    isNegative := false;// если всЄ - отрицательное
-    while ((i <= n - 1) and (res = -1)) do// шагаем по строкам
-    begin
-       counter := 0; 
-       for j := 0 to n - 1 do 
-       begin
-       if (myMatrix[i, j] < 0) then
-           inc(counter)
-       end;
-       if (counter = n) then // индекс строки
-           res := i;
-       i := i + 1;
-    end;
+    counter := -1;
+//    isNegative := false;// если всЄ - отрицательное
+//    while ((i <= n - 1) and (res = -1)) do// шагаем по строкам
+//    begin
+//       counter := 0; 
+//       for j := 0 to n - 1 do 
+//       begin
+//       if (myMatrix[i, j] < 0) then
+//           inc(counter)
+//       end;
+//       if (counter = n) then // индекс строки
+//           res := i;
+//       i := i + 1;
+//    end;
     
-    for i := 0 to n-1 do
-        readByRaws(myMatrix[i]); 
+    while((i < n) and (counter = -1)) do
+      begin
+        readByRaws(myMatrix[i]);
+        if (readByRaws(myMatrix[i])) then
+          counter := i;
+        inc(i);
+      end;
+      writeIfNotPlus := counter;
  end;
   
 begin
@@ -143,7 +152,7 @@ begin
     replaceElements(myMatrix);
     writeMatrix(myMatrix);
     writeln('¬ыводим строку, не содержащую ни одного положительного элемента');
-    writeIfNotPlus(myMatrix, res);
+    res := writeIfNotPlus(myMatrix);
     if (res <> -1) then writeln('индекс строки = ', res)
     else
     writeln('Ќет строки только с отрицательными элементами');

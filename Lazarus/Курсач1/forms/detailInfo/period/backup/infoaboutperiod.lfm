@@ -30054,7 +30054,6 @@ object datailPeriodInfo: TdatailPeriodInfo
     Width = 195
     Caption = 'Выберете период для отображения'
     ParentColor = False
-    OnClick = Label1Click
   end
   object majorChart: TImage
     Left = 40

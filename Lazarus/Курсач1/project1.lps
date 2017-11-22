@@ -3,14 +3,14 @@
   <ProjectSession>
     <Version Value="10"/>
     <BuildModes Active="Default"/>
-    <Units Count="54">
+    <Units Count="49">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="3"/>
-        <CursorPos X="63" Y="22"/>
+        <EditorIndex Value="5"/>
+        <CursorPos X="3" Y="20"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="forms/weatherMain/mainform.pas"/>
@@ -19,10 +19,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MainForm"/>
-        <TopLine Value="112"/>
-        <CursorPos X="3" Y="114"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="165"/>
+        <CursorPos Y="106"/>
+        <FoldState Value=" TM Hi641w"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="forms/aboutProgram/about.pas"/>
@@ -39,9 +42,9 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="LinkedList"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="108"/>
-        <CursorPos X="7" Y="126"/>
-        <UsageCount Value="199"/>
+        <TopLine Value="71"/>
+        <CursorPos X="12" Y="84"/>
+        <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -52,9 +55,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="detailDayUnit"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="44"/>
-        <CursorPos X="32" Y="55"/>
-        <UsageCount Value="184"/>
+        <TopLine Value="18"/>
+        <CursorPos X="3" Y="31"/>
+        <UsageCount Value="192"/>
       </Unit4>
       <Unit5>
         <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
@@ -63,11 +66,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="infoAboutPeriod"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="84"/>
-        <CursorPos X="11" Y="60"/>
-        <UsageCount Value="148"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="61"/>
+        <CursorPos X="11" Y="44"/>
+        <UsageCount Value="156"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="utils/sort/sorting.pas"/>
@@ -75,7 +79,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="27"/>
         <CursorPos Y="54"/>
-        <UsageCount Value="145"/>
+        <UsageCount Value="153"/>
       </Unit6>
       <Unit7>
         <Filename Value="utils/charts/columnchart.pas"/>
@@ -83,7 +87,7 @@
         <UnitName Value="columnChart"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="53" Y="8"/>
-        <UsageCount Value="144"/>
+        <UsageCount Value="152"/>
       </Unit7>
       <Unit8>
         <Filename Value="utils/inputOutput/filesaver.pas"/>
@@ -92,430 +96,436 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="30"/>
         <CursorPos Y="49"/>
-        <UsageCount Value="130"/>
+        <UsageCount Value="138"/>
       </Unit8>
       <Unit9>
-        <Filename Value="utils/inputOutput/savingfilehandler.pas"/>
+        <Filename Value="forms/Logotype/logo.pas"/>
         <IsPartOfProject Value="True"/>
+        <ComponentName Value="StartPicture"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="21"/>
+        <CursorPos X="10" Y="25"/>
+        <UsageCount Value="50"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="forms/detailYear/detailyearinformation.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="detailYearInformation"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="44"/>
+        <CursorPos X="52" Y="48"/>
+        <UsageCount Value="29"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="utils/inputOutput/savingfilehandler.pas"/>
         <UnitName Value="savingFileHandler"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="23"/>
-        <UsageCount Value="48"/>
-      </Unit9>
-      <Unit10>
+        <UsageCount Value="47"/>
+      </Unit11>
+      <Unit12>
         <Filename Value="utils/inputOutput/saveornotform.pas"/>
-        <IsPartOfProject Value="True"/>
         <ComponentName Value="ExitWithSave"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="saveOrNotForm"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="68" Y="40"/>
-        <UsageCount Value="48"/>
-      </Unit10>
-      <Unit11>
-        <Filename Value="forms/Logotype/logo.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="StartPicture"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="5"/>
-        <CursorPos X="21" Y="17"/>
-        <UsageCount Value="42"/>
-      </Unit11>
-      <Unit12>
+        <UsageCount Value="47"/>
+      </Unit12>
+      <Unit13>
         <Filename Value="unit2.pas"/>
         <ComponentName Value="Form1"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit2"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="65" Y="10"/>
-        <UsageCount Value="123"/>
-      </Unit12>
-      <Unit13>
+        <UsageCount Value="122"/>
+      </Unit13>
+      <Unit14>
         <Filename Value="linkedweatherlist.pas"/>
         <UnitName Value="LinkedWeatherList"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="10"/>
-        <UsageCount Value="98"/>
-      </Unit13>
-      <Unit14>
-        <Filename Value="C:/lazarus/lcl/include/control.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="2710"/>
-        <CursorPos Y="2736"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="97"/>
       </Unit14>
       <Unit15>
-        <Filename Value="C:/lazarus/lcl/lclmessageglue.pas"/>
-        <UnitName Value="LCLMessageGlue"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="173"/>
-        <CursorPos Y="207"/>
-        <UsageCount Value="8"/>
-      </Unit15>
-      <Unit16>
-        <Filename Value="C:/lazarus/lcl/interfaces/win32/win32callback.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="2558"/>
-        <CursorPos X="23" Y="2561"/>
-        <UsageCount Value="8"/>
-      </Unit16>
-      <Unit17>
-        <Filename Value="C:/lazarus/lcl/include/menuitem.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="70"/>
-        <CursorPos X="40" Y="78"/>
-        <UsageCount Value="8"/>
-      </Unit17>
-      <Unit18>
-        <Filename Value="C:/lazarus/lcl/editbtn.pas"/>
-        <UnitName Value="EditBtn"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="954"/>
-        <CursorPos X="3" Y="763"/>
-        <UsageCount Value="9"/>
-      </Unit18>
-      <Unit19>
-        <Filename Value="C:/lazarus/fpc/3.0.2/source/rtl/inc/systemh.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="426"/>
-        <CursorPos X="33" Y="443"/>
-        <UsageCount Value="9"/>
-      </Unit19>
-      <Unit20>
-        <Filename Value="C:/lazarus/lcl/stdctrls.pp"/>
-        <UnitName Value="StdCtrls"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="389"/>
-        <CursorPos X="3" Y="406"/>
-        <UsageCount Value="8"/>
-      </Unit20>
-      <Unit21>
-        <Filename Value="C:/lazarus/fpc/3.0.2/source/rtl/objpas/sysutils/datih.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="122"/>
-        <CursorPos X="10" Y="139"/>
-        <UsageCount Value="8"/>
-      </Unit21>
-      <Unit22>
-        <Filename Value="C:/lazarus/fpc/3.0.2/source/packages/rtl-objpas/src/inc/dateutils.pp"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="8"/>
-      </Unit22>
-      <Unit23>
-        <Filename Value="/usr/share/fpcsrc/packages/rtl-objpas/src/inc/dateutils.pp"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="1"/>
-      </Unit23>
-      <Unit24>
-        <Filename Value="/usr/lib64/lazarus/lcl/include/control.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="2715"/>
-        <CursorPos X="35" Y="2726"/>
-        <UsageCount Value="3"/>
-      </Unit24>
-      <Unit25>
-        <Filename Value="/usr/lib64/lazarus/lcl/lclmessageglue.pas"/>
-        <UnitName Value="LCLMessageGlue"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="92"/>
-        <CursorPos Y="114"/>
-        <UsageCount Value="2"/>
-      </Unit25>
-      <Unit26>
-        <Filename Value="/usr/lib64/lazarus/lcl/editbtn.pas"/>
-        <UnitName Value="EditBtn"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="2903"/>
-        <CursorPos X="15" Y="2932"/>
-        <UsageCount Value="2"/>
-      </Unit26>
-      <Unit27>
-        <Filename Value="/usr/lib64/lazarus/lcl/grids.pas"/>
-        <UnitName Value="Grids"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="9264"/>
-        <CursorPos Y="9287"/>
-        <UsageCount Value="5"/>
-      </Unit27>
-      <Unit28>
-        <Filename Value="/usr/lib64/lazarus/lcl/extctrls.pp"/>
-        <UnitName Value="ExtCtrls"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="514"/>
-        <CursorPos X="3" Y="536"/>
-        <UsageCount Value="2"/>
-      </Unit28>
-      <Unit29>
-        <Filename Value="/usr/lib64/lazarus/lcl/graphics.pp"/>
-        <UnitName Value="Graphics"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="763"/>
-        <CursorPos X="5" Y="708"/>
-        <UsageCount Value="2"/>
-      </Unit29>
-      <Unit30>
-        <Filename Value="/usr/lib64/lazarus/lcl/include/customimage.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="16"/>
-        <CursorPos Y="60"/>
-        <UsageCount Value="7"/>
-      </Unit30>
-      <Unit31>
-        <Filename Value="/usr/lib64/lazarus/lcl/include/buttoncontrol.inc"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos Y="21"/>
-        <UsageCount Value="2"/>
-      </Unit31>
-      <Unit32>
-        <Filename Value="/usr/lib64/lazarus/lcl/include/buttons.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="147"/>
-        <CursorPos Y="170"/>
-        <UsageCount Value="2"/>
-      </Unit32>
-      <Unit33>
-        <Filename Value="/usr/lib64/lazarus/lcl/dynhasharray.pp"/>
-        <UnitName Value="DynHashArray"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="485"/>
-        <CursorPos Y="508"/>
-        <UsageCount Value="3"/>
-      </Unit33>
-      <Unit34>
-        <Filename Value="C:/lazarus/fpc/3.0.2/source/rtl/objpas/sysutils/sysinth.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="16"/>
-        <CursorPos X="3" Y="33"/>
-        <UsageCount Value="3"/>
-      </Unit34>
-      <Unit35>
-        <Filename Value="C:/lazarus/lcl/grids.pas"/>
-        <UnitName Value="Grids"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1327"/>
-        <CursorPos X="14" Y="1342"/>
-        <UsageCount Value="9"/>
-      </Unit35>
-      <Unit36>
-        <Filename Value="C:/lazarus/fpc/3.0.2/source/rtl/win32/windows.pp"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="22" Y="20"/>
-        <UsageCount Value="9"/>
-      </Unit36>
-      <Unit37>
-        <Filename Value="C:/lazarus/lcl/include/customform.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="2195"/>
-        <CursorPos Y="2212"/>
-        <UsageCount Value="9"/>
-      </Unit37>
-      <Unit38>
-        <Filename Value="C:/lazarus/lcl/forms.pp"/>
-        <UnitName Value="Forms"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1409"/>
-        <CursorPos X="14" Y="1424"/>
-        <UsageCount Value="11"/>
-      </Unit38>
-      <Unit39>
-        <Filename Value="C:/lazarus/lcl/lcltype.pp"/>
-        <UnitName Value="LCLType"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="746"/>
-        <CursorPos X="20" Y="762"/>
-        <UsageCount Value="11"/>
-      </Unit39>
-      <Unit40>
-        <Filename Value="C:/lazarus/lcl/dialogs.pp"/>
-        <UnitName Value="Dialogs"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="22"/>
-        <CursorPos X="41" Y="34"/>
-        <UsageCount Value="10"/>
-      </Unit40>
-      <Unit41>
-        <Filename Value="C:/lazarus/lcl/forms.pp"/>
-        <UnitName Value="Forms"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1414"/>
-        <CursorPos X="14" Y="1424"/>
-        <UsageCount Value="10"/>
-      </Unit41>
-      <Unit42>
-        <Filename Value="C:/lazarus/lcl/lcltype.pp"/>
-        <UnitName Value="LCLType"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="750"/>
-        <CursorPos X="30" Y="760"/>
-        <UsageCount Value="10"/>
-      </Unit42>
-      <Unit43>
         <Filename Value="C:/lazarus/lcl/include/control.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="2114"/>
-        <CursorPos Y="2125"/>
-        <UsageCount Value="14"/>
-      </Unit43>
-      <Unit44>
-        <Filename Value="C:/lazarus/lcl/include/buttoncontrol.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="9"/>
-        <CursorPos Y="21"/>
-        <UsageCount Value="14"/>
-      </Unit44>
-      <Unit45>
-        <Filename Value="C:/lazarus/lcl/include/buttons.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="158"/>
-        <CursorPos Y="170"/>
-        <UsageCount Value="14"/>
-      </Unit45>
-      <Unit46>
-        <Filename Value="C:/lazarus/lcl/include/wincontrol.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="5373"/>
-        <CursorPos Y="5385"/>
-        <UsageCount Value="14"/>
-      </Unit46>
-      <Unit47>
+        <TopLine Value="3656"/>
+        <CursorPos X="84" Y="3667"/>
+        <UsageCount Value="9"/>
+      </Unit15>
+      <Unit16>
         <Filename Value="C:/lazarus/lcl/lclmessageglue.pas"/>
         <UnitName Value="LCLMessageGlue"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="108"/>
         <CursorPos Y="123"/>
-        <UsageCount Value="14"/>
-      </Unit47>
-      <Unit48>
+        <UsageCount Value="13"/>
+      </Unit16>
+      <Unit17>
         <Filename Value="C:/lazarus/lcl/interfaces/win32/win32callback.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="89"/>
         <CursorPos Y="100"/>
-        <UsageCount Value="14"/>
-      </Unit48>
-      <Unit49>
+        <UsageCount Value="13"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="C:/lazarus/lcl/include/menuitem.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="70"/>
+        <CursorPos X="9" Y="78"/>
+        <UsageCount Value="9"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="C:/lazarus/lcl/editbtn.pas"/>
+        <UnitName Value="EditBtn"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="954"/>
+        <CursorPos X="3" Y="763"/>
+        <UsageCount Value="8"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="C:/lazarus/fpc/3.0.2/source/rtl/inc/systemh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="431"/>
+        <CursorPos X="33" Y="443"/>
+        <UsageCount Value="9"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="C:/lazarus/lcl/stdctrls.pp"/>
+        <UnitName Value="StdCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="419"/>
+        <CursorPos X="14" Y="429"/>
+        <UsageCount Value="10"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="C:/lazarus/fpc/3.0.2/source/rtl/objpas/sysutils/datih.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="122"/>
+        <CursorPos X="10" Y="139"/>
+        <UsageCount Value="7"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="C:/lazarus/fpc/3.0.2/source/packages/rtl-objpas/src/inc/dateutils.pp"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="7"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="/usr/share/fpcsrc/packages/rtl-objpas/src/inc/dateutils.pp"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="/usr/lib64/lazarus/lcl/include/control.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2715"/>
+        <CursorPos X="35" Y="2726"/>
+        <UsageCount Value="2"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="/usr/lib64/lazarus/lcl/lclmessageglue.pas"/>
+        <UnitName Value="LCLMessageGlue"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="92"/>
+        <CursorPos Y="114"/>
+        <UsageCount Value="1"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="/usr/lib64/lazarus/lcl/editbtn.pas"/>
+        <UnitName Value="EditBtn"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2903"/>
+        <CursorPos X="15" Y="2932"/>
+        <UsageCount Value="1"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="/usr/lib64/lazarus/lcl/grids.pas"/>
+        <UnitName Value="Grids"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="9264"/>
+        <CursorPos Y="9287"/>
+        <UsageCount Value="4"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="/usr/lib64/lazarus/lcl/extctrls.pp"/>
+        <UnitName Value="ExtCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="514"/>
+        <CursorPos X="3" Y="536"/>
+        <UsageCount Value="1"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="/usr/lib64/lazarus/lcl/graphics.pp"/>
+        <UnitName Value="Graphics"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="763"/>
+        <CursorPos X="5" Y="708"/>
+        <UsageCount Value="1"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="/usr/lib64/lazarus/lcl/include/customimage.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="16"/>
+        <CursorPos Y="60"/>
+        <UsageCount Value="6"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="/usr/lib64/lazarus/lcl/include/buttoncontrol.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="21"/>
+        <UsageCount Value="1"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="/usr/lib64/lazarus/lcl/include/buttons.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="147"/>
+        <CursorPos Y="170"/>
+        <UsageCount Value="1"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="/usr/lib64/lazarus/lcl/dynhasharray.pp"/>
+        <UnitName Value="DynHashArray"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="485"/>
+        <CursorPos Y="508"/>
+        <UsageCount Value="2"/>
+      </Unit34>
+      <Unit35>
+        <Filename Value="C:/lazarus/fpc/3.0.2/source/rtl/objpas/sysutils/sysinth.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="16"/>
+        <CursorPos X="3" Y="33"/>
+        <UsageCount Value="2"/>
+      </Unit35>
+      <Unit36>
+        <Filename Value="C:/lazarus/lcl/grids.pas"/>
+        <UnitName Value="Grids"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1327"/>
+        <CursorPos X="14" Y="1342"/>
+        <UsageCount Value="8"/>
+      </Unit36>
+      <Unit37>
+        <Filename Value="C:/lazarus/fpc/3.0.2/source/rtl/win32/windows.pp"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="22" Y="20"/>
+        <UsageCount Value="8"/>
+      </Unit37>
+      <Unit38>
+        <Filename Value="C:/lazarus/lcl/include/customform.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2195"/>
+        <CursorPos Y="2212"/>
+        <UsageCount Value="8"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="C:/lazarus/lcl/forms.pp"/>
+        <UnitName Value="Forms"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="600"/>
+        <CursorPos X="14" Y="614"/>
+        <UsageCount Value="9"/>
+      </Unit39>
+      <Unit40>
+        <Filename Value="C:/lazarus/lcl/lcltype.pp"/>
+        <UnitName Value="LCLType"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="750"/>
+        <CursorPos X="30" Y="760"/>
+        <UsageCount Value="9"/>
+      </Unit40>
+      <Unit41>
+        <Filename Value="C:/lazarus/lcl/dialogs.pp"/>
+        <UnitName Value="Dialogs"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="22"/>
+        <CursorPos X="41" Y="34"/>
+        <UsageCount Value="9"/>
+      </Unit41>
+      <Unit42>
+        <Filename Value="C:/lazarus/lcl/include/buttoncontrol.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="9"/>
+        <CursorPos Y="21"/>
+        <UsageCount Value="13"/>
+      </Unit42>
+      <Unit43>
+        <Filename Value="C:/lazarus/lcl/include/buttons.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="158"/>
+        <CursorPos Y="170"/>
+        <UsageCount Value="13"/>
+      </Unit43>
+      <Unit44>
+        <Filename Value="C:/lazarus/lcl/include/wincontrol.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="5373"/>
+        <CursorPos Y="5385"/>
+        <UsageCount Value="13"/>
+      </Unit44>
+      <Unit45>
         <Filename Value="C:/lazarus/lcl/interfaces/win32/win32wsforms.pp"/>
         <UnitName Value="Win32WSForms"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="372"/>
         <CursorPos Y="383"/>
-        <UsageCount Value="14"/>
-      </Unit49>
-      <Unit50>
+        <UsageCount Value="13"/>
+      </Unit45>
+      <Unit46>
         <Filename Value="C:/lazarus/lcl/include/containedaction.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="86"/>
         <CursorPos Y="100"/>
-        <UsageCount Value="10"/>
-      </Unit50>
-      <Unit51>
+        <UsageCount Value="9"/>
+      </Unit46>
+      <Unit47>
         <Filename Value="C:/lazarus/lcl/include/customaction.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="235"/>
         <CursorPos Y="247"/>
-        <UsageCount Value="10"/>
-      </Unit51>
-      <Unit52>
-        <Filename Value="C:/lazarus/lcl/include/menuitem.inc"/>
+        <UsageCount Value="9"/>
+      </Unit47>
+      <Unit48>
+        <Filename Value="C:/lazarus/fpc/3.0.2/source/packages/fcl-base/examples/list.pp"/>
+        <UnitName Value="TestList"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="70"/>
-        <CursorPos X="9" Y="78"/>
-        <UsageCount Value="10"/>
-      </Unit52>
-      <Unit53>
-        <Filename Value="forms/detailYear/detailyearinformation.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form1"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="detailYearInformation"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="20"/>
-        <CursorPos X="3" Y="40"/>
-        <UsageCount Value="20"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
-      </Unit53>
+        <TopLine Value="78"/>
+        <UsageCount Value="9"/>
+      </Unit48>
     </Units>
-    <JumpHistory Count="18" HistoryIndex="17">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
-        <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="282" TopLine="269"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="221" Column="11" TopLine="216"/>
       </Position1>
       <Position2>
-        <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="298" TopLine="287"/>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <Caret Line="224" Column="9" TopLine="219"/>
       </Position2>
       <Position3>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="298" TopLine="287"/>
+        <Caret Line="266"/>
       </Position3>
       <Position4>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="312" TopLine="316"/>
+        <Caret Line="119" Column="3" TopLine="117"/>
       </Position4>
       <Position5>
-        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="103" TopLine="87"/>
+        <Filename Value="forms/weatherMain/mainform.pas"/>
+        <Caret Line="101" Column="34" TopLine="94"/>
       </Position5>
       <Position6>
-        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="102" TopLine="86"/>
+        <Filename Value="forms/Logotype/logo.pas"/>
+        <Caret Line="16" Column="14" TopLine="4"/>
       </Position6>
       <Position7>
-        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="103" TopLine="87"/>
+        <Filename Value="forms/Logotype/logo.pas"/>
+        <Caret Line="41" Column="22" TopLine="18"/>
       </Position7>
       <Position8>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="270" Column="74" TopLine="265"/>
+        <Caret Line="103" Column="42" TopLine="91"/>
       </Position8>
       <Position9>
-        <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="271" Column="74" TopLine="266"/>
+        <Filename Value="forms/Logotype/logo.pas"/>
+        <Caret Line="18" Column="44"/>
       </Position9>
       <Position10>
-        <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="272" Column="74" TopLine="267"/>
+        <Filename Value="forms/Logotype/logo.pas"/>
+        <Caret Line="37" Column="36" TopLine="14"/>
       </Position10>
       <Position11>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="271" Column="74" TopLine="266"/>
+        <Caret Line="101" Column="17" TopLine="90"/>
       </Position11>
       <Position12>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="270" Column="74" TopLine="265"/>
+        <Caret Line="99" Column="19" TopLine="90"/>
       </Position12>
       <Position13>
-        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="240" Column="5" TopLine="217"/>
+        <Filename Value="forms/weatherMain/mainform.pas"/>
+        <Caret Line="113" Column="18" TopLine="93"/>
       </Position13>
       <Position14>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="270" Column="74" TopLine="265"/>
+        <Caret Line="96" TopLine="96"/>
       </Position14>
       <Position15>
-        <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="371" Column="3" TopLine="353"/>
+        <Filename Value="forms/Logotype/logo.pas"/>
+        <Caret Line="16" Column="20" TopLine="13"/>
       </Position15>
       <Position16>
-        <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="378" Column="3" TopLine="360"/>
+        <Filename Value="forms/Logotype/logo.pas"/>
+        <Caret Line="38" Column="28" TopLine="13"/>
       </Position16>
       <Position17>
         <Filename Value="forms/weatherMain/mainform.pas"/>
-        <Caret Line="139" Column="139" TopLine="129"/>
+        <Caret Line="101" Column="19" TopLine="87"/>
       </Position17>
       <Position18>
-        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
-        <Caret Line="17" Column="59" TopLine="216"/>
+        <Filename Value="forms/weatherMain/mainform.pas"/>
+        <Caret Line="96" TopLine="94"/>
       </Position18>
+      <Position19>
+        <Filename Value="forms/weatherMain/mainform.pas"/>
+        <Caret Line="49" TopLine="37"/>
+      </Position19>
+      <Position20>
+        <Filename Value="forms/weatherMain/mainform.pas"/>
+        <Caret Line="106" TopLine="92"/>
+      </Position20>
+      <Position21>
+        <Filename Value="forms/weatherMain/mainform.pas"/>
+        <Caret Line="107" TopLine="92"/>
+      </Position21>
+      <Position22>
+        <Filename Value="forms/weatherMain/mainform.pas"/>
+        <Caret Line="108" TopLine="92"/>
+      </Position22>
+      <Position23>
+        <Filename Value="forms/weatherMain/mainform.pas"/>
+        <Caret Line="106" Column="23" TopLine="92"/>
+      </Position23>
+      <Position24>
+        <Filename Value="forms/detailYear/detailyearinformation.pas"/>
+        <Caret Line="79" Column="53" TopLine="60"/>
+      </Position24>
+      <Position25>
+        <Filename Value="forms/detailYear/detailyearinformation.pas"/>
+        <Caret Line="81" Column="16" TopLine="62"/>
+      </Position25>
+      <Position26>
+        <Filename Value="utils/list/linkedlist.pas"/>
+        <Caret Line="77" Column="84" TopLine="61"/>
+      </Position26>
+      <Position27>
+        <Filename Value="forms/detailYear/detailyearinformation.pas"/>
+        <Caret Line="80" Column="38" TopLine="62"/>
+      </Position27>
+      <Position28>
+        <Filename Value="forms/detailYear/detailyearinformation.pas"/>
+        <Caret Line="45" Column="55" TopLine="44"/>
+      </Position28>
+      <Position29>
+        <Filename Value="forms/detailYear/detailyearinformation.pas"/>
+        <Caret Line="48" Column="52" TopLine="44"/>
+      </Position29>
     </JumpHistory>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="1">
+    <BreakPoints Count="3">
       <Item1>
         <Kind Value="bpkData"/>
         <WatchScope Value="wpsGlobal"/>
@@ -523,14 +533,49 @@
         <Expression Value="i = 8"/>
         <InitialEnabled Value="False"/>
       </Item1>
+      <Item2>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="forms/weatherMain/mainform.pas"/>
+        <Line Value="101"/>
+      </Item2>
+      <Item3>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="forms/weatherMain/mainform.pas"/>
+        <Line Value="99"/>
+      </Item3>
     </BreakPoints>
-    <Watches Count="2">
+    <Watches Count="9">
       <Item1>
-        <Expression Value="OpenDialog1.FileName"/>
+        <Expression Value="ComboBoxDay.text"/>
       </Item1>
       <Item2>
-        <Expression Value="filename"/>
+        <Expression Value="ComboBoxDay.itemindex"/>
       </Item2>
+      <Item3>
+        <Expression Value="selectedDayIndex"/>
+      </Item3>
+      <Item4>
+        <Expression Value="curDay"/>
+      </Item4>
+      <Item5>
+        <Expression Value="curYear"/>
+      </Item5>
+      <Item6>
+        <Expression Value="curMonth"/>
+      </Item6>
+      <Item7>
+        <Expression Value="dayIndex"/>
+      </Item7>
+      <Item8>
+        <Expression Value="Monthindex"/>
+      </Item8>
+      <Item9>
+        <Expression Value="max"/>
+      </Item9>
     </Watches>
   </Debugging>
 </CONFIG>

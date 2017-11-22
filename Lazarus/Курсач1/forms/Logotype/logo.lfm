@@ -1,12 +1,11 @@
 object StartPicture: TStartPicture
-  Left = 400
+  Left = 573
   Height = 193
-  Top = 331
+  Top = 301
   Width = 421
   Caption = 'StartPicture'
   ClientHeight = 193
   ClientWidth = 421
-  OnShow = FormShow
   LCLVersion = '1.6.4.0'
   object Image1: TImage
     Left = 24
@@ -384,7 +383,8 @@ object StartPicture: TStartPicture
     }
   end
   object Timer1: TTimer
-    Interval = 2000
+    Interval = 5000
+    OnStopTimer = Timer1StopTimer
     left = 8
     top = 8
   end

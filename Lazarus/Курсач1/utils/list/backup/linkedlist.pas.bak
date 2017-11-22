@@ -31,8 +31,58 @@ function searchListElementByDate(currentList : list; date : TDateTime
                              ; dayOrNight : string) : list;
 
 procedure deleteFromList(var list1 : list; fromIndex : integer; toIndex : integer);
+function searchMaxListElementByDayMonth(curList : list; dayIndex : integer; monthIndex : integer) : list;
+function searchMinListElementByDayMonth(curList : list; dayIndex : integer; monthIndex : integer) : list;
 
 implementation
+
+function searchMaxListElementByDayMonth(curList : list; dayIndex : integer; monthIndex : integer) : list;
+var
+  founded : boolean;
+  max : list;
+  curDay, curMonth, curYear : word;
+  temperature : integer;
+begin
+  founded := false;
+  max := nil;
+  // minint = -maxint
+  temperature := -maxint;
+  while((curList^.next <> nil) and (not founded)) do
+  begin
+    decodeDate(curList^.date, curYear, curMonth, curDay);
+    if ((curDay = dayIndex) and (curMonth = monthIndex) and (curList^.temperature > temperature)) then
+    begin
+      max := curList;
+      founded := true;
+    end;
+    curList := curList^.next;
+  end;
+  searchMaxListElementByDayMonth := max;
+end;
+
+function searchMinListElementByDayMonth(curList : list; dayIndex : integer; monthIndex : integer) : list;
+var
+  founded : boolean;
+  min : list;
+  curDay, curMonth, curYear : word;
+  temperature : integer;
+begin
+  founded := false;
+  min := nil;
+  // minint = -maxint
+  temperature := maxint;
+  while((curList^.next <> nil) and (not founded)) do
+  begin
+    decodeDate(curList^.date, curYear, curMonth, curDay);
+    if ((curDay = dayIndex) and (curMonth = monthIndex) and (curList^.temperature < temperature)) then
+    begin
+      min := curList;
+      founded := true;
+    end;
+    curList := curList^.next;
+  end;
+  searchMaxListElementByDayMonth := min;
+end;
 
 procedure readValue(var target : list; date : TDateTime; temperature : integer; humidity : integer;
                              atmospherePressure : integer; dayOrNight : string);
@@ -51,6 +101,7 @@ procedure add(var listForAdd : List; date : TDateTime; dayOrNight : String;
 var
   temp:List;
 begin
+  //if ((dayOrNight <> 'День') or (dayOrNight <> 'Ночь') or () or () or () or ());
   // если список пуст, то создаём его первый элемент
   if (listForAdd = nil) then
   begin
@@ -124,7 +175,6 @@ begin
     end;
     temp := temp^.next;
   end;
-  // todo придумать нормально условие, чтобы находил последний элемент
   if ((date = temp^.date) and (temp^.dayOrNight = dayOrNight)) then
     searchListElementByDate := temp;
 end;

@@ -1,21 +1,20 @@
 object WeatherForecast: TWeatherForecast
-  Left = 191
-  Height = 460
-  Top = 169
-  Width = 1036
+  Left = 409
+  Height = 481
+  Top = 117
+  Width = 847
   Caption = 'Сводка погоды'
-  ClientHeight = 440
-  ClientWidth = 1036
+  ClientHeight = 461
+  ClientWidth = 847
   Menu = menuM
   OnCloseQuery = FormCloseQuery
-  OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '1.6.4.0'
   object Image1: TImage
     Left = 0
-    Height = 440
+    Height = 464
     Top = 0
-    Width = 1036
+    Width = 848
     OnClick = Image1Click
     Picture.Data = {
       0A544A706567496D61676554A80E00FFD8FFE000104A46494600010100000100
@@ -30041,9 +30040,9 @@ object WeatherForecast: TWeatherForecast
     }
   end
   object About: TButton
-    Left = 840
-    Height = 52
-    Top = 22
+    Left = 672
+    Height = 27
+    Top = 400
     Width = 114
     Caption = 'О программе'
     OnClick = AboutClick
@@ -30095,7 +30094,7 @@ object WeatherForecast: TWeatherForecast
     Left = 280
     Height = 40
     Top = 224
-    Width = 168
+    Width = 224
     Caption = 'Детальная информация (1 д)'
     Color = clInactiveBorder
     OnClick = searchDetailInformationClick
@@ -30105,7 +30104,7 @@ object WeatherForecast: TWeatherForecast
     Left = 280
     Height = 40
     Top = 272
-    Width = 168
+    Width = 224
     Caption = 'Прогноз на неделю'
     Color = clInactiveBorder
     OnClick = weekForekastClick
@@ -30121,9 +30120,9 @@ object WeatherForecast: TWeatherForecast
     TabOrder = 7
   end
   object Memo1: TMemo
-    Left = 648
+    Left = 528
     Height = 111
-    Top = 240
+    Top = 201
     Width = 270
     Lines.Strings = (
       'Это строка 1'
@@ -30132,20 +30131,30 @@ object WeatherForecast: TWeatherForecast
     )
     TabOrder = 8
   end
+  object maxYeraTemperature: TButton
+    Left = 280
+    Height = 40
+    Top = 320
+    Width = 224
+    Caption = 'Максимальная температура (по году)'
+    Color = clInactiveBorder
+    OnClick = maxYeraTemperatureClick
+    TabOrder = 9
+  end
   object OpenDialog1: TOpenDialog
     Filter = 'Все файлы|*.*|Текстовые файлы|*.txt'
-    left = 896
-    top = 152
+    left = 536
+    top = 384
   end
   object SaveDialog1: TSaveDialog
     Filter = 'Все файлы|*.*|Текстовые файлы|*.txt'
-    left = 944
-    top = 96
+    left = 728
+    top = 328
   end
   object menuM: TMainMenu
     Tag = 1
-    left = 856
-    top = 96
+    left = 536
+    top = 328
     object MenuFile: TMenuItem
       Caption = 'Файл'
       ShortCut = 16454
@@ -30174,8 +30183,8 @@ object WeatherForecast: TWeatherForecast
     end
   end
   object PopupMenu1: TPopupMenu
-    left = 952
-    top = 144
+    left = 600
+    top = 384
     object MenuItem1: TMenuItem
       Caption = 'Удалить'
       OnClick = MenuItem1Click
@@ -30183,8 +30192,8 @@ object WeatherForecast: TWeatherForecast
   end
   object ActionList1: TActionList
     Images = ImageList1
-    left = 896
-    top = 96
+    left = 664
+    top = 328
     object Action1: TAction
       Caption = 'Удалить'
       Hint = 'Удалить выбранное'
@@ -30202,7 +30211,7 @@ object WeatherForecast: TWeatherForecast
     end
   end
   object ImageList1: TImageList
-    left = 856
-    top = 152
+    left = 600
+    top = 328
   end
 end

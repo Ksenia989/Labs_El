@@ -35,7 +35,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="12">
+    <Units Count="11">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -92,25 +92,20 @@
         <UnitName Value="fileSaver"/>
       </Unit8>
       <Unit9>
-        <Filename Value="utils/inputOutput/savingfilehandler.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="savingFileHandler"/>
-      </Unit9>
-      <Unit10>
-        <Filename Value="utils/inputOutput/saveornotform.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="ExitWithSave"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="saveOrNotForm"/>
-      </Unit10>
-      <Unit11>
         <Filename Value="forms/Logotype/logo.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="StartPicture"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit11>
+      </Unit9>
+      <Unit10>
+        <Filename Value="forms/detailYear/detailyearinformation.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="detailYearInformation"/>
+      </Unit10>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -120,7 +115,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="forms;forms/weatherMain;forms/detailDay;utils/list;forms/aboutProgram;forms/detailInfo/period;utils/sort;utils/charts;utils/inputOutput;forms/Logotype"/>
+      <OtherUnitFiles Value="forms;forms/weatherMain;forms/detailDay;utils/list;forms/aboutProgram;forms/detailInfo/period;utils/sort;utils/charts;utils/inputOutput;forms/Logotype;forms/detailYear"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

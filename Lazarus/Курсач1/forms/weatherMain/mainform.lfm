@@ -1,14 +1,13 @@
 object WeatherForecast: TWeatherForecast
-  Left = 416
-  Height = 483
-  Top = 137
+  Left = 409
+  Height = 481
+  Top = 117
   Width = 847
   Caption = 'Сводка погоды'
-  ClientHeight = 463
+  ClientHeight = 461
   ClientWidth = 847
   Menu = menuM
   OnCloseQuery = FormCloseQuery
-  OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '1.6.4.0'
   object Image1: TImage
@@ -16,7 +15,6 @@ object WeatherForecast: TWeatherForecast
     Height = 464
     Top = 0
     Width = 848
-    OnClick = Image1Click
     Picture.Data = {
       0A544A706567496D61676554A80E00FFD8FFE000104A46494600010100000100
       010000FFDB004300030202020202030202020303030304060404040404080606

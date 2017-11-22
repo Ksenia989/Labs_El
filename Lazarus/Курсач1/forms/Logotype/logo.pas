@@ -14,7 +14,8 @@ type
   TStartPicture = class(TForm)
     Image1: TImage;
     Timer1: TTimer;
-    procedure FormShow(Sender: TObject);
+    procedure Timer1StopTimer(Sender: TObject);
+    //procedure Timer1Timer(Sender: TObject);
   private
     { private declarations }
   public
@@ -25,14 +26,22 @@ var
   StartPicture: TStartPicture;
 
 implementation
+uses mainform;
 
 {$R *.lfm}
 
 { TStartPicture }
 
-procedure TStartPicture.FormShow(Sender: TObject);
+//procedure TStartPicture.Timer1Timer(Sender: TObject);
+//begin
+//  Application.CreateForm(TWeatherForecast, WeatherForecast);
+//  WeatherForecast.ShowModal;
+//end;
+
+procedure TStartPicture.Timer1StopTimer(Sender: TObject);
 begin
-  //startPicture.OnShowModalFinished:=;
+   Application.CreateForm(TWeatherForecast, WeatherForecast);
+  WeatherForecast.ShowModal;
 end;
 
 end.

@@ -47,8 +47,7 @@ uses
     procedure CleanTableClick(Sender: TObject);
     procedure deleteSelectedClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
-    procedure FormCreate(Sender: TObject);
-    procedure Image1Click(Sender: TObject);
+    //procedure FormCreate(Sender: TObject);
     procedure IncrementRawsClick(Sender: TObject);
     procedure EscapeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -80,7 +79,7 @@ var
 
 implementation
 uses About,
-     DetailDayUnit, fileSaver, InfoAboutPeriod, sorting;
+     DetailDayUnit, fileSaver, InfoAboutPeriod, sorting, detailYearInformation;
 
 {$R *.lfm}
 
@@ -89,33 +88,23 @@ const
 
 var
   commonWeather : list;
-  tableChanged : boolean;
   textfile : text;
 
 { TWeatherForecast }
 
-procedure TWeatherForecast.FormCreate(Sender: TObject);
-var
-  i : integer;
-begin
-  Application.CreateForm(TStartPicture, startPicture);
-
-  //for i := 0 to 10000 do
-  //begin
-  //   startPicture.ShowModal;
-  //  startPicture.FormShow(startPicture);
-  //end;
-  ////startPicture.Clo
-  //startPicture.Close;
-end;
-
-procedure TWeatherForecast.Image1Click(Sender: TObject);
-begin
-
-end;
+//procedure TWeatherForecast.FormCreate(Sender: TObject);
+//var i : integer;
+//begin
+//  Application.CreateForm(TStartPicture, startPicture);
+//  startPicture.ShowModal;
+//  //startPicture.Timer1.;
+//
+//end;
 
 procedure TWeatherForecast.FormShow(Sender: TObject);
 begin
+  Application.CreateForm(TStartPicture, startPicture);
+  startPicture.ShowModal;
   StringGrid1.Cells[0,0]:= 'Дата';
   StringGrid1.Cells[1,0]:= 'День/Ночь';
   StringGrid1.Cells[2,0]:= 'Температура воздуха, C';
@@ -133,14 +122,6 @@ end;
 procedure TWeatherForecast.DateSortingClick(Sender: TObject);
 begin
   sortDate(stringGrid1, 0);
-end;
-
-(*
-  Выборка года, в котором температура в определённый день была максимальной
-*)
-procedure TWeatherForecast.maxYeraTemperatureClick(Sender: TObject);
-begin
-  //
 end;
 
 procedure TWeatherForecast.temperatureSortingClick(Sender: TObject);
@@ -380,6 +361,15 @@ procedure TWeatherForecast.weekForekastClick(Sender: TObject);
 begin
   saveToListFromStringGrid(commonWeather, weatherForecast.StringGrid1);
   datailPeriodInfo.showModal;
+end;
+
+(*
+  Выборка года, в котором температура в определённый день была максимальной
+*)
+procedure TWeatherForecast.maxYeraTemperatureClick(Sender: TObject);
+begin
+  saveToListFromStringGrid(commonWeather, weatherForecast.StringGrid1);
+  Form1.showModal;
 end;
 
 end.
