@@ -234,7 +234,11 @@ begin
                     writeln('Нечетные');
                     printValues(justOddList);
                     writeln();
+                    writeln('Детальная инфа для нечётного списка');
+                    writeln();
                     detailInfoForList(justOddList);
+                    writeln('Детальная инфа для чётного списка');
+                    writeln();
                     detailInfoForList(justEvenList);
                     writeln();
                     writeln('После добавления');

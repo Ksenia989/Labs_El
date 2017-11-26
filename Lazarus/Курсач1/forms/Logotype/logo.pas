@@ -32,12 +32,6 @@ uses mainform;
 
 { TStartPicture }
 
-//procedure TStartPicture.Timer1Timer(Sender: TObject);
-//begin
-//  Application.CreateForm(TWeatherForecast, WeatherForecast);
-//  WeatherForecast.ShowModal;
-//end;
-
 procedure TStartPicture.Timer1StopTimer(Sender: TObject);
 begin
    Application.CreateForm(TWeatherForecast, WeatherForecast);

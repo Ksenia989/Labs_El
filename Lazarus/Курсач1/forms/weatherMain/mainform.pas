@@ -15,6 +15,19 @@ uses
   TWeatherForecast = class(TForm)
     About: TButton;
     Action1: TAction;
+    Action2: TAction;
+    Action3: TAction;
+    Action4: TAction;
+    RemoveSelected: TAction;
+    RemoveEmplyString: TAction;
+    KillAllTable: TAction;
+    AddEmptyString: TAction;
+    Button1: TButton;
+    Editing: TMenuItem;
+    DelectSelected: TMenuItem;
+    AddRaw: TMenuItem;
+    deleteItAll: TMenuItem;
+    MenuItem3: TMenuItem;
     Save: TAction;
     Open1: TAction;
     ActionList1: TActionList;
@@ -22,7 +35,6 @@ uses
     DateSorting: TMenuItem;
     ImageList1: TImageList;
     Image1: TImage;
-    Memo1: TMemo;
     MenuItem1: TMenuItem;
     PopupMenu1: TPopupMenu;
     temperatureSorting: TMenuItem;
@@ -43,18 +55,20 @@ uses
     maxYeraTemperature: TButton;
 
     procedure AboutClick(Sender: TObject);
+    procedure AddEmptyStringExecute(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
     procedure DecrementRawsClick(Sender: TObject);
-    procedure CleanTableClick(Sender: TObject);
-    procedure deleteSelectedClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
-    //procedure FormCreate(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
     procedure IncrementRawsClick(Sender: TObject);
     procedure EscapeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DateSortingClick(Sender: TObject);
+    procedure KillAllTableExecute(Sender: TObject);
     procedure maxYeraTemperatureClick(Sender: TObject);
-    procedure MenuItem1Click(Sender: TObject);
     procedure Open1Execute(Sender: TObject);
+    procedure RemoveEmplyStringExecute(Sender: TObject);
+    procedure RemoveSelectedExecute(Sender: TObject);
     procedure SaveExecute(Sender: TObject);
     procedure temperatureSortingClick(Sender: TObject);
     procedure searchDetailInformationClick(Sender: TObject);
@@ -92,14 +106,44 @@ var
 
 { TWeatherForecast }
 
-//procedure TWeatherForecast.FormCreate(Sender: TObject);
-//var i : integer;
-//begin
-//  Application.CreateForm(TStartPicture, startPicture);
-//  startPicture.ShowModal;
-//  //startPicture.Timer1.;
-//
-//end;
+(*
+  Вспомогательная функция, заносящая данные в список
+*)
+procedure saveToListFromStringGrid(var weatherList : list; grid : TStringGrid);
+var
+  i : integer;
+  errCode1, errCode2, errCode3 : integer;
+  rowsNumber : integer;
+  temperature, humidity, atmospherePressure : integer;
+  day : TDateTime;
+  settings : TFormatSettings;
+  dayOrNight : string;
+begin
+  // todo удаление всех элементов из листа
+  weatherList := nil; // заново записываем
+  rowsNumber := grid.RowCount;
+  settings.DateSeparator:='.';
+  settings.LongDateFormat:='dd.mm.yyyy';
+  settings.ShortDateFormat:='dd.mm.yyyy';
+  for i := 0 to rowsNumber - 2 do
+  begin
+    day := strToDateTime(grid.Cells[0, i + 1], settings);
+    dayOrNight := grid.Cells[1, i + 1];
+    val(grid.Cells[2, i + 1], temperature, errCode1);
+    val(grid.Cells[3, i + 1], humidity, errCode2);
+    val(grid.Cells[4, i + 1], atmospherePressure, errCode3);
+  end;
+  if ((errCode1 <> 0) or (errCode2 <> 0) or (errCode3 <> 0)) then
+    showMessage('Данные имели неверный формат! Операция добавлеия не выполнена')
+  else
+  begin
+  // если с данными всё в порядке - добавляем в список
+  // проверка данных на удовлетворение критериям осуществляется
+  // внутри процедуры добавления
+  LinkedList.add(weatherList, day, dayOrNight,
+                                temperature, humidity, atmospherePressure);
+  end;
+end;
 
 procedure TWeatherForecast.FormShow(Sender: TObject);
 begin
@@ -122,6 +166,12 @@ end;
 procedure TWeatherForecast.DateSortingClick(Sender: TObject);
 begin
   sortDate(stringGrid1, 0);
+end;
+
+procedure TWeatherForecast.KillAllTableExecute(Sender: TObject);
+begin
+  StringGrid1.RowCount := 1;
+  commonWeather := nil;
 end;
 
 procedure TWeatherForecast.temperatureSortingClick(Sender: TObject);
@@ -174,19 +224,19 @@ begin
   AboutProgram.showModal;
 end;
 
-procedure TWeatherForecast.DecrementRawsClick(Sender: TObject);
+procedure TWeatherForecast.AddEmptyStringExecute(Sender: TObject);
 begin
-  if (StringGrid1.RowCount = 1) then
-  else
-     begin
-       StringGrid1.RowCount := StringGrid1.RowCount - 1;
-     end;
+  StringGrid1.RowCount := StringGrid1.RowCount + 1;
 end;
 
-procedure TWeatherForecast.CleanTableClick(Sender: TObject);
+procedure TWeatherForecast.Button1Click(Sender: TObject);
 begin
-  StringGrid1.RowCount := 1;
-  commonWeather := nil;
+  saveToListFromStringGrid(commonWeather, weatherForecast.StringGrid1);
+end;
+
+procedure TWeatherForecast.DecrementRawsClick(Sender: TObject);
+begin
+
 end;
 
 procedure deleteFromGrid();
@@ -207,16 +257,6 @@ begin
   showMessage('Выбранные записи удалены!');
 end;
 
-procedure TWeatherForecast.deleteSelectedClick(Sender: TObject);
-begin
-  deleteFromGrid();
-end;
-
-procedure TWeatherForecast.MenuItem1Click(Sender: TObject);
-begin
-  deleteFromGrid();
-end;
-
 procedure TWeatherForecast.Open1Execute(Sender: TObject);
 begin
   //если диалог выполнен
@@ -225,41 +265,25 @@ begin
     // присваиваем переменной myfile адрес и имя выбранного файла:
     fileName := OpenDialog1.FileName;
     // читаем этот файл в список
+    // при загрузке файла - сразу сохраняем данные
     readFromTextFileToList(textFile, fileName, commonWeather);
     // заполняем stringGrid данными из списка
     fillStringGridFromList();
   end;
 end;
 
-(*
-  Вспомогательная функция, заносящая данные в список
-*)
-procedure saveToListFromStringGrid(var weatherList : list; grid : TStringGrid);
-var
-  i : integer;
-  errCode : integer;
-  rowsNumber : integer;
-  temperature, humidity, atmospherePressure : integer;
-  day : TDateTime;
-  settings : TFormatSettings;
-  dayOrNight : string;
+procedure TWeatherForecast.RemoveEmplyStringExecute(Sender: TObject);
 begin
-  // todo удаление всех элементов из листа
-  weatherList := nil; // заново записываем
-  rowsNumber := grid.RowCount;
-  settings.DateSeparator:='.';
-  settings.LongDateFormat:='dd.mm.yyyy';
-  settings.ShortDateFormat:='dd.mm.yyyy';
-  for i := 0 to rowsNumber - 2 do
-  begin
-    day := strToDateTime(grid.Cells[0, i + 1], settings);
-    dayOrNight := grid.Cells[1, i + 1];
-    val(grid.Cells[2, i + 1], temperature, errCode);
-    val(grid.Cells[3, i + 1], humidity, errCode);
-    val(grid.Cells[4, i + 1], atmospherePressure, errCode);
-    LinkedList.add(weatherList, day, dayOrNight,
-                                temperature, humidity, atmospherePressure);
-  end;
+  if (StringGrid1.RowCount = 1) then
+  else
+     begin
+       StringGrid1.RowCount := StringGrid1.RowCount - 1;
+     end;
+end;
+
+procedure TWeatherForecast.RemoveSelectedExecute(Sender: TObject);
+begin
+  deleteFromGrid();
 end;
 
 procedure TWeatherForecast.SaveExecute(Sender: TObject);
@@ -326,9 +350,14 @@ else ShowMessage('Вы не указали имя файла, файл не со
   end;
 end;
 
+procedure TWeatherForecast.Image1Click(Sender: TObject);
+begin
+
+end;
+
 procedure TWeatherForecast.IncrementRawsClick(Sender: TObject);
 begin
-  StringGrid1.RowCount := StringGrid1.RowCount + 1;
+
 end;
 
 procedure TWeatherForecast.EscapeClick(Sender: TObject);
@@ -338,7 +367,6 @@ end;
 
 procedure TWeatherForecast.searchDetailInformationClick(Sender: TObject);
 begin
-  saveToListFromStringGrid(commonWeather, weatherForecast.StringGrid1);
   detailDayInfo.showModal;
 end;
 
@@ -359,7 +387,6 @@ end;
 
 procedure TWeatherForecast.weekForekastClick(Sender: TObject);
 begin
-  saveToListFromStringGrid(commonWeather, weatherForecast.StringGrid1);
   datailPeriodInfo.showModal;
 end;
 
@@ -368,7 +395,6 @@ end;
 *)
 procedure TWeatherForecast.maxYeraTemperatureClick(Sender: TObject);
 begin
-  saveToListFromStringGrid(commonWeather, weatherForecast.StringGrid1);
   Form1.showModal;
 end;
 

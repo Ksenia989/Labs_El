@@ -40,6 +40,9 @@ var
   dayArray : array [0 .. 6] of Tlabel;
   dayArrayList : array [0..6, 0..1] of List;
 
+{ public declarations }
+procedure showInfo(var labell : TLabel; day : list; night : list);
+
 implementation
 
 {$R *.lfm}

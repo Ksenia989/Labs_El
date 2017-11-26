@@ -1,10 +1,10 @@
 object WeatherForecast: TWeatherForecast
-  Left = 409
-  Height = 481
-  Top = 117
+  Left = 449
+  Height = 482
+  Top = 79
   Width = 847
   Caption = 'Сводка погоды'
-  ClientHeight = 461
+  ClientHeight = 462
   ClientWidth = 847
   Menu = menuM
   OnCloseQuery = FormCloseQuery
@@ -30040,9 +30040,9 @@ object WeatherForecast: TWeatherForecast
     }
   end
   object About: TButton
-    Left = 672
+    Left = 728
     Height = 27
-    Top = 400
+    Top = 434
     Width = 114
     Caption = 'О программе'
     OnClick = AboutClick
@@ -30051,7 +30051,7 @@ object WeatherForecast: TWeatherForecast
   object StringGrid1: TStringGrid
     Left = 48
     Height = 184
-    Top = 14
+    Top = 32
     Width = 768
     AutoAdvance = aaNone
     DefaultColWidth = 150
@@ -30068,7 +30068,7 @@ object WeatherForecast: TWeatherForecast
     Height = 41
     Top = 368
     Width = 146
-    Caption = '- (удалить строку)'
+    Action = RemoveEmplyString
     OnClick = DecrementRawsClick
     TabOrder = 2
   end
@@ -30077,7 +30077,7 @@ object WeatherForecast: TWeatherForecast
     Height = 40
     Top = 320
     Width = 147
-    Caption = '+ (добавить строку)'
+    Action = AddEmptyString
     OnClick = IncrementRawsClick
     TabOrder = 3
   end
@@ -30086,12 +30086,11 @@ object WeatherForecast: TWeatherForecast
     Height = 40
     Top = 272
     Width = 147
-    Caption = 'Очистить таблицу'
-    OnClick = CleanTableClick
+    Action = KillAllTable
     TabOrder = 4
   end
   object searchDetailInformation: TButton
-    Left = 280
+    Left = 592
     Height = 40
     Top = 224
     Width = 224
@@ -30101,7 +30100,7 @@ object WeatherForecast: TWeatherForecast
     TabOrder = 5
   end
   object weekForekast: TButton
-    Left = 280
+    Left = 592
     Height = 40
     Top = 272
     Width = 224
@@ -30115,46 +30114,39 @@ object WeatherForecast: TWeatherForecast
     Height = 40
     Top = 224
     Width = 146
-    Caption = 'Удалить выбранное'
-    OnClick = deleteSelectedClick
+    Action = RemoveSelected
     TabOrder = 7
   end
-  object Memo1: TMemo
-    Left = 528
-    Height = 111
-    Top = 201
-    Width = 270
-    Lines.Strings = (
-      'Это строка 1'
-      'Это строка 2'
-      'Этот компонент - Memo'
-    )
-    TabOrder = 8
-  end
   object maxYeraTemperature: TButton
-    Left = 280
+    Left = 592
     Height = 40
     Top = 320
     Width = 224
     Caption = 'Максимальная температура (по году)'
     Color = clInactiveBorder
     OnClick = maxYeraTemperatureClick
+    TabOrder = 8
+  end
+  object Button1: TButton
+    Left = 224
+    Height = 38
+    Top = 322
+    Width = 131
+    Caption = 'Сохранить изменения'
+    OnClick = Button1Click
     TabOrder = 9
   end
   object OpenDialog1: TOpenDialog
     Filter = 'Все файлы|*.*|Текстовые файлы|*.txt'
-    left = 536
-    top = 384
+    left = 464
   end
   object SaveDialog1: TSaveDialog
     Filter = 'Все файлы|*.*|Текстовые файлы|*.txt'
-    left = 728
-    top = 328
+    left = 552
   end
   object menuM: TMainMenu
     Tag = 1
-    left = 536
-    top = 328
+    left = 592
     object MenuFile: TMenuItem
       Caption = 'Файл'
       ShortCut = 16454
@@ -30181,23 +30173,31 @@ object WeatherForecast: TWeatherForecast
         OnClick = temperatureSortingClick
       end
     end
+    object Editing: TMenuItem
+      Caption = 'Редактирование'
+      object DelectSelected: TMenuItem
+        Action = RemoveSelected
+      end
+      object AddRaw: TMenuItem
+        Action = AddEmptyString
+      end
+      object MenuItem3: TMenuItem
+        Action = RemoveEmplyString
+      end
+      object deleteItAll: TMenuItem
+        Action = KillAllTable
+      end
+    end
   end
   object PopupMenu1: TPopupMenu
-    left = 600
-    top = 384
+    left = 688
     object MenuItem1: TMenuItem
-      Caption = 'Удалить'
-      OnClick = MenuItem1Click
+      Action = RemoveSelected
     end
   end
   object ActionList1: TActionList
     Images = ImageList1
-    left = 664
-    top = 328
-    object Action1: TAction
-      Caption = 'Удалить'
-      Hint = 'Удалить выбранное'
-    end
+    left = 512
     object Open1: TAction
       Category = 'File'
       Caption = 'Открыть'
@@ -30209,9 +30209,40 @@ object WeatherForecast: TWeatherForecast
       DisableIfNoHandler = False
       OnExecute = SaveExecute
     end
+    object Action1: TAction
+      Caption = 'Action1'
+    end
+    object Action2: TAction
+      Caption = 'Action2'
+    end
+    object Action3: TAction
+      Caption = 'Action3'
+    end
+    object Action4: TAction
+      Caption = 'Action4'
+    end
+    object KillAllTable: TAction
+      Category = 'Search'
+      Caption = 'Удалить таблицу целиком'
+      OnExecute = KillAllTableExecute
+    end
+    object AddEmptyString: TAction
+      Category = 'Search'
+      Caption = 'Добавить пустую строку'
+      OnExecute = AddEmptyStringExecute
+    end
+    object RemoveEmplyString: TAction
+      Category = 'Search'
+      Caption = 'Удалить пустую строку'
+      OnExecute = RemoveEmplyStringExecute
+    end
+    object RemoveSelected: TAction
+      Category = 'Search'
+      Caption = 'Удалить выделенное'
+      OnExecute = RemoveSelectedExecute
+    end
   end
   object ImageList1: TImageList
-    left = 600
-    top = 328
+    left = 640
   end
 end

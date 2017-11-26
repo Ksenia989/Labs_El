@@ -20,24 +20,21 @@ var
   errCode : integer;
   v1, v2 : integer;
 begin
-  with grid do
-  begin
-  for i := 1 to RowCount - 2 do
-    for j := 1 to RowCount - 2 do
+  for i := 1 to grid.RowCount - 2 do
+    for j := 1 to grid.RowCount - 2 do
       begin
-      val(cells[sortIndex, j], v1, errCode);
-      val(cells[sortIndex, j + 1], v2, errCode);
-      if (v1 > v2) then
-      begin
-        k := v1;
-        v1 := v2;
-        v2 := k;
-        // преобразуем в строку значение
-        cells[sortIndex, j] := v1.ToString;
-        cells[sortIndex, j + 1] := v2.toString;
+        val(grid.cells[sortIndex, j], v1, errCode);
+        val(grid.cells[sortIndex, j + 1], v2, errCode);
+        if (v1 > v2) then
+        begin
+          k := v1;
+          v1 := v2;
+          v2 := k;
+          // преобразуем в строку значение
+          grid.cells[sortIndex, j] := v1.ToString;
+          grid.cells[sortIndex, j + 1] := v2.toString;
+        end;
       end;
-      end;
-  end;
 end;
 
 procedure sortDate(var grid : TStringGrid; sortIndex : integer);

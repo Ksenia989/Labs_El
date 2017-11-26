@@ -5,7 +5,7 @@ unit LinkedList;
 interface
 
 uses
-  Classes, SysUtils;
+  Classes, SysUtils, Dialogs;
 
 type
   list = ^TLinkedList;
@@ -94,14 +94,26 @@ begin
   target^.dayOrNight := dayOrNight;
 end;
 
-procedure add(var listForAdd : List; date : TDateTime; dayOrNight : String;
-                             temperature : integer;
-                             humidity : integer; atmospherePressure : integer
-                             );
+procedure add(var listForAdd : List;
+              date : TDateTime;
+              dayOrNight : String;
+              temperature : integer;
+              humidity : integer;
+              atmospherePressure : integer
+              );
 var
   temp:List;
 begin
-  //if ((dayOrNight <> 'День') or (dayOrNight <> 'Ночь') or () or () or () or ());
+  if (not ((dayOrNight = 'День') or (dayOrNight = 'Ночь'))
+       or (temperature < -50) or (temperature > 50)
+       or (atmospherePressure < 720) or (atmospherePressure > 790)
+       or (humidity < 0) or (humidity > 100)
+       or (date < 40848) or (date > 43463))// c 1 января 1900 года до декабря 2018
+  then
+    showMessage('Данные в таблице не прошли по ограничениям. Проверьте их и попробуйте снова.')
+  else
+  begin
+    //if ((dayOrNight <> 'День') or (dayOrNight <> 'Ночь') or () or () or () or ());
   // если список пуст, то создаём его первый элемент
   if (listForAdd = nil) then
   begin
@@ -119,10 +131,12 @@ begin
     new(temp^.next);
     temp := temp^.next;
   end;
-  // сейчас указатель на следующий элемент пуст - его нет
-  temp^.next := nil;
-  // заносим значения в зависимости от реализации.
-  readValue(temp, date, temperature, humidity, atmospherePressure, dayOrNight);
+    // сейчас указатель на следующий элемент пуст - его нет
+    temp^.next := nil;
+    // заносим значения в зависимости от реализации.
+    readValue(temp, date, temperature, humidity, atmospherePressure, dayOrNight);
+    showMessage('Обновление данных выполнено успешно!.')
+  end;
 end;
 
 procedure deleteByIndex(var list1 : list; indexForDeliting : integer);

@@ -8,10 +8,11 @@ object datailPeriodInfo: TdatailPeriodInfo
   ClientWidth = 1134
   LCLVersion = '1.6.4.0'
   object Image1: TImage
-    Left = 0
+    Left = -4
     Height = 618
     Top = 0
     Width = 1138
+    OnClick = Image1Click
     Picture.Data = {
       0A544A706567496D61676554A80E00FFD8FFE000104A46494600010100000100
       010000FFDB004300030202020202030202020303030304060404040404080606

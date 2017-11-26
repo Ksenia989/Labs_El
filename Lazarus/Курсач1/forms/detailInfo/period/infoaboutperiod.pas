@@ -28,6 +28,7 @@ type
     Label9: TLabel;
     majorChart: TImage;
     Label1: TLabel;
+    procedure Image1Click(Sender: TObject);
     procedure ShowPeriodInfoClick(Sender: TObject);
   private
     { private declarations }
@@ -239,4 +240,10 @@ begin
   end;
   showInfo(dayArray[i], dayArrayList[i, 0], dayArrayList[i, 1]);
 end;
+
+procedure TdatailPeriodInfo.Image1Click(Sender: TObject);
+begin
+
+end;
+
 end.
