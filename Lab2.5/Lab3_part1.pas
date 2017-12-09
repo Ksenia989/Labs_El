@@ -1,10 +1,10 @@
 Program 
-    MatrixPower;
+    Sets;
 
 uses System;
 
 Const 
-  n : integer = 10;
+  n : integer = 14;
 
 Type
   tArray = array [1..n] of String;
@@ -25,9 +25,13 @@ Const
     (('Program '),
     ('  ThisProgram'),
     ('Const'),
-    (' c = $fa12387932cs;'),
+    (' c = $fa12387932cf;'),
+    (' a = $1111;'),
+    (' v = $sdjk;'),
+    (' x = $cvg;'),
+    (' b = $11ffff;'),
     ('Var'),
-    ('  rightIdentifiersSet, secondVariable : stringSet;'),
+    ('  rightIdentifiersSet, secondVariable, sadf, r ightIdentifiersSet : stringSet;'),
     ('  i : integer;'),
     (''),
     ('Begin'),
@@ -49,6 +53,28 @@ begin
         end; 
   end;  
 end;
+
+function rightIdentificator(justString : String) : boolean;
+var i : integer;
+begin
+    rightIdentificator := true;
+    for i := 1 to length(justString) do
+    begin
+        if (not(justString[i] in ['a'..'z','A'..'Z','_'])) then
+        rightIdentificator := false;
+    end;
+end;
+
+function right16xSet(justString : String) : boolean;
+var i : integer;
+begin
+    right16xSet := true;
+    for i := 1 to length(justString) do
+    begin
+        if (not(justString[i] in ['a'..'f','A'..'F','0'..'9','$'])) then
+        right16xSet := false;
+    end;
+end;
   
 Begin
   writeln('Начало подсчёта');
@@ -65,8 +91,11 @@ Begin
   begin
     substringLength := length(programArray[i]) - ind;
     substring := copy(programArray[i], ind, substringLength);
-    sixteenConstSet := sixteenConstSet + [substring];
-    sixteenConstValue += 1;
+    if (right16xSet(substring)) then
+    begin
+        sixteenConstSet := sixteenConstSet + [substring];
+        sixteenConstValue += 1;
+    end;
   end;
   end; 
 
@@ -89,8 +118,11 @@ Begin
         // внутри foreach
         begin
           justString := stt.Trim(new Char[3](' ', ':', ';'));
-          rightIdentifiersSet := rightIdentifiersSet + [justString];
-          rightIdentifiersValue += 1;  
+          if (rightIdentificator(justString)) then 
+          begin
+            rightIdentifiersSet := rightIdentifiersSet + [justString];
+            rightIdentifiersValue += 1;  
+          end;
         end;
         
       ind := 0;  

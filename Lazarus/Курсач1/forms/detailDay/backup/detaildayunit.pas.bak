@@ -52,7 +52,7 @@ begin
   dayList := searchListElementByDate(listTemplate, dateSelect.Date, 'День');
   nightList := searchListElementByDate(listTemplate, dateSelect.Date, 'Ночь');
 
-  if ((nightList = nil) or (daytList = nil)) then
+  if ((nightList = nil) or (dayList = nil)) then
   begin
     ShowMessage('Нет информации о таком дне, попробуйте снова!');
   end

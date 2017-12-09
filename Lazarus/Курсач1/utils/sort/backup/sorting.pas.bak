@@ -16,11 +16,9 @@ implementation
 procedure sortInteger(var grid : TStringGrid; sortIndex : integer);
 var
   i, j : integer;
-  k : integer;
   errCode : integer;
-  v1, v2 : integer;
+  v1, v2,k : integer;// для обмена
 begin
-  begin
   for i := 1 to grid.RowCount - 2 do
     for j := 1 to grid.RowCount - 2 do
       begin
@@ -32,8 +30,8 @@ begin
           v1 := v2;
           v2 := k;
           // преобразуем в строку значение
-          grid.cells[sortIndex, j] := v1.ToString;
-          grid.cells[sortIndex, j + 1] := v2.toString;
+          //grid.cells[sortIndex, j] := v1.ToString;
+          //grid.cells[sortIndex, j + 1] := v2.toString;
         end;
       end;
 end;

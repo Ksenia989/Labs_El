@@ -7,7 +7,7 @@ Const
     
 Type
     // тип - матрица двумерная 
-    t = 0..n-1;
+    t = 0..n - 1;
     TMiniArray = array[t] of real;
     TArray = array [t] of TMiniArray;     
     
@@ -120,20 +120,6 @@ end;
     counter : integer;
  begin
     counter := -1;
-//    isNegative := false;// если всё - отрицательное
-//    while ((i <= n - 1) and (res = -1)) do// шагаем по строкам
-//    begin
-//       counter := 0; 
-//       for j := 0 to n - 1 do 
-//       begin
-//       if (myMatrix[i, j] < 0) then
-//           inc(counter)
-//       end;
-//       if (counter = n) then // индекс строки
-//           res := i;
-//       i := i + 1;
-//    end;
-    
     while((i < n) and (counter = -1)) do
       begin
         readByRaws(myMatrix[i]);

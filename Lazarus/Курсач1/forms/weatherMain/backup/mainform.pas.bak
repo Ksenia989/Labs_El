@@ -57,10 +57,7 @@ uses
     procedure AboutClick(Sender: TObject);
     procedure AddEmptyStringExecute(Sender: TObject);
     procedure Button1Click(Sender: TObject);
-    procedure DecrementRawsClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
-    procedure Image1Click(Sender: TObject);
-    procedure IncrementRawsClick(Sender: TObject);
     procedure EscapeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DateSortingClick(Sender: TObject);
@@ -132,11 +129,10 @@ begin
     val(grid.Cells[2, i + 1], temperature, errCode1);
     val(grid.Cells[3, i + 1], humidity, errCode2);
     val(grid.Cells[4, i + 1], atmospherePressure, errCode3);
-  end;
+  //end;
   if ((errCode1 <> 0) or (errCode2 <> 0) or (errCode3 <> 0)) then
     showMessage('Данные имели неверный формат! Операция добавлеия не выполнена')
   else
-  begin
   // если с данными всё в порядке - добавляем в список
   // проверка данных на удовлетворение критериям осуществляется
   // внутри процедуры добавления
@@ -165,7 +161,8 @@ end;
 
 procedure TWeatherForecast.DateSortingClick(Sender: TObject);
 begin
-  sortDate(stringGrid1, 0);
+  //sortDate(stringGrid1, 0);
+    StringGrid1.SortColRow(true, 0);
 end;
 
 procedure TWeatherForecast.KillAllTableExecute(Sender: TObject);
@@ -176,7 +173,8 @@ end;
 
 procedure TWeatherForecast.temperatureSortingClick(Sender: TObject);
 begin
-  sortInteger(StringGrid1, 2);
+  //sortInteger(StringGrid1, 2);
+  StringGrid1.SortColRow(true, 2);
 end;
 
 function TWeatherForecast.getCommonWeather() : list;
@@ -232,11 +230,6 @@ end;
 procedure TWeatherForecast.Button1Click(Sender: TObject);
 begin
   saveToListFromStringGrid(commonWeather, weatherForecast.StringGrid1);
-end;
-
-procedure TWeatherForecast.DecrementRawsClick(Sender: TObject);
-begin
-
 end;
 
 procedure deleteFromGrid();
@@ -316,48 +309,45 @@ procedure TWeatherForecast.FormCloseQuery(Sender: TObject; var CanClose: boolean
 begin
   case Application.MessageBox('Выйти из приложения?', 'Выход',
    MB_YESNO+MB_ICONQUESTION) of
+
    IDYES :
      begin
-         saveToListFromStringGrid(commonWeather, weatherForecast.StringGrid1);
-  //Если файл уже открывался, и в переменной myfile
-  //есть его адрес и имя, просто перезаписываем этот файл:
-  if fileName <> '' then
-  begin
-    writeToTextFile(textfile, filename, commonWeather);
-    Exit; //выходим после сохранения
-  end;
-
-{Файл новый, переменная myfile еще пуста. Дальше есть два варианта:
-пользователь выберет или укажет файл в диалоге, или не сделает этого}
-//если выбрал файл:
-if WeatherForecast.SaveDialog1.Execute then
-  begin
-    //прописываем адрес и имя файла в переменную:
-    fileName := WeatherForecast.SaveDialog1.FileName;
-    //сохраняем табличку в указанный файл:
-    writeToTextFile(textfile, filename, commonWeather);
-    showMessage('Таблица успешно сохранена!');
-  end
-//если не выбрал файл:
-else ShowMessage('Вы не указали имя файла, файл не сохранен!');
-
+       case Application.MessageBox('Сохранить?', 'Сохранение',
+       MB_YESNO+MB_ICONQUESTION) of
+       IDYES :
+         begin
+           saveToListFromStringGrid(commonWeather, weatherForecast.StringGrid1);
+           {Файл новый, переменная myfile еще пуста. Дальше есть два варианта:
+           пользователь выберет или укажет файл в диалоге, или не сделает этого}
+           //если выбрал файл:
+           if WeatherForecast.SaveDialog1.Execute then
+           begin
+           //прописываем адрес и имя файла в переменную:
+           fileName := WeatherForecast.SaveDialog1.FileName;
+           //сохраняем табличку в указанный файл:
+           writeToTextFile(textfile, filename, commonWeather);
+           showMessage('Таблица успешно сохранена!');
+           end
+           //если не выбрал файл:
+           else
+             begin
+               ShowMessage('Вы не указали имя файла, файл не сохранен!');
+               CanClose := false;
+             end;
+         end;
+       IDNO :
+         begin
+           CanClose := true;
+         end;
+       end;
        CanClose := true;
      end;
+
    IDNO :
      begin
        CanClose := false;
      end;
   end;
-end;
-
-procedure TWeatherForecast.Image1Click(Sender: TObject);
-begin
-
-end;
-
-procedure TWeatherForecast.IncrementRawsClick(Sender: TObject);
-begin
-
 end;
 
 procedure TWeatherForecast.EscapeClick(Sender: TObject);

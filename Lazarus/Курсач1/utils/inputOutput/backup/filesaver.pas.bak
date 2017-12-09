@@ -60,9 +60,9 @@ var
   dayOrNight : string;
   a : string;
   settings : TFormatSettings;
-  // сначала список пустой
-  commonWeather := nil;
     begin
+      // сначала список пустой
+      commonWeather := nil;
       fullFileName := filename;
       assign(textfile, fullFileName);
       reset(textFile);

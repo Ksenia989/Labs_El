@@ -2,6 +2,11 @@ unit detailDayUnit;
 
 {$mode objfpc}{$H+}
 
+(*
+Модуль, отвечающий за детальную информацию об одном дне
+С построеним графиков по дню и ночи
+*)
+
 interface
 
 uses
@@ -39,6 +44,9 @@ uses
 
 { TdetailDayInfo }
 
+(*
+Основная процедура, осуществляющая отрисовку трёх диаграмм по найденному дню
+*)
 procedure TdetailDayInfo.showDayInfoClick(Sender: TObject);
 var
   dayList, nightlist, listTemplate : list;
@@ -49,14 +57,19 @@ begin
 
   // получение информации о погоде
   listTemplate := WeatherForecast.getCommonWeather();
+  // ищем дневные данные
   dayList := searchListElementByDate(listTemplate, dateSelect.Date, 'День');
+  // ищем ночные данные
   nightList := searchListElementByDate(listTemplate, dateSelect.Date, 'Ночь');
-
+  // если поиск информации завершился неудачей, то выводим сообщение
   if ((nightList = nil) or (dayList = nil)) then
   begin
     ShowMessage('Нет информации о таком дне, попробуйте снова!');
   end
   else
+  // если иноформация успешно найдена, то испльзуем универсальный построитель
+  // графиков. На вход передаём данные для построения.
+  // сама процедура отрисовки находится в модуле ColumnChart
   begin
     draw(Image1, dayList^.temperature, nightlist^.temperature, 'Температура');
     draw(Image2, dayList^.humidity, nightlist^.humidity, 'Влажность');

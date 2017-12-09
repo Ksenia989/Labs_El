@@ -1,11 +1,11 @@
 object WeatherForecast: TWeatherForecast
-  Left = -7
+  Left = 330
   Height = 482
-  Top = 80
-  Width = 847
+  Top = 121
+  Width = 842
   Caption = 'Сводка погоды'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 462
+  ClientWidth = 842
   Menu = menuM
   OnCloseQuery = FormCloseQuery
   OnShow = FormShow
@@ -15,7 +15,6 @@ object WeatherForecast: TWeatherForecast
     Height = 464
     Top = 0
     Width = 848
-    OnClick = Image1Click
     Picture.Data = {
       0A544A706567496D61676554A80E00FFD8FFE000104A46494600010100000100
       010000FFDB004300030202020202030202020303030304060404040404080606
@@ -30069,7 +30068,6 @@ object WeatherForecast: TWeatherForecast
     Top = 368
     Width = 146
     Action = RemoveEmplyString
-    OnClick = DecrementRawsClick
     TabOrder = 2
   end
   object IncrementRaws: TButton
@@ -30078,7 +30076,6 @@ object WeatherForecast: TWeatherForecast
     Top = 320
     Width = 147
     Action = AddEmptyString
-    OnClick = IncrementRawsClick
     TabOrder = 3
   end
   object CleanTable: TButton
