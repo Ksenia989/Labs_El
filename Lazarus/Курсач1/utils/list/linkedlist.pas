@@ -148,7 +148,7 @@ begin
        or (temperature < -50) or (temperature > 50)
        or (atmospherePressure < 720) or (atmospherePressure > 790)
        or (humidity < 0) or (humidity > 100)
-       or (date < 40848) or (date > 43463))// c 1 января 1900 года до декабря 2018
+       or (date < 40200) or (date > 43463))// c 1 января 1900 года до декабря 2018
   then
     // сообщение об ошбике, если валидация прошла неуспешно
     showMessage('Данные в таблице не прошли по ограничениям. Проверьте их и попробуйте снова.')

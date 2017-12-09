@@ -1,17 +1,19 @@
 object StartPicture: TStartPicture
-  Left = 573
-  Height = 193
-  Top = 301
+  Left = 535
+  Height = 159
+  Top = 273
   Width = 421
+  BorderIcons = []
   Caption = 'StartPicture'
-  ClientHeight = 193
+  ClientHeight = 159
   ClientWidth = 421
+  Position = poDesktopCenter
   LCLVersion = '1.6.4.0'
   object Image1: TImage
-    Left = 24
-    Height = 151
-    Top = 24
-    Width = 374
+    Left = 0
+    Height = 190
+    Top = 0
+    Width = 442
     Picture.Data = {
       0A544A706567496D616765B22D0000FFD8FFE000104A46494600010100000100
       010000FFFE003B43524541544F523A2067642D6A7065672076312E3020287573
@@ -384,7 +386,7 @@ object StartPicture: TStartPicture
   end
   object Timer1: TTimer
     Interval = 5000
-    OnStopTimer = Timer1StopTimer
+    OnTimer = Timer1Timer
     left = 8
     top = 8
   end

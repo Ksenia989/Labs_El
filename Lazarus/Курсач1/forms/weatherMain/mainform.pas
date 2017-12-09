@@ -65,6 +65,7 @@ uses
     procedure EscapeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DateSortingClick(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
     procedure KillAllTableExecute(Sender: TObject);
     procedure maxYeraTemperatureClick(Sender: TObject);
     procedure Open1Execute(Sender: TObject);
@@ -154,8 +155,6 @@ end;
 Присваивает StringGrid заголовки, устанавливает ширину столбцов.*)
 procedure TWeatherForecast.FormShow(Sender: TObject);
 begin
-  Application.CreateForm(TStartPicture, startPicture);
-  startPicture.ShowModal;
   StringGrid1.Cells[0,0]:= 'Дата';
   StringGrid1.Cells[1,0]:= 'День/Ночь';
   StringGrid1.Cells[2,0]:= 'Температура воздуха, C';
@@ -176,6 +175,11 @@ end;
 procedure TWeatherForecast.DateSortingClick(Sender: TObject);
 begin
     StringGrid1.SortColRow(true, 0);
+end;
+
+procedure TWeatherForecast.Image1Click(Sender: TObject);
+begin
+
 end;
 
 (*

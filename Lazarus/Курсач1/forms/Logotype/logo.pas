@@ -14,7 +14,7 @@ type
   TStartPicture = class(TForm)
     Image1: TImage;
     Timer1: TTimer;
-    procedure Timer1StopTimer(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
     //procedure Timer1Timer(Sender: TObject);
   private
     { private declarations }
@@ -32,10 +32,9 @@ uses mainform;
 
 { TStartPicture }
 
-procedure TStartPicture.Timer1StopTimer(Sender: TObject);
+procedure TStartPicture.Timer1Timer(Sender: TObject);
 begin
-   Application.CreateForm(TWeatherForecast, WeatherForecast);
-  WeatherForecast.ShowModal;
+   Timer1.Enabled := false;
 end;
 
 end.
