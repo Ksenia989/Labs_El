@@ -31,7 +31,7 @@ Const
     (' x = $cvg;'),
     (' b = $11ffff;'),
     ('Var'),
-    ('  rightIdentifiersSet, secondVariable, sadf, r ightIdentifiersSet : stringSet;'),
+    ('  1rightIdentifiersSet, sec2ondVariable, 12notVariable, a2dds3sf, sadf, identifiersSet : stringSet;'),
     ('  i : integer;'),
     (''),
     ('Begin'),
@@ -58,9 +58,12 @@ function rightIdentificator(justString : String) : boolean;
 var i : integer;
 begin
     rightIdentificator := true;
-    for i := 1 to length(justString) do
+    i := 1;
+    if (justString[i] in ['0'..'9']) then
+        rightIdentificator := false;
+    for i := 2 to length(justString) do
     begin
-        if (not(justString[i] in ['a'..'z','A'..'Z','_'])) then
+        if (not(justString[i] in ['a'..'z','A'..'Z','_','0'..'9'])) then
         rightIdentificator := false;
     end;
 end;

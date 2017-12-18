@@ -1,18 +1,18 @@
 object datailPeriodInfo: TdatailPeriodInfo
-  Left = 144
+  Left = 213
   Height = 614
-  Top = 67
+  Top = 54
   Width = 1134
   Caption = 'Детальная информация о периоде'
   ClientHeight = 614
   ClientWidth = 1134
+  OnCreate = FormCreate
   LCLVersion = '1.6.4.0'
   object Image1: TImage
     Left = -4
     Height = 618
     Top = 0
     Width = 1138
-    OnClick = Image1Click
     Picture.Data = {
       0A544A706567496D61676554A80E00FFD8FFE000104A46494600010100000100
       010000FFDB004300030202020202030202020303030304060404040404080606
@@ -30043,6 +30043,7 @@ object datailPeriodInfo: TdatailPeriodInfo
     Width = 241
     CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
     DateOrder = doNone
+    DateFormat = 'dd.mm.yyyy'
     ButtonWidth = 23
     NumGlyphs = 1
     MaxLength = 0

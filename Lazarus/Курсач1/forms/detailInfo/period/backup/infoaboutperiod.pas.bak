@@ -34,6 +34,7 @@ type
     Label9: TLabel;
     majorChart: TImage;
     Label1: TLabel;
+    procedure FormCreate(Sender: TObject);
     procedure ShowPeriodInfoClick(Sender: TObject);
   private
     { private declarations }
@@ -271,14 +272,21 @@ begin
   majorchart.Canvas.Brush.Color := clWhite;
   majorchart.Canvas.Rectangle(0, 0, majorchart.Width, majorchart.Height);
   majorchart.Canvas.Brush.Color := clwhite;
+
+  i := 0;
+  // чтение начальной и конечной даты в пеменные (из компонентов)
+  datailPeriodInfo.dateFrom.DateFormat:='dd.mm.yyyy';
+  startDate := datailPeriodInfo.dateFrom.Date;
+  endDate := datailPeriodInfo.dateTo.date;
+
+  if(endDate - startDate > 7) then
+  showMessage('Слишком большой диапазон!')
+  else
+  begin
   // рисование основных компонентов
   drawCanvas();
   initialize();
   fillDate();
-  i := 0;
-  // чтение начальной и конечной даты в пеменные (из компонентов)
-  startDate := datailPeriodInfo.dateFrom.Date;
-  endDate := datailPeriodInfo.dateTo.date;
 
   // начальная инициализация данными
   startPosition := 47;
@@ -322,6 +330,12 @@ begin
   end;
   // показ детальной ионформации в компоненте Label по определённому дню
   showInfo(dayArray[i], dayArrayList[i, 0], dayArrayList[i, 1]);
+  end;
+end;
+
+procedure TdatailPeriodInfo.FormCreate(Sender: TObject);
+begin
+    datailPeriodInfo.dateFrom.DateFormat:='dd.mm.yyyy';
 end;
 
 end.
