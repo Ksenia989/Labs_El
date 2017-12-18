@@ -19,10 +19,21 @@ Var
     *)
     oddNegativeNumber : list;
     
+    // Элемент нечетного списка
+    justOddList : list;
+    
+    // элемент чётного списка
+    justEvenList : list;
+    
     (*
         Для выборки действий
     *)
     q : char;
+    
+    (*
+      Лист для разделения
+    *)
+    mainList : list;
 
 (*
     Функция, считывающая номера в числовых значениях
@@ -47,7 +58,6 @@ procedure add(var listForAdd : List; value : integer);
 var
   temp:List;
 begin
-    writeln('Добавление элемента');
     // если список пуст, то создаём его первый элемент
   if (listForAdd = nil) then
   begin
@@ -70,8 +80,26 @@ begin
   
   // сейчас указатель на следующий элемент пуст - его нет
   temp^.next := nil; 
-  temp^.number := value;
-  writeln('Элемент добавлен');
+  temp^.number := value; 
+  // элемент добавлен
+end;
+
+procedure divideForTwoLists(mainList : list; 
+                var evenPositiveNumber : list; var oddNegativeNumber : list);            
+begin
+    while (mainList <> nil) do 
+    begin
+        if ((mainList^.number > 0) and (mainList^.number mod 2 = 0)) then
+            add(evenPositiveNumber, mainList^.number);
+        if ((mainList^.number < 0) and (mainList^.number mod 2 <> 0)) then
+            add(oddNegativeNumber, mainList^.number);
+        if (mainList^.number mod 2 <> 0) then
+            add(justOddList, mainList^.number);
+        if (mainList^.number mod 2 = 0) then
+            add(justEvenList, mainList^.number);    
+          
+        mainList := mainList^.next;
+    end;
 end;
     
 (*
@@ -81,11 +109,8 @@ end;
 procedure readValues() ;
     var number : integer;
     begin
-        number := readNumber;;
-        if ((number > 0) and (number mod 2 = 0)) then
-            add(evenPositiveNumber, number);
-        if ((number < 0) and (number mod 2 <> 0)) then
-            add(oddNegativeNumber, number); 
+        number := readNumber;
+        add(mainList, number); 
     end;
 
 procedure printValues(currentList : List);
@@ -99,7 +124,7 @@ begin
     end;
     while (currentList <> nil) do
     begin
-        writeln('[', i, '] = ',currentList^.number);
+        writeln('[', i, '] = ', currentList^.number);
         currentList := currentList^.next;
         inc(i);
     end;
@@ -109,17 +134,59 @@ function countElements(currentList : List) : integer;
     var 
         i : integer;
     begin
+        i := 0; // default Value
         while (currentList <> nil) do
         begin
             currentList := currentList^.next;
             inc(i);
-        end;   
+        end;
+        countElements := i;
+        writeln('количетво = ', i)
     end;
 
 function printNumberOfValues(list1 : List; list2 : List) : integer;
     begin
         printNumberOfvalues := countElements(list1) + countElements(list2); 
     end;
+
+procedure addInBeginning(var curLIst : list; varForAdd : integer);
+var
+    newElement : list;
+begin
+    new(newElement);
+    newElement^.number := varForAdd;
+    newElement^.next := curList;
+    
+    curList := newElement;
+end;
+
+procedure detailInfoForList(var curList : list);
+var
+    max, min, middle, sum : integer; 
+    elementsNumber : integer;
+    l : list;
+begin
+    sum := 0;
+    l := curList;
+    elementsNumber := 0;
+    max := -maxInt;
+    min := maxInt;
+    while (l <> nil) do 
+    begin
+        if (l^.number > max) then max := l^.number;
+        if (l^.number < min) then min := l^.number; 
+        sum += l^.number;
+        inc(elementsNumber);
+        l := l^.next;
+    end;
+    middle := trunc(sum / elementsNumber);
+    writeln('средний элемент = ', middle);
+    writeln('максимальный элемент = ', max);
+    writeln('минимальный элемент = ', min);
+    add(curList, min);
+    add(curList, max);
+    addInBeginning(curLIst, middle);
+end;
     
 begin
     // инициализация указателей на списки нулями - в начале они пустые
@@ -130,21 +197,58 @@ begin
     begin
         writeln('1 - добавление значения');
         writeln('2 - печатание списка значения');
-        writeln('3 - печатание количества значений в двух списках');
-    
-        read(q);
+        writeln('3 - разделить общий список');
+        writeln('4 - печатание количества значений в двух списках');
+        writeln('5 - детальная инфа о чёрных и нечётных значениях в списке');
+        writeln();
+        readln(q);
         case q of
             // считывание значений в список
-            '1' : readValues(); 
+            '1' : 
+                begin
+                    readValues();
+                end;
             '2' : 
                 begin
                     writeln('Четные положительные');
                     printValues(evenPositiveNumber);
                     writeln();
-                    writeln('Нечентые отрицательные');
+                    writeln('Нечетные отрицательные');
                     printValues(oddNegativeNumber);
+                    writeln();
                 end;
-            '3' : printNumberOfValues(evenPositiveNumber, oddNegativeNumber);
+            '3' : 
+                begin
+                    printValues(mainList);
+                    divideForTwoLists(mainList, evenPositiveNumber, oddNegativeNumber);
+                end;
+            '4' : 
+                begin
+                    writeln(printNumberOfValues(evenPositiveNumber, oddNegativeNumber));
+                end;
+            '5' :
+                begin
+                    writeln('Четные');
+                    printValues(justEvenList);
+                    writeln();
+                    writeln('Нечетные');
+                    printValues(justOddList);
+                    writeln();
+                    writeln('Детальная инфа для нечётного списка');
+                    writeln();
+                    detailInfoForList(justOddList);
+                    writeln('Детальная инфа для чётного списка');
+                    writeln();
+                    detailInfoForList(justEvenList);
+                    writeln();
+                    writeln('После добавления');
+                    writeln('Четные');
+                    printValues(justEvenList);
+                    writeln();
+                    writeln('Нечетные');
+                    printValues(justOddList);
+                    writeln();
+                end;
         end;
     end;
 end.

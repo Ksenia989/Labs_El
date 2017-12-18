@@ -5,7 +5,8 @@ unit About;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls;
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  ExtCtrls;
 
 type
 
@@ -14,6 +15,8 @@ type
   TaboutProgram = class(TForm)
     Description: TLabel;
     aboutAuthor: TLabel;
+    Image1: TImage;
+    NameAndVersion: TLabel;
   private
     { private declarations }
   public

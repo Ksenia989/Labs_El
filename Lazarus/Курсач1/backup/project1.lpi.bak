@@ -35,13 +35,13 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="7">
+    <Units Count="11">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="mainform.pas"/>
+        <Filename Value="forms/weatherMain/mainform.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="WeatherForecast"/>
         <HasResources Value="True"/>
@@ -49,7 +49,7 @@
         <UnitName Value="MainForm"/>
       </Unit1>
       <Unit2>
-        <Filename Value="about.pas"/>
+        <Filename Value="forms/aboutProgram/about.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="aboutProgram"/>
         <HasResources Value="True"/>
@@ -57,30 +57,55 @@
         <UnitName Value="About"/>
       </Unit2>
       <Unit3>
-        <Filename Value="unit2.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form1"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="Unit2"/>
-      </Unit3>
-      <Unit4>
-        <Filename Value="linkedlist.pas"/>
+        <Filename Value="utils/list/linkedlist.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LinkedList"/>
-      </Unit4>
-      <Unit5>
-        <Filename Value="linkedweatherlist.pas"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="forms/detailDay/detaildayunit.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="LinkedWeatherList"/>
-      </Unit5>
-      <Unit6>
-        <Filename Value="unitmakingsearch.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="makeSearch"/>
+        <ComponentName Value="detailDayInfo"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="UnitMakingSearch"/>
+        <UnitName Value="detailDayUnit"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="forms/detailInfo/period/infoaboutperiod.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="datailPeriodInfo"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="infoAboutPeriod"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="utils/sort/sorting.pas"/>
+        <IsPartOfProject Value="True"/>
       </Unit6>
+      <Unit7>
+        <Filename Value="utils/charts/columnchart.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="columnChart"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="utils/inputOutput/filesaver.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="fileSaver"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="forms/Logotype/logo.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="StartPicture"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="forms/detailYear/detailyearinformation.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="detailYearInformation"/>
+      </Unit10>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -90,6 +115,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="forms;forms/weatherMain;forms/detailDay;utils/list;forms/aboutProgram;forms/detailInfo/period;utils/sort;utils/charts;utils/inputOutput;forms/Logotype;forms/detailYear"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

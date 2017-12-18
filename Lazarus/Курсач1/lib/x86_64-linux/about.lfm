@@ -1,7 +1,7 @@
 object aboutProgram: TaboutProgram
-  Left = 782
+  Left = 929
   Height = 340
-  Top = 301
+  Top = 233
   Width = 455
   BorderStyle = bsDialog
   Caption = 'О программе'
