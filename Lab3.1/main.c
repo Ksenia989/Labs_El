@@ -7,7 +7,7 @@ uint32_t countFirstNumber(uint8_t a) {
     return a ? (a & 1) + countFirstNumber(a >> 1) : 0;
 }
 
-unsigned short makeStrangeEvents() {
+uint16_t makeStrangeEvents() {
     uint16_t input;
     scanf("%hx", &input);
     printf("\nВведите число в 16 сс (двухбайтовое)\n");
@@ -22,7 +22,7 @@ unsigned short makeStrangeEvents() {
     return input;
 }
 
-unsigned short makeStrangeEvents2() {
+uint16_t makeStrangeEvents2() {
     uint16_t input;
     printf("Введите двухбайтовое число в 16 сс");
     scanf("%hx", &input);
