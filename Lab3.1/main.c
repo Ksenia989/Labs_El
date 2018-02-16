@@ -82,26 +82,11 @@ uint16_t cycleSdvid() {
     scanf("%hx", &input);
     printf("input is %hx \n", input);
 
-    uint16_t mask1 = 0x8000;// первый символ достаём
-    uint16_t mask2 = 0x4000;// второй символ достаём
-    uint16_t mask3 = 0x2000;// третий символ достаём
-    uint16_t mask4 = 0x1000;// четвертый символ достаём
-    uint16_t mask5 = 0x0800;// пятый символ достаём
-
-    uint16_t s1, s2, s3, s4, s5;// если число получиться неравное 0, то там 1 =)
-    s1 = mask1 & input;
-    s2 = mask2 & input;
-    s3 = mask3 & input;
-    s4 = mask4 & input;
-    s5 = mask5 & input;
+    uint8_t temp = (uint8_t) (input >> 11);
 
     input <<= 5;
     // добавляем символы в конце
-    input |= (s1 >> 11);
-    input |= (s2 >> 11);
-    input |= (s3 >> 11);
-    input |= (s4 >> 11);
-    input |= (s5 >> 11);
+    input |= temp;
     return input;
 }
 
