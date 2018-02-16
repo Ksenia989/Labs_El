@@ -66,10 +66,7 @@ uint32_t makeNumberFrom4() {
     uint32_t result = 0;
     uint8_t input1, input2, input3, input4;
     printf("Введите 4 числа в 16 сс (числа однобайтовые)\n");
-    scanf("%hx", &input1);
-    scanf("%hx", &input2);
-    scanf("%hx", &input3);
-    scanf("%hx", &input4);
+    scanf("%hx%*c%hx%*c%hx%*c%hx", &input1, &input2, &input3, &input4);
 
     result |= (input1 << 24);
     result |= (input2 << 8);
