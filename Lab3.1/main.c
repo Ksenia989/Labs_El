@@ -3,8 +3,8 @@
 // Вариант 12
 // задания 2б, 5, 6 7е, 8а, 9
 
-uint32_t countFirstNumber(uint8_t a) {
-    return a ? (a & 1) + countFirstNumber(a >> 1) : 0;
+uint8_t countFirstNumber(uint8_t a) {
+    return (uint8_t) (a ? (a & 1) + countFirstNumber(a >> 1) : 0);
 }
 
 uint16_t makeStrangeEvents() {
@@ -142,7 +142,7 @@ int main() {
             printf("task 9\n");
             uint8_t c;
             scanf("%hd", &c);
-            uint32_t counter = countFirstNumber(c);
+            uint8_t counter = countFirstNumber(c);
             printf("количество единиц = %d\n", counter);
             break;
         default:
