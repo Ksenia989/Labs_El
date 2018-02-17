@@ -1,3 +1,5 @@
 *.vsd
 *.pcu
 *.pcu
+.idea/
+cmake-build-debug/
