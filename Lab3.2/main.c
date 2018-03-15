@@ -1,3 +1,6 @@
+//
+// Created by tkseniya on 13/03/18.
+//
 #include <stdio.h>
 #include <math.h>
 // вариант 13 - дополнительное задание
@@ -5,12 +8,12 @@
 void additional_tz() {
     double var1 = 0, var2 = 0;
     double a = 2, b = 3;
-//    var1 = (sin(a) + cos(2 * b - a)) / (cos(a) - sin(2 * b - a));
-//    var2 = (1 + sin(2 * b)) / cos(2 * b);
-//    printf("%lf, %lf", var2, var1);
+    var1 = (sin(a) + cos(2 * b - a)) / (cos(a) - sin(2 * b - a));
+    var2 = (1 + sin(2 * b)) / cos(2 * b);
+    printf("%lf, %lf \n", var2, var1);
 }
 
-int main1() {
+int main() {
     additional_tz();
 
     double r1, r2;
