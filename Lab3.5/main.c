@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdio.h>
+#include <stdint.h>
 
-u_int32_t n;
+uint32_t n;
 
-void initializeArray(int *array, u_int32_t);
+void initializeArray(int *array, uint32_t);
 
-const u_int32_t c = 10;
+const uint32_t c = 10;
 //Вариант 12
 //В одномерном массиве, состоящем из n целых элементов, вычислить:
 //1) номер максимального элемента масcива;
@@ -22,9 +24,27 @@ int getMaxArrayNumber(int *arPointer) {
             maxIndex = i;
         }
     }
+    printf("Максимальное число %i\n ", maxIndex);
     return maxIndex;
 }
 
+int *chetNechet(int *pInt) {
+    int newArrPointer = 0;
+    int array[c];
+    for (int i = 0; i < c; ++i) {
+        if (i % 2) {// нечётные
+            array[newArrPointer] = pInt[i];
+            newArrPointer++;
+        }
+    }
+    for (int i = 0; i < c; ++i) {
+        if (!(i % 2)) {// чётные
+            array[newArrPointer] = pInt[i];
+            newArrPointer++;
+        }
+    }
+    return array;
+}
 
 int getMultiplyBetweenZeros(const int *pInt) {
     int zeroNumber = 0;
@@ -52,12 +72,22 @@ int getMultiplyBetweenZeros(const int *pInt) {
         lIndex = firstZeroPointer;
         firstZeroPointer++;
     }
-    printf("Число между двумя нулями это %i\n", (lIndex - fIndex !=1) ? mult : 0);
+    printf("Число между двумя нулями это %i\n", (lIndex - fIndex != 1) ? mult : 0);
     return mult;
 }
 
 
+void printArray(int *array) {
+    for (int i = 0; i < c; ++i) {
+        printf("%i ", array[i]);
+    }
+    printf("\n");
+}
+
 int main() {
+#ifdef WIN32
+    system("chcp 65001");
+#endif
     srand(time(NULL));
     printf("Введите число элементов массива\n");
     scanf("%u", &n);
@@ -67,21 +97,21 @@ int main() {
     }
     int array[c];
     // initialization
-//    заполняем случайными числами с 1 до 10
+    // заполняем случайными числами с 1 до 10
     initializeArray(array, c);
     initializeArray(arr, n);
 
     getMaxArrayNumber(arr);
-
     getMultiplyBetweenZeros(array);
 
+    printArray(chetNechet(array));
     return 0;
 }
 
-void initializeArray(int *array, u_int32_t c) {
+void initializeArray(int *array, uint32_t c) {
     for (int i = 0; i < c; ++i) {
         array[i] = rand() % 7;
-        printf("%i ", array[i]);
     }
-    printf("\n");
+    printArray(array);
 }
+
