@@ -24,11 +24,11 @@ int getMaxArrayNumber(int *arPointer) {
             maxIndex = i;
         }
     }
-    printf("Максимальное число %i\n ", maxIndex);
+    printf("Максимальное число c индексом %i\n ", maxIndex);
     return maxIndex;
 }
 
-int *chetNechet(int *pInt) {
+int* chetNechet(int *pInt) {
     int newArrPointer = 0;
     int array[c];
     for (int i = 0; i < c; ++i) {
@@ -77,7 +77,7 @@ int getMultiplyBetweenZeros(const int *pInt) {
 }
 
 
-void printArray(int *array) {
+void printArray(int *array, int c) {
     for (int i = 0; i < c; ++i) {
         printf("%i ", array[i]);
     }
@@ -104,7 +104,9 @@ int main() {
     getMaxArrayNumber(arr);
     getMultiplyBetweenZeros(array);
 
-    printArray(chetNechet(array));
+    int* arrrrr = chetNechet(array);
+    printArray(arrrrr, c);
+
     return 0;
 }
 
@@ -112,6 +114,6 @@ void initializeArray(int *array, uint32_t c) {
     for (int i = 0; i < c; ++i) {
         array[i] = rand() % 7;
     }
-    printArray(array);
+    printArray(array, c);
 }
 
