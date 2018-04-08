@@ -64,9 +64,9 @@ uint16_t makeStrangeEvents3() {
 
 uint32_t makeNumberFrom4() {
     uint32_t result = 0;
-    uint8_t input1, input2, input3, input4;
+    long input1, input2, input3, input4;
     printf("Введите 4 числа в 16 сс (числа однобайтовые)\n");
-    scanf("%hx%*c%hx%*c%hx%*c%hx", &input1, &input2, &input3, &input4);
+    scanf("%lx%*c%lx%*c%lx%*c%lx", &input1, &input2, &input3, &input4);
 
     result |= (input1 << 24);
     result |= (input2 << 8);
@@ -82,9 +82,9 @@ uint16_t cycleSdvid() {
     scanf("%hx", &input);
     printf("input is %hx \n", input);
 
-    uint8_t temp = (uint8_t) (input >> 11);
+    uint8_t temp = (uint8_t) (input >> 12);
 
-    input <<= 5;
+    input <<= 4;
     // добавляем символы в конце
     input |= temp;
     return input;
@@ -93,8 +93,15 @@ uint16_t cycleSdvid() {
 int main() {
     printf("Write task number 2б, 5, 6 7е, 8а, 9 (only number, without letter)\n");
     int8_t input;
+    uint16_t input3;
     scanf("%hd", &input);// это для ввода информации (d это signed int)
     switch (input) {
+        case 1:
+            printf("Введите двухбайтовое число в 16 сс\n");
+            scanf("%hx", &input3);
+            printf("\ninput is %hx \n", ((input3 << 3) + (input3 << 1)));
+
+            break;
         case 2:
             //2. Из четырех однобайтовых переменных собрать значение для 4-байтовой
             //переменной целого типа. Сборку выполнить так:
