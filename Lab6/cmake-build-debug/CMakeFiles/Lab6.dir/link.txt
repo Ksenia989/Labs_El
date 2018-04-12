@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Lab6.dir/main.cpp.o CMakeFiles/Lab6.dir/testMain.cpp.o  -o Lab6 lib/googletest/googlemock/gtest/libgtestd.a -pthread 
