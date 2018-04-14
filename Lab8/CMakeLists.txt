@@ -3,4 +3,4 @@ project(Lab8)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Lab8 main.cpp)
+add_executable(Lab8 main.cpp main.h)

@@ -1,4 +1,8 @@
 #include <iostream>
+#include "main.h"
+// todo зачем ::
+// todo библиотека
+// todo usage # pragma once
 
 // Структуры
 
@@ -18,14 +22,24 @@
 //–если  таких  работников  нет,  вывести  на
 //дисплей соответствующее сообщение.
 
+void readWorker(Worker pWorker[10]);
 
 int main() {
-    struct Worker {
+    struct Worker{
         char* fioInitcialy;
         char* dolzhnostDescription;
         int employmentYear;
     };
 
+    struct Worker workerArray[10];
+
+    for (int i = 0; i < 10; ++i) {
+        readWorker(workerArray);
+    }
 
     return 0;
+}
+
+void readWorker(Worker pWorker[10]) {
+
 }

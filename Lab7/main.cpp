@@ -6,8 +6,6 @@
 //Подсчитать  число  слов, у  которых левая и  правая половины
 //одинаковые.
 
-char *retrieveWord(int length, char *endPointer);
-
 int main() {
     char *pWordsArray = (char *) malloc(1);
     // массив сохранялка длин слов
@@ -16,31 +14,41 @@ int main() {
     char *pArrayBeginning = pWordsArray;
     int i = 1;
 
-
-    printf("\n Введите строку \n");
+//    printf("\n Введите строку \n");
     int wordLength = 0;
     int wordsCounter = 0;
     char c;
-    do {// todo чтобы дувайл корректно работал
-        c = getchar();
-        if (c != ' ' && c != '\n') {
-            wordLength++;
-            *pWordsArray = c;
-            pArrayBeginning = (char *) (realloc(pArrayBeginning, (i += 1) * sizeof(char)));
-            pWordsArray = pArrayBeginning + i - 1;
-            *(lengthArray + wordsCounter) = wordLength + 1;
-        } else {
-            wordLength = 0;
-            *pWordsArray = '\0';
-            // опять выделяем память под следующий символ
-            pArrayBeginning = (char *) (realloc(pArrayBeginning, (i += 1) * sizeof(char)));
-            pWordsArray = pArrayBeginning + i - 1;
 
-            char *word = retrieveWord(*(lengthArray + wordsCounter), pWordsArray - 1);
-            printf("%i слово это - %s\n", wordsCounter, word);
-            wordsCounter++;
+    int raws = 4, columns = 12;
+    char inputArray[raws][columns] = {
+            {'a', 'b', 'a', 'b', ' ', ' ', 'b', 'a', 'b', 'c', ' ', 'b'},
+            {'d', 'b', 'd', ' ', ' ', ' ', 'x', 'y', 'z', ' ', 'x', 'y'},
+            {'x', 'y', ' ', ' ', ' ', 'm', 'a', 'm', 'a', ' ', 'n', 'a'},
+            {'n', 'a', ' ', ' ', ' ', 'x', 'x', ' ', ' ', ' ', 'y', ' '}
+    };
+
+    for (int j = 0; j < raws; ++j) {
+        for (int k = 0; k < columns; ++k) {
+            c = inputArray[j][k];
+            if (c != ' ') {
+                wordLength++;
+                *pWordsArray = c;
+                pArrayBeginning = (char *) (realloc(pArrayBeginning, (i += 1) * sizeof(char)));
+                pWordsArray = pArrayBeginning + i - 1;
+                *(lengthArray + wordsCounter) = wordLength + 1;
+            } else {
+                wordLength = 0;
+                *pWordsArray = '\0';
+                // опять выделяем память под следующий символ
+                pArrayBeginning = (char *) (realloc(pArrayBeginning, (i += 1) * sizeof(char)));
+                pWordsArray = pArrayBeginning + i - 1;
+
+//                char *word = retrieveWord(*(lengthArray + wordsCounter), pWordsArray - 1);
+//                printf("%i слово это - %s\n", wordsCounter, word);
+                wordsCounter++;
+            }
         }
-    } while (c != '\n');
+    }
 
     printf("\n\n\n");
 
@@ -48,6 +56,7 @@ int main() {
            countHalfWords(pArrayBeginning, lengthArray, wordsCounter));
 
     return 0;
+    // todo удалять мусор
 }
 
 int countHalfWords(char *beginning, int lengthArray[20], int wordsCounter) {
@@ -67,7 +76,7 @@ int countHalfWords(char *beginning, int lengthArray[20], int wordsCounter) {
         if (founded) {
             mainCounter++;
             char *word = retrieveWord(*(lengthArray + i),
-                                      beginning + *(lengthArray + i) - 1);// todo добавить перегр с указателем на начало
+                                      beginning + *(lengthArray + i) - 1);
             printf("Нашли слово с одинаковой левой и правой половиной - %s\n", word);
         }
         // переходим к началу следующего элемента
