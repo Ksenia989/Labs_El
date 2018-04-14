@@ -19,6 +19,10 @@ int isZeroInString(int pInt[n]);
 
 int countElementsLowerZero(int pInt[n]);
 
+int string2int(char stringNumber[]);
+
+char* itoa(int i, char b[]);
+
 int main() {
     // для обеспечения рандома
     srand(time(NULL));
@@ -36,10 +40,7 @@ int main() {
     findZeroElementIfIsZeroInString(staticArray);
 
     // 2 task
-    staticArray[0][0]=0;
-    staticArray[0][1]=0;
-    staticArray[0][2]=0;
-    findSedlPoint(staticArray);
+    printf("%s", findSedlPoint(staticArray));
 
     return 0;
 }
@@ -98,13 +99,21 @@ char *findSedlPoint(int pInt[n][m]) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             if (addArray[i][j] == 3) {
-                result = strcat(result, (char *)("Седловая точка в строчке " + i));
-                result = strcat(result, (char *) (" на элементе)" + i));
+                char iStr[12];
+                char jStr[12];
+                char element[12];
+                sprintf(iStr, "%d", i);
+                sprintf(jStr, "%d", i);
+                result = strcat(result, (char *)("Седловая точка в строчке "));
+                result = strcat(result, itoa(i, iStr));
+                result = strcat(result, (char *) (" на элементе "));
+                result = strcat(result, itoa(pInt[i][j], element));
                 result = strcat(result, "\n");
-                result = strcat(result, (char *)("С индексами " + i));
-                result = strcat(result, " " + j);
+                result = strcat(result, (char *)("С индексами "));
+                result = strcat(result, itoa(i, iStr));
+                result = strcat(result, " ");
+                result = strcat(result, itoa(j, jStr));
                 result = strcat(result, "\n");
-
             }
         }
     }
@@ -132,4 +141,24 @@ int isZeroInString(int pInt[3]) {
         i++;
     }
     return founded;
+}
+
+char* itoa(int i, char b[]){
+    char const digit[] = "0123456789";
+    char* p = b;
+    if(i<0){
+        *p++ = '-';
+        i *= -1;
+    }
+    int shifter = i;
+    do{ //Move to where representation ends
+        ++p;
+        shifter = shifter/10;
+    }while(shifter);
+    *p = '\0';
+    do{ //Move back, inserting digits as u go
+        *--p = digit[i%10];
+        i = i/10;
+    }while(i);
+    return b;
 }
