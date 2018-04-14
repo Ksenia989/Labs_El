@@ -7,4 +7,6 @@
 
 int countHalfWords(char *beginning, int pInt[20], int i);
 
+char *retrieveWord(int length, char *endPointer);
+
 #endif //LAB7_MAIN_H

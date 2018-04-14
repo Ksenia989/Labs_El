@@ -11,11 +11,11 @@ int main() {
 #endif
     double sum = 0;
     printf("╔══════╤════════╗\n");
-    printf("║   i │  S[i]  ║\n");
+    printf("║   i  │  S[i]  ║\n");
     printf("╟──────┼────────╢\n");
     for (int i = 1; i < 4; ++i) {
         sum += (double) 1 / (i * (i + 1) * (i + 2));
-        printf("║   %i │ %.3lf ║\n", i, sum);
+        printf("║   %i  │ %.3lf  ║\n", i, sum);
         if (i != 3) {
             printf("╟──────┼────────╢\n");
         }
