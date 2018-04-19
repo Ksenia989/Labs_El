@@ -7,6 +7,8 @@
 
 #define n 10
 
+void printSpaces(size_t strlen, int i);
+
 Worker *readWorker(int i) {
     Worker *worker = (Worker *) calloc(1, sizeof(Worker));
     printf("Введите фамилию и инициалы работника %i\n", i);
@@ -20,16 +22,16 @@ Worker *readWorker(int i) {
 
 Worker *readWorkerFromConst(Worker *pWorker) {
     char *workerNames[n] = {
-            (char *) "Иванов И. К.", (char *) "1Торгаева К. О.", (char *) "Сердюк С. В.",
+            (char *) "Иванов И. К.", (char *) "Торгаева К. О.", (char *) "Сердюк С. В.",
             (char *) "Шахиджанян К. А.", (char *) "Шарипов К. О.", (char *) "Михайлова Т. И.",
             (char *) "Дырочкина М. С.", (char *) "Цымбалист У. И.", (char *) "Нечаев С. В.",
             (char *) "Шалынова У. А."
     };
 
     char *dolzhnostDescription[n] = {
-            (char *) "Старший инженер", (char *) "Младший аналитик", (char *) "Разработчик",
+            (char *) "Тестировщик", (char *) "Дегустатор", (char *) "Разработчик",
             (char *) "Повар", (char *) "Переводчик", (char *) "Бухгалтер",
-            (char *) "Инженер по девопсу", (char *) "Программист микроконтроллеров", (char *) "Уборщик",
+            (char *) "Инженер", (char *) "Управленец", (char *) "Уборщик",
             (char *) "Лентяй"
     };
 
@@ -103,10 +105,29 @@ int select(Worker *pWorker) {
 }
 
 void printArray(Worker *worker) {
+    printf("╔════════════════════════╤═════════════════════════════════╤════════════════════════════╗\n");
+    printf("║  Фамилия и инициалы    │  Название должности             │  Год поступления на работу ║\n");
+    printf("╟────────────────────────┼─────────────────────────────────┼────────────────────────────╢\n");
     for (int i = 0; i < n; ++i) {
-        printf("Фамилия и инициалы работника - %s\n", worker[i].fioInitcialy);
-        printf("Название должности работника - %s\n", worker[i].dolzhnostDescription);
-        printf("Год поступления на работу работника - %i\n\n", worker[i].employmentYear);
+
+        printf("║%s", worker[i].fioInitcialy);
+        printSpaces(strlen(worker[i].fioInitcialy), 22);
+        printf("│%s", worker[i].dolzhnostDescription);
+        printSpaces(strlen(worker[i].dolzhnostDescription), 33);
+        printf("│%i", worker[i].employmentYear);
+        printf("                        ");
+        printf("║\n");
+        if (i != n - 1) {
+            printf("╟────────────────────────┼─────────────────────────────────┼────────────────────────────╢\n");
+        }
+    }
+    printf("╚════════════════════════╧═════════════════════════════════╧════════════════════════════╝\n\n\n");
+}
+
+void printSpaces(size_t strlen, int size) {
+    int length = (int)(size - strlen / 2);
+    for (int i = 0; i < length; ++i) {
+        printf(" ");
     }
 }
 
