@@ -19,8 +19,6 @@ int isZeroInString(int pInt[n]);
 
 int countElementsLowerZero(int pInt[n]);
 
-int string2int(char stringNumber[]);
-
 char* itoa(int i, char b[]);
 
 int main() {
