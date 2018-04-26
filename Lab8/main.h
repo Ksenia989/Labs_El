@@ -18,10 +18,6 @@ struct Worker {
 
 Worker *makeBubbleSort(Worker *worker);
 
-Worker *readWorker(int i);
-
-Worker *readWorkerFromConst(Worker pWorker[10]);
-
 void printArray(Worker pWorker[10]);
 
 int select(Worker *pWorker);

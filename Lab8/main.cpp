@@ -9,63 +9,19 @@
 
 void printSpaces(size_t strlen, int i);
 
-Worker *readWorker(int i) {
-    Worker *worker = (Worker *) calloc(1, sizeof(Worker));
-    printf("Введите фамилию и инициалы работника %i\n", i);
-    scanf("%s", &((*worker).fioInitcialy));
-    printf("Введите название должности работника\n");
-    scanf("%s", &(*worker).dolzhnostDescription);
-    printf("Введите год поступления на работу работника\n");
-    scanf("%i", &(*worker).employmentYear);
-    return worker;
-}
-
-Worker *readWorkerFromConst(Worker *pWorker) {
-    char *workerNames[n] = {
-            (char *) "Иванов И. К.", (char *) "Торгаева К. О.", (char *) "Сердюк С. В.",
-            (char *) "Шахиджанян К. А.", (char *) "Шарипов К. О.", (char *) "Михайлова Т. И.",
-            (char *) "Дырочкина М. С.", (char *) "Цымбалист У. И.", (char *) "Нечаев С. В.",
-            (char *) "Шалынова У. А."
-    };
-
-    char *dolzhnostDescription[n] = {
-            (char *) "Тестировщик", (char *) "Дегустатор", (char *) "Разработчик",
-            (char *) "Повар", (char *) "Переводчик", (char *) "Бухгалтер",
-            (char *) "Инженер", (char *) "Управленец", (char *) "Уборщик",
-            (char *) "Лентяй"
-    };
-
-    int yearArray[n] = {
-            1923, 2014, 2016, 2019, 2011, 1998, 1992, 1993, 2017, 2016
-    };
-
-    for (int i = 0; i < n; ++i) {
-        strcpy(pWorker[i].fioInitcialy, workerNames[i]);
-        strcpy(pWorker[i].dolzhnostDescription, dolzhnostDescription[i]);
-        pWorker[i].employmentYear = yearArray[i];
-    }
-
-    return pWorker;
-}
-
 int main() {
-    struct Worker *workerArray = (Worker *) malloc(n * sizeof(Worker));
-
-    int yesNo = 0;
-    printf("Вы хотите ввести массив с клавиатуры (1) или взять из константы (2)?\n");
-    scanf("%i", &yesNo);
-    switch (yesNo) {
-        case 1:
-            for (int i = 0; i < n; i++)
-                workerArray[i] = *readWorker(i);
-            break;
-        case 2:
-            workerArray = readWorkerFromConst(workerArray);
-            break;
-        default:
-            printf("Нет такого варианта\n");
-            break;
-    }
+    struct Worker workerArray[n] = {
+            {"Торгаева К. О.",   "Дегустатор",  2014},
+            {"Иванов И. К.",     "Разработчик", 1960},
+            {"Дырочкина М. С.",  "Разработчик", 1992},
+            {"Сердюк С. В.",     "Разработчик", 2016},
+            {"Шахиджанян К. А.", "Разработчик", 2019},
+            {"Шарипов К. О.",    "Переводчик",  2011},
+            {"Михайлова Т. И.",  "Бухгалтер",   1998},
+            {"Цымбалист У. И.",  "Разработчик", 1993},
+            {"Нечаев С. В.",     "Уборщик",     2017},
+            {"Шалынова У. А.",   "Лентяй",      2016}
+    };
 
     printf("Вывод таблицы с вариантами на экран\n");
     printArray(workerArray);
@@ -73,33 +29,38 @@ int main() {
 
     printf("Вывод упорядоченной таблицы по алфавиту");
     printf("\n\n\nОТСОРТИРОВННЫЙ МАССИВ\n");
-    workerArray = makeBubbleSort(workerArray);
+    *workerArray = *makeBubbleSort(workerArray);
     printArray(workerArray);
 
-    printf("\n\n\nВыборка по стажу\n");
-    printf("Введите, больше какого срока должен проработать работник\n");
+    printf("\n\n\nВывод должности\n");
+    printf("Введите должность, для которой нужно найти максимальный срок\n");
     select(workerArray);
 
     return 0;
 }
 
 int select(Worker *pWorker) {
-    int compareInt;
-    scanf("%i", &compareInt);
-    time_t t;
-    time(&t);
+    char compareDolzhnost[50];
+    scanf("%s", &compareDolzhnost);
+    int minStag = 2018;
     bool founded = false;
+    int ind = 0;
 
     for (int i = 0; i < n; ++i) {
-        if (2018 - pWorker[i].employmentYear > compareInt) {
+        if ((strcmp((pWorker + i)->dolzhnostDescription, compareDolzhnost) == 0) && ((pWorker + i)->employmentYear < minStag)) {
+            minStag = pWorker->employmentYear;
             founded = true;
-            printf("\nРаботник с именем ");
-            printf("%s\n", pWorker[i].fioInitcialy);
-            printf("Стаж с %i\n", pWorker[i].employmentYear);
+            ind = i;
         }
     }
     if (!founded) {
         printf("Подобных работников не найдено");
+    } else {
+
+        printf("\nРаботник с именем ");
+        printf("%s\n", pWorker[ind].fioInitcialy);
+        printf("Стаж с %i\n", pWorker[ind].employmentYear);
+        printf("По профессии %s\n", pWorker[ind].dolzhnostDescription);
     }
     return 0;
 }
@@ -109,7 +70,6 @@ void printArray(Worker *worker) {
     printf("║  Фамилия и инициалы    │  Название должности             │  Год поступления на работу ║\n");
     printf("╟────────────────────────┼─────────────────────────────────┼────────────────────────────╢\n");
     for (int i = 0; i < n; ++i) {
-
         printf("║%s", worker[i].fioInitcialy);
         printSpaces(strlen(worker[i].fioInitcialy), 22);
         printf("│%s", worker[i].dolzhnostDescription);
@@ -125,13 +85,13 @@ void printArray(Worker *worker) {
 }
 
 void printSpaces(size_t strlen, int size) {
-    int length = (int)(size - strlen / 2);
+    int length = (int) (size - strlen / 2);
     for (int i = 0; i < length; ++i) {
         printf(" ");
     }
 }
 
-Worker *makeBubbleSort(Worker *worker) {
+Worker *makeBubbleSort(Worker worker[n]) {
     int i = 0, j = 0;
 
     /* Сортировка методом пузырька */
